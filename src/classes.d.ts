@@ -8,69 +8,18 @@ type SQLQuery = string;
 type CityID = number;
 type UnitTypeID = number;
 type UnitID = number;
+type LeaderID = number;
+type ColorID = number;
+type ImprovementID = number;
+type ResourceID = number;
 
-// export enum ImprovementType {
-//     cityRuins = 0, // IMPROVEMENT_CITY_RUINS
-//     holySite = 0, // IMPROVEMENT_HOLY_SITE
-//     barbarianCamp = 1, // IMPROVEMENT_BARBARIAN_CAMP
-//     polder = 1, // IMPROVEMENT_POLDER
-//     goodyHut = 2, // IMPROVEMENT_GOODY_HUT
-//     farm = 3, // IMPROVEMENT_FARM
-//     mine = 4, // IMPROVEMENT_MINE
-//     quarry = 5, // IMPROVEMENT_QUARRY
-//     tradingPost = 6, // IMPROVEMENT_TRADING_POST
-//     lumbermill = 7, // IMPROVEMENT_LUMBERMILL
-//     pasture = 8, // IMPROVEMENT_PASTURE
-//     fishingBoats = 9, // IMPROVEMENT_FISHING_BOATS
-//     plantation = 10, // IMPROVEMENT_PLANTATION
-//     camp = 11, // IMPROVEMENT_CAMP
-//     well = 12, // IMPROVEMENT_WELL
-//     offshorePlatform = 13, // IMPROVEMENT_OFFSHORE_PLATFORM
-//     fort = 14, // IMPROVEMENT_FORT
-//     landmark = 15, // IMPROVEMENT_LANDMARK
-//     academy = 16, // IMPROVEMENT_ACADEMY
-//     customsHouse = 17, // IMPROVEMENT_CUSTOMS_HOUSE
-//     manufactory = 18, // IMPROVEMENT_MANUFACTORY
-//     citadel = 19 // IMPROVEMENT_CITADEL
-// }
+type ImprovementTypeKeys = "IMPROVEMENT_CITY_RUINS" | "IMPROVEMENT_HOLY_SITE" | "IMPROVEMENT_BARBARIAN_CAMP" | "IMPROVEMENT_POLDER" | "IMPROVEMENT_GOODY_HUT" | "IMPROVEMENT_FARM" | "IMPROVEMENT_MINE" | "IMPROVEMENT_QUARRY" | "IMPROVEMENT_TRADING_POST" | "IMPROVEMENT_LUMBERMILL" | "IMPROVEMENT_PASTURE" | "IMPROVEMENT_FISHING_BOATS" | "IMPROVEMENT_PLANTATION" | "IMPROVEMENT_CAMP" | "IMPROVEMENT_WELL" | "IMPROVEMENT_OFFSHORE_PLATFORM" | "IMPROVEMENT_FORT" | "IMPROVEMENT_LANDMARK" | "IMPROVEMENT_ACADEMY" | "IMPROVEMENT_CUSTOMS_HOUSE" | "IMPROVEMENT_MANUFACTORY" | "IMPROVEMENT_CITADEL";
 
-// export enum ResourceType {
-//     iron, // RESOURCE_IRON
-//     horse, // RESOURCE_HORSE
-//     coal, // RESOURCE_COAL,
-//     oil, // RESOURCE_OIL
-//     aluminum, // RESOURCE_ALUMINUM
-//     uranium, // RESOURCE_URANIUM
-//     wheat, // RESOURCE_WHEAT
-//     cow, // RESOURCE_COW,
-//     sheep, // RESOURCE_SHEEP
-//     deer, // RESOURCE_DEER
-//     banana, // RESOURCE_BANANA
-//     fish, // RESOURCE_FISH
-//     stone, // RESOURCE_STONE
-//     whale, // RESOURCE_WHALE
-//     pearls, // RESOURCE_PEARLS
-//     gold, // RESOURCE_GOLD
-//     silver, // RESOURCE_SILVER
-//     gems, // RESOURCE_GEMS
-//     marble, // RESOURCE_MARBLE
-//     ivory, // RESOURCE_IVORY
-//     fur, // RESOURCE_FUR
-//     dye, // RESOURCE_DYE
-//     spices, // RESOURCE_SPICES
-//     silk, // RESOURCE_SILK
-//     sugar, // RESOURCE_SUGAR
-//     cotton, // RESOURCE_COTTON
-//     wine, // RESOURCE_WINE
-//     incense, // RESOURCE_INCENSE
-//     jewelry, // RESOURCE_JEWELRY
-//     porcelain, // RESOURCE_PORCELAIN
-//     copper, // RESOURCE_COPPER
-//     salt, // RESOURCE_SALT
-//     crab, // RESOURCE_CRAB
-//     truffles, // RESOURCE_TRUFFLES
-//     citrus // RESOURCE_CITRUS
-// }
+type ResourceTypeKeys = "RESOURCE_IRON" | "RESOURCE_HORSE" | "RESOURCE_COAL" | "RESOURCE_OIL" | "RESOURCE_ALUMINUM" | "RESOURCE_URANIUM" | "RESOURCE_WHEAT" | "RESOURCE_COW" | "RESOURCE_SHEEP" | "RESOURCE_DEER" | "RESOURCE_BANANA" | "RESOURCE_FISH" | "RESOURCE_STONE" | "RESOURCE_WHALE" | "RESOURCE_PEARLS" | "RESOURCE_GOLD" | "RESOURCE_SILVER" | "RESOURCE_GEMS" | "RESOURCE_MARBLE" | "RESOURCE_IVORY" | "RESOURCE_FUR" | "RESOURCE_DYE" | "RESOURCE_SPICES" | "RESOURCE_SILK" | "RESOURCE_SUGAR" | "RESOURCE_COTTON" | "RESOURCE_WINE" | "RESOURCE_INCENSE" | "RESOURCE_JEWELRY" | "RESOURCE_PORCELAIN" | "RESOURCE_COPPER" | "RESOURCE_SALT" | "RESOURCE_CRAB" | "RESOURCE_TRUFFLES" | "RESOURCE_CITRUS"
+
+interface ResourceType {
+    ID: ResourceID
+}
 
 // export enum YieldType {
 //     none = -1, // NO_YIELD
@@ -81,6 +30,10 @@ type UnitID = number;
 //     culture = 4, // YIELD_CULTURE
 //     faith = 5 // YIELD_FAITH
 // }
+
+interface ImprovementType {
+    ID: ImprovementID
+}
 
 interface Area {
     CalculateTotalBestNatureYield(): int
@@ -279,7 +232,7 @@ declare namespace GameEvents {
 }
 
 declare namespace Modding {
-    const OpenUserData: (this: void, name: string, num: int) => unknown
+    const OpenUserData: (this: void, name: string, num: int) => UserData
     const GetActivatedMods: (this: void) => LuaPairsIterable<unknown, unknown>
     const OpenSaveData: (this: void) => unknown
     const DeleteUserData: (this: void, name: string, num: int) => unknown
@@ -372,23 +325,35 @@ declare namespace DB {
     const Query: (this: void, sql: SQLQuery) => unknown
 }
 
-declare namespace GameInfoTypes {
-    const UNIT_IMMOBILE_SETTLER: unknown
-    const IMPROVEMENT_FORT: unknown
-    const UNIT_SCOUT: unknown
-    const PROMOTION_RIVAL_TERRITORY: unknown
-    const UNIT_DIRTY_BOMB: unknown
-    const UNIT_SETTLER: unknown
-    const BUILDING_BARBARIAN_PRESENCE: unknown
-    const IMPROVEMENT_BARBARIAN_CAMP: unknown
+type GameInfoRegistry<K extends string, T> = {
+    [L in K]: T
+}
+
+interface LeaderType {
+    ID: LeaderID
+}
+
+interface ColorType {
+    ID: ColorID
 }
 
 declare namespace GameInfo {
-    const UnitAIInfos: unknown
-    const Units: unknown
-    const Improvements: unknown
-    const Technologies: unknown
+    const UnitAIInfos: GameInfoRegistry<unknown, unknown>
+    const Units: GameInfoRegistry<unknown, unknown>
+    const Improvements: GameInfoRegistry<ImprovementTypeKeys, ImprovementType>
+    const Technologies: GameInfoRegistry<unknown, unknown>
+    const Leaders: GameInfoRegistry<unknown, LeaderType>
+    const PlayerColors: GameInfoRegistry<unknown, ColorType>
+    const Resources: GameInfoRegistry<ResourceTypeKeys, ResourceType>
 }
+
+declare type GameInfoTypes = typeof GameInfo.UnitAIInfos 
+    & typeof GameInfo.Units 
+    & typeof GameInfo.Improvements 
+    & typeof GameInfo.Technologies 
+    & typeof GameInfo.Leaders 
+    & typeof GameInfo.PlayerColors 
+    & typeof GameInfo.Resources;
 
 declare const ToGridFromHex: (hexX:int, hexY: int) => LuaMultiReturn<[int, int]>;
 
@@ -412,8 +377,8 @@ declare namespace UI {
 }
 
 declare namespace PreGame {
-    const SetPlayerColor: (this: void, civ: int, colorId: unknown) => unknown
-    const SetLeaderType: (this: void, civ: int, leaderId: unknown) => unknown
+    const SetPlayerColor: (this: void, civ: int, colorId: ColorID) => unknown
+    const SetLeaderType: (this: void, civ: int, leaderId: LeaderID) => unknown
 }
 
 declare namespace ContentManager {
