@@ -77,6 +77,12 @@ interface City {
     SetFood(amount: int)
     GrowthThreshold(): int
     SetPuppet(bol: bool): unknown
+    IsResistance(): bool
+    IsPuppet(): bool
+    GetOwner(): PlayerID
+    GetID(): CityID
+    GetUnitFaithPurchaseCost(unit: UnitTypeID, bol: bool): int
+    GetBuildingFaithPurchaseCost(building: BuildingTypeID, bol: bool): int
 }
 
 // interface Deal {
@@ -101,6 +107,7 @@ interface Player {
     GetCivilizationAdjective(): string
     GetID(): PlayerID
     AddNotification(type: unknown, text: string, title: string, plotX: int, plotY: int): unknown
+    AddNotification(type: unknown, message: string, title: string): unknown
     AcquireCity(city: City, bol1: bool, bol2: bool): unknown
     GetCityByID(id: CityID): City
     GetNumUnits(): int
@@ -127,14 +134,30 @@ interface Player {
     HasPolicy(policyId: int): bool
     SetHasPolicy(policyId: int, bol: bool): unknown
     GetMinorCivTrait(): MinorTraitID
-
-    // GNK or BNW
+    IsMinorCivActiveQuestForPlayer(player: PlayerID, minorCivQuestType: unknown)
+    GetQuestData1(player: PlayerID, minorCivQuestType: unknown): int | PlayerID
+    GetQuestData2(player: PlayerID, minorCivQuestType: unknown): int
+    GetQuestTurnsRemaining(player: PlayerID, minorCivQuestType: unknown, turnNumber: int): int
+    GetUnitClassCountPlusMaking(unitClass: unknown): int
+    GetCurrentEra(): EraID
+    HasCreatedReligion(): bool
+    GetReligionCreatedByPlayer(): ReligionTypeID
+    HasCreatedPantheon(): bool
+    CanCreatePantheon(bol: bool): bool
+    GetMinimumFaithNextGreatProphet(): int
     GetFaith(): int
     GetTotalFaithPerTurn(): unknown
     SetFaith(totalAmount: int): unknown
-
-    // BNW
     GetTourism(): unknown
+    GetFaithPerTurnFromCities(): int
+    GetFaithPerTurnFromMinorCivs(): int
+    GetFaithPerTurnFromReligion(): int
+    IsCanPurchaseAnyCity(bol: bool, bol2: bool, unit: UnitTypeID, building: BuildingTypeID, yieldType: unknown): bool
+    DoesUnitPassFaithPurchaseCheck(unit: UnitTypeID): bool
+    GetBeliefInPantheon(): BeliefTypeID
+    GetFaithPurchaseType(): unknown
+    GetFaithPurchaseIndex(): unknown
+    GetCivilizationAdjectiveKey(): string
 }
 
 interface Plot {
@@ -151,6 +174,9 @@ interface Plot {
     GetNumUnits(): int
     SetImprovementPillaged(bol: bool): unknown
     Area(): Area
+    IsCity(): bool
+    SetOwner(player: PlayerID, city: CityID, bol1: bool, bol2: bool): unknown
+    SetOwnershipDuration(val: int): unknown
 }
 
 interface Team {
@@ -166,6 +192,7 @@ interface Team {
     DeclareWar(team: TeamID): unknown
     CanChangeWarPeace(team: TeamID): bool
     GetNumTurnsLockedIntoWar(team: TeamID): int
+    CanDeclareWar(team: TeamID): bool
 }
 
 interface TeamTechs {
@@ -199,6 +226,7 @@ declare namespace Map {
     const GetPlot: (this:void, plotX: int, plotY: int) => Plot;
     const PlotDistance: (this: void, unitX: int, unitY: int, nukeX: int, nukeY: int) => int;
     const GetNumPlots: (this: void) => int
+    const GetGridSize: (this: void) => LuaMultiReturn<[int, int]>
 }
 
 interface CivMap {}
@@ -243,10 +271,14 @@ declare namespace Events {
     const SpecificCityInfoDirty: Event<(this: void, playerId: PlayerID, cityId: CityID, updateType: int) => void>
     const SerialEventCityCaptured: Event<(this: void, hexPos: unknown, oldOwner: PlayerID, cityId: CityID, newOwner: PlayerID) => void>
     const SerialEventImprovementCreated: Event<(this: void, hexX: int, hexY: int, continent1: int, continent2: int, player: PlayerID, createImp: unknown, createImpRR: unknown) => void>
+    const SerialEventGameMessagePopup: Event<(this: void, popupInfo: unknown) => void>
+    const SerialEventGameMessagePopupShown: (this: void, popupInfo: unknown) => unknown
+    const GameplaySetActivePlayer: Event<(this: void) => void>
 }
 
 declare namespace Network {
     const SendGameOptions: (this: void, options: unknown) => unknown
+    const SendFaithPurchase: (this: void, player: PlayerID, val1: unknown, val2: unknown) => unknown
 }
 
 declare namespace GameDefines {
@@ -263,6 +295,14 @@ declare namespace Game {
     const GetElapsedGameTurns: (this: void) => int
     const GetCurrentEra: (this: void) => int
     const GetGameSpeedType: (this: void) => int
+    const GetGameTurn: (this: void) => int
+    const GetReligionName: (this: void, religion: ReligionTypeID) => string
+    const GetMinimumFaithNextPantheon: (this: void) => int
+    const GetBeliefsInReligion: (this: void, religion: ReligionTypeID) => LuaIterable<BeliefTypeID>
+    const GetNumReligionsStillToFound: (this: void) => int
+    const GetHolyCityForReligion: (this: void, religion: ReligionTypeID, player: PlayerID) => City
+    const GetNumCitiesFollowing: (this: void, religion: ReligionTypeID) => int
+    const IsOption: (this: void, gameOptionType: unknown) => bool
 }
 
 declare namespace Mouse {
@@ -274,15 +314,17 @@ type KeyEventKeys = "KeyDown"
 declare namespace KeyEvents {
 }
 
-type KeyKeys = "VK_ESCAPE"
+type KeyKeys = "VK_ESCAPE" | "VK_RETURN"
 
 declare namespace Keys {
 }
 
 declare namespace ContextPtr {
     const SetHide: (bol: bool) => unknown
-    const SetInputHandler: (uiMsg: unknown, wParam: unknown, lParam: unknown) => bool
+    const SetInputHandler: (callback: (uiMsg: unknown, wParam: unknown, lParam: unknown) => bool) => unknown
     const BuildInstanceForControl: (str: string, instance: unknown, rows: unknown) => unknown
+    const IsHidden: () => bool
+    const SetShowHideHandler: (callback: (hidden: bool, initState: bool) => void) => unknown
 }
 
 interface Control {
@@ -343,7 +385,9 @@ declare namespace Locale {
     const ConvertTextKey: (this: void, key: string) => string
     const GetCurrentLanguage: (this: void) => Language
     const SetCurrentLanguage: (this: void, languageKey: string) => unknown
-    const Lookup: (this: void, s: string) => string
+    const Lookup: (this: void, s: string) => string & (
+        (this: void, s: string, arg: unknown) => string
+        )
     const Compare: (this: void, key1: string, key2: string) => bool
 }
 
@@ -391,7 +435,7 @@ interface HandicapInfo extends GameInfoEntry<HandicapInfoKeys, HandicapInfoID> {
     Help: string
 }
 
-type EraKeys = "";
+type EraKeys = "ERA_INDUSTRIAL";
 type EraID = number;
 
 interface Era extends GameInfoEntry<EraKeys, EraID> {
@@ -417,15 +461,52 @@ interface MinorTrait extends GameInfoEntry<MinorTraitKeys, MinorTraitID> {
 
 }
 
-type BuildingTypeKeys = "BUILDING_MONUMENT" | "BUILDING_BARRACKS" | "BUILDING_LIGHTHOUSE" | "BUILDING_MARKET" | "BUILDING_MAYA_PYRAMID";
+type BuildingTypeKeys = "BUILDING_MONUMENT" | "BUILDING_BARRACKS" | "BUILDING_LIGHTHOUSE" | "BUILDING_MARKET" | "BUILDING_MAYA_PYRAMID" | "BUILDING_GRANARY" | "BUILDING_SHRINE";
 type BuildingTypeID = number;
-interface BuildingType extends GameInfoEntry<BuildingTypeKeys, BuildingTypeID> {}
+interface BuildingType extends GameInfoEntry<BuildingTypeKeys, BuildingTypeID> {
+    Description: string
+}
+
+type UnitTypeKeys = "UNIT_SETTLER";
+interface UnitType extends GameInfoEntry<UnitTypeKeys, UnitTypeID> {
+    Special: UnitClassSpecialKeys
+    Description: string
+}
+
+type TechnologyKeys = "";
+type TechnologyID = number;
+interface Technology extends GameInfoEntry<TechnologyKeys, TechnologyID> {}
+
+type UnitClassKeys = "UNITCLASS_SETTLER";
+type UnitClassID = number;
+interface UnitClass extends GameInfoEntry<UnitClassKeys, UnitClassID> {}
+
+type UnitClassSpecialKeys = "SPECIALUNIT_PEOPLE";
+
+type ReligionTypeKeys = "RELIGION_PANTHEON"
+type ReligionTypeID = number;
+interface ReligionType extends GameInfoEntry<ReligionTypeKeys, ReligionTypeID> {
+    PortraitIndex: unknown
+    IconAtlas: unknown
+}
+
+type BeliefTypeKeys = "";
+type BeliefTypeID = number;
+interface BeliefType extends GameInfoEntry<BeliefTypeKeys, BeliefTypeID> {
+    Description: string
+    ShortDescription: string
+    Pantheon: unknown
+    Founder: unknown
+    Follower: unknown
+    Enhancer: unknown
+    Reformation: unknown
+}
 
 declare namespace GameInfo {
     const UnitAIInfos: GameInfoRegistryIterable<unknown, unknown>
-    const Units: GameInfoRegistryIterable<unknown, unknown>
+    const Units: GameInfoRegistryIterable<UnitTypeKeys, UnitType>
     const Improvements: GameInfoRegistryIterable<ImprovementTypeKeys, ImprovementType>
-    const Technologies: GameInfoRegistryIterable<unknown, unknown>
+    const Technologies: GameInfoRegistryIterable<TechnologyKeys, Technology>
     const Leaders: GameInfoRegistryIterable<LeaderTypeKeys, LeaderType>
     const PlayerColors: GameInfoRegistryIterable<PlayerColorKeys, PlayerColorType>
     const Resources: GameInfoRegistryIterable<ResourceTypeKeys, ResourceType>
@@ -434,6 +515,9 @@ declare namespace GameInfo {
     const Eras: GameInfoRegistryIterable<EraKeys, Era>
     const Colors: GameInfoRegistryIterable<ColorKey, Color>
     const MinorTrait: GameInfoRegistryIterable<MinorTraitKeys, MinorTrait>
+    const Buildings: GameInfoRegistryIterable<BuildingTypeKeys, BuildingType>
+    const Religions: GameInfoRegistryIterable<ReligionTypeKeys, ReligionType>
+    const Beliefs: GameInfoRegistryIterable<BeliefTypeKeys, BeliefType>
 }
 
 declare type GameInfoTypes = typeof GameInfo.UnitAIInfos 
@@ -443,6 +527,8 @@ declare type GameInfoTypes = typeof GameInfo.UnitAIInfos
     & typeof GameInfo.Leaders 
     & typeof GameInfo.PlayerColors 
     & typeof GameInfo.Resources;
+
+type ReligionTypes = GameInfoRegistry<ReligionTypeKeys, ReligionTypeID>
 
 declare const ToGridFromHex: (hexX:int, hexY: int) => LuaMultiReturn<[int, int]>;
 
@@ -463,6 +549,8 @@ declare namespace MissionTypes {
 
 declare namespace UI {
     const LookAt: (this: void, plot: Plot) => unknown
+    const incTurnTimerSemaphore: (this: void) => unknown
+    const decTurnTimerSemaphore: (this: void) => unknown
 }
 
 declare namespace PreGame {
@@ -491,3 +579,20 @@ declare namespace UIManager {
 }
 
 declare const IconHookup: (this:void, val1: int, val2: int, val3: unknown, val4: unknown) => unknown
+
+type MinorCivQuestTypeKeys = "MINOR_CIV_QUEST_BULLY_CITY_STATE";
+
+type MinorCivQuestTypes = GameInfoRegistry<MinorCivQuestTypeKeys, unknown>
+
+declare const InstanceManager: {
+    new: (this: void, str1: string, str2: string, control: unknown) => unknown
+}
+
+type GameOptionTypeKeys = "GAMEOPTION_NO_RELIGION";
+type GameOptionTypes = GameInfoRegistry<GameOptionTypeKeys, unknown>
+
+type FaithPurchaseTypeKeys = "NO_AUTOMATIC_FAITH_PURCHASE" | "FAITH_PURCHASE_SAVE_PROPHET" | "FAITH_PURCHASE_UNIT" | "FAITH_PURCHASE_BUILDING";
+type FaithPurchaseTypes = GameInfoRegistry<FaithPurchaseTypeKeys, unknown>
+
+type ButtonPopupTypeKeys = "BUTTONPOPUP_RELIGION_OVERVIEW";
+type ButtonPopupTypes = GameInfoRegistry<ButtonPopupTypeKeys, unknown>
