@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    // Needed since this is a library.
+    "declaration": true,
+    "declarationMap": true,
+
+    // Needed to hide internal functions from the auto-complete of end-users.
+    "stripInternal": true,
+
+    // We need to read the version of the library from the "package.json" file.
+    "resolveJsonModule": true,
+
+    // Recommended as per TypeScriptToLua:
+    // https://typescripttolua.github.io/docs/getting-started/
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "moduleResolution": "Node",
+
+    // We use TypeScript definitions for the Lua standard library:
+    // https://github.com/TypeScriptToLua/lua-types
+    "types": ["lua-types/5.1", "@typescript-to-lua/language-extensions"],
+
+    // The "strictest" TSConfig template turns this to true, but we need to ensure that the import
+    // statements in the ".d.ts" files resolve properly.
+    "skipLibCheck": false,
+  },
+  "tstl": {
+    "luaTarget": "5.1",
+    "buildMode": "library",
+    "noHeader": true,
+    "noImplicitGlobalVariables": true,
+  }
+}
