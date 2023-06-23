@@ -9,30 +9,26 @@ type CityID = number;
 type UnitTypeID = number;
 type UnitID = number;
 type LeaderID = number;
-type ColorID = number;
+type PlayerColorID = number;
 type ImprovementID = number;
 type ResourceID = number;
 
 type ImprovementTypeKeys = "IMPROVEMENT_CITY_RUINS" | "IMPROVEMENT_HOLY_SITE" | "IMPROVEMENT_BARBARIAN_CAMP" | "IMPROVEMENT_POLDER" | "IMPROVEMENT_GOODY_HUT" | "IMPROVEMENT_FARM" | "IMPROVEMENT_MINE" | "IMPROVEMENT_QUARRY" | "IMPROVEMENT_TRADING_POST" | "IMPROVEMENT_LUMBERMILL" | "IMPROVEMENT_PASTURE" | "IMPROVEMENT_FISHING_BOATS" | "IMPROVEMENT_PLANTATION" | "IMPROVEMENT_CAMP" | "IMPROVEMENT_WELL" | "IMPROVEMENT_OFFSHORE_PLATFORM" | "IMPROVEMENT_FORT" | "IMPROVEMENT_LANDMARK" | "IMPROVEMENT_ACADEMY" | "IMPROVEMENT_CUSTOMS_HOUSE" | "IMPROVEMENT_MANUFACTORY" | "IMPROVEMENT_CITADEL";
 
-type ResourceTypeKeys = "RESOURCE_IRON" | "RESOURCE_HORSE" | "RESOURCE_COAL" | "RESOURCE_OIL" | "RESOURCE_ALUMINUM" | "RESOURCE_URANIUM" | "RESOURCE_WHEAT" | "RESOURCE_COW" | "RESOURCE_SHEEP" | "RESOURCE_DEER" | "RESOURCE_BANANA" | "RESOURCE_FISH" | "RESOURCE_STONE" | "RESOURCE_WHALE" | "RESOURCE_PEARLS" | "RESOURCE_GOLD" | "RESOURCE_SILVER" | "RESOURCE_GEMS" | "RESOURCE_MARBLE" | "RESOURCE_IVORY" | "RESOURCE_FUR" | "RESOURCE_DYE" | "RESOURCE_SPICES" | "RESOURCE_SILK" | "RESOURCE_SUGAR" | "RESOURCE_COTTON" | "RESOURCE_WINE" | "RESOURCE_INCENSE" | "RESOURCE_JEWELRY" | "RESOURCE_PORCELAIN" | "RESOURCE_COPPER" | "RESOURCE_SALT" | "RESOURCE_CRAB" | "RESOURCE_TRUFFLES" | "RESOURCE_CITRUS"
+type ResourceTypeKeys = "RESOURCE_IRON" | "RESOURCE_HORSE" | "RESOURCE_COAL" | "RESOURCE_OIL" | "RESOURCE_ALUMINUM" | "RESOURCE_URANIUM" | "RESOURCE_WHEAT" | "RESOURCE_COW" | "RESOURCE_SHEEP" | "RESOURCE_DEER" | "RESOURCE_BANANA" | "RESOURCE_FISH" | "RESOURCE_STONE" | "RESOURCE_WHALE" | "RESOURCE_PEARLS" | "RESOURCE_GOLD" | "RESOURCE_SILVER" | "RESOURCE_GEMS" | "RESOURCE_MARBLE" | "RESOURCE_IVORY" | "RESOURCE_FUR" | "RESOURCE_DYE" | "RESOURCE_SPICES" | "RESOURCE_SILK" | "RESOURCE_SUGAR" | "RESOURCE_COTTON" | "RESOURCE_WINE" | "RESOURCE_INCENSE" | "RESOURCE_JEWELRY" | "RESOURCE_PORCELAIN" | "RESOURCE_COPPER" | "RESOURCE_SALT" | "RESOURCE_CRAB" | "RESOURCE_TRUFFLES" | "RESOURCE_CITRUS";
 
-interface ResourceType {
-    ID: ResourceID
+type LeaderTypeKeys = "";
+type CityUpdateTypeID = number;
+
+interface ResourceType extends GameInfoEntry<ResourceTypeKeys, ResourceID> {
 }
 
-// export enum YieldType {
-//     none = -1, // NO_YIELD
-//     food = 0, // YIELD_FOOD
-//     production = 1, // YIELD_PRODUCTION
-//     gold = 2, // YIELD_GOLD
-//     science = 3, // YIELD_SCIENCE
-//     culture = 4, // YIELD_CULTURE
-//     faith = 5 // YIELD_FAITH
-// }
+type YieldTypeKeys = "NO_YIELD" | "YIELD_FOOD" | "YIELD_PRODUCTION" | "YIELD_GOLD" | "YIELD_SCIENCE" | "YIELD_CULTURE" | "YIELD_FAITH"
+type YieldTypeID = number
 
-interface ImprovementType {
-    ID: ImprovementID
+interface YieldType extends GameInfoEntry<YieldTypeKeys, YieldTypeID> {}
+
+interface ImprovementType extends GameInfoEntry<ImprovementTypeKeys, ImprovementID> {
 }
 
 interface Area {
@@ -43,9 +39,7 @@ interface Area {
     GetFreeSpecialist(index: PlayerID): int
     GetID(): AreaID
     GetNumCities(): int
-    GetNumImprovements(improvement: ImprovementType): int
     GetNumOwnedTiles(): int
-    GetNumResources(resource: ResourceType): int
     GetNumRevealedTiles(index: TeamID): int
     GetNumRiverEdges(): int
     GetNumStartingPlots(): int
@@ -58,7 +52,6 @@ interface Area {
     GetTargetCity(index: PlayerID): any
     GetTotalPopulation(): int
     GetUnitsPerPlayer(index: PlayerID): int
-    GetYieldRateModifier(player: PlayerID, yield: YieldType): int
     IsNone(): bool
     IsWater(): bool
 }
@@ -75,8 +68,8 @@ interface City {
     GetMaxHitPoints(): int
     GetNumCityPlots(): int
     GetCityIndexPlot(index: int): Plot
-    IsHasBuilding(buildingType: unknown): bool
-    SetNumRealBuilding(buildingType: unknown, num: int): unknown
+    IsHasBuilding(buildingType: BuildingTypeID): bool
+    SetNumRealBuilding(buildingType: BuildingTypeID, num: int): unknown
     GetPopulation(): int
     GetJONSCultureLevel(): int
     SetPopulation(amount: int, bol: bool): unknown
@@ -133,6 +126,7 @@ interface Player {
     GetUnitClassCountPlusMaking(inUT: unknown): int
     HasPolicy(policyId: int): bool
     SetHasPolicy(policyId: int, bol: bool): unknown
+    GetMinorCivTrait(): MinorTraitID
 
     // GNK or BNW
     GetFaith(): int
@@ -170,6 +164,8 @@ interface Team {
     IsHasMet(team: TeamID): bool
     IsAtWar(team: TeamID): bool
     DeclareWar(team: TeamID): unknown
+    CanChangeWarPeace(team: TeamID): bool
+    GetNumTurnsLockedIntoWar(team: TeamID): int
 }
 
 interface TeamTechs {
@@ -207,7 +203,7 @@ declare namespace Map {
 
 interface CivMap {}
 
-interface UserData {
+interface Data {
     GetValue(this: void, name: string): unknown
     SetValue(this: void, name: string, value: unknown): unknown
 }
@@ -232,9 +228,9 @@ declare namespace GameEvents {
 }
 
 declare namespace Modding {
-    const OpenUserData: (this: void, name: string, num: int) => UserData
+    const OpenUserData: (this: void, name: string, num: int) => Data
     const GetActivatedMods: (this: void) => LuaPairsIterable<unknown, unknown>
-    const OpenSaveData: (this: void) => unknown
+    const OpenSaveData: (this: void) => Data
     const DeleteUserData: (this: void, name: string, num: int) => unknown
 }
 
@@ -273,29 +269,58 @@ declare namespace Mouse {
     const eLClick: unknown
 }
 
+type KeyEventKeys = "KeyDown"
+
 declare namespace KeyEvents {
-    const KeyDown: unknown
 }
 
+type KeyKeys = "VK_ESCAPE"
+
 declare namespace Keys {
-    const VK_ESCAPE: unknown
 }
 
 declare namespace ContextPtr {
     const SetHide: (bol: bool) => unknown
     const SetInputHandler: (uiMsg: unknown, wParam: unknown, lParam: unknown) => bool
+    const BuildInstanceForControl: (str: string, instance: unknown, rows: unknown) => unknown
 }
 
 interface Control {
-
+    SetDisabled(bol: bool): unknown
+    SetText(text: string): unknown
 }
 
 interface CheckControl extends Control {
-    RegisterCheckHandler(callback: (isChecked: bool) => void)
+    RegisterCheckHandler(callback: (isChecked: bool) => void): unknown
+    SetCheck(bol: bool): unknown
 }
 
 interface ButtonControl extends Control {
     RegisterCallback(click: unknown, callback: () => void): unknown
+    SetVoid1(val: int): unknown
+    LocalizeAndSetText(key: string): unknown
+    LocalizeAndSetToolTip(key: string): unknown
+    SetVoids(val1: int, val2: int): unknown
+}
+
+interface SliderControl extends Control {
+    SetValue(val: int): unknown
+    RegisterSliderCallback(callback: (val: int) => void): unknown
+}
+
+interface InputControl extends Control {
+    RegisterCallback(callback: (val: unknown, obj: unknown, fire: bool) => void): unknown
+}
+
+interface PullDownControl extends Control {
+    ClearEntries(): unknown
+    BuildEntry(str: string, val: unknown): unknown
+    RegisterSelectionCallback(callback: (id: unknown) => void): unknown
+    CalculateInternals(): unknown
+}
+
+interface IconControl extends Control {
+    SetColor(vec: Vector4): unknown
 }
 
 declare namespace Controls {}
@@ -319,6 +344,7 @@ declare namespace Locale {
     const GetCurrentLanguage: (this: void) => Language
     const SetCurrentLanguage: (this: void, languageKey: string) => unknown
     const Lookup: (this: void, s: string) => string
+    const Compare: (this: void, key1: string, key2: string) => bool
 }
 
 declare namespace DB {
@@ -329,22 +355,85 @@ type GameInfoRegistry<K extends string, T> = {
     [L in K]: T
 }
 
-interface LeaderType {
-    ID: LeaderID
+type GameInfoRegistryIterable<K extends string, T extends GameInfoEntry<K, int>> = GameInfoRegistry<K, T> & (() => LuaIterable<T>)
+
+interface LeaderType extends GameInfoEntry<LeaderTypeKeys, LeaderID> {
+    Description: unknown
 }
 
-interface ColorType {
-    ID: ColorID
+type PlayerColorKeys = "";
+interface PlayerColorType extends GameInfoEntry<PlayerColorKeys, PlayerColorID> {
+    PrimaryColor: ColorKey
+    SecondaryColor: ColorKey
+    TextColor: unknown
 }
+
+type CivilizationID = number;
+
+type CivilizationTypeKeys = "";
+
+interface CivilizationType extends GameInfoEntry<CivilizationTypeKeys, CivilizationID> {
+    Description: unknown
+    ShortDescription: unknown
+    Playable: unknown
+}
+
+type HandicapInfoID = number;
+type HandicapInfoKeys = ""
+
+interface GameInfoEntry<K extends string, I> {
+    Type: K
+    ID: I
+}
+
+interface HandicapInfo extends GameInfoEntry<HandicapInfoKeys, HandicapInfoID> {
+    Description: string
+    Help: string
+}
+
+type EraKeys = "";
+type EraID = number;
+
+interface Era extends GameInfoEntry<EraKeys, EraID> {
+
+}
+
+type ColorKey = "";
+type ColorID = number;
+interface Color extends GameInfoEntry<ColorKey, ColorID> {
+    Red: unknown
+    Green: unknown
+    Blue: unknown
+    Alpha: unknown
+}
+
+interface Vector4 {}
+
+declare const Vector4: (red: unknown, green: unknown, blue: unknown, alpha: unknown) => Vector4;
+
+type MinorTraitKeys = "MINOR_TRAIT_CULTURED" | "MINOR_TRAIT_MILITARISTIC" | "MINOR_TRAIT_MARITIME" | "MINOR_TRAIT_MERCANTILE" | "MINOR_TRAIT_RELIGIOUS";
+type MinorTraitID = number;
+interface MinorTrait extends GameInfoEntry<MinorTraitKeys, MinorTraitID> {
+
+}
+
+type BuildingTypeKeys = "BUILDING_MONUMENT" | "BUILDING_BARRACKS" | "BUILDING_LIGHTHOUSE" | "BUILDING_MARKET" | "BUILDING_MAYA_PYRAMID";
+type BuildingTypeID = number;
+interface BuildingType extends GameInfoEntry<BuildingTypeKeys, BuildingTypeID> {}
 
 declare namespace GameInfo {
-    const UnitAIInfos: GameInfoRegistry<unknown, unknown>
-    const Units: GameInfoRegistry<unknown, unknown>
-    const Improvements: GameInfoRegistry<ImprovementTypeKeys, ImprovementType>
-    const Technologies: GameInfoRegistry<unknown, unknown>
-    const Leaders: GameInfoRegistry<unknown, LeaderType>
-    const PlayerColors: GameInfoRegistry<unknown, ColorType>
-    const Resources: GameInfoRegistry<ResourceTypeKeys, ResourceType>
+    const UnitAIInfos: GameInfoRegistryIterable<unknown, unknown>
+    const Units: GameInfoRegistryIterable<unknown, unknown>
+    const Improvements: GameInfoRegistryIterable<ImprovementTypeKeys, ImprovementType>
+    const Technologies: GameInfoRegistryIterable<unknown, unknown>
+    const Leaders: GameInfoRegistryIterable<LeaderTypeKeys, LeaderType>
+    const PlayerColors: GameInfoRegistryIterable<PlayerColorKeys, PlayerColorType>
+    const Resources: GameInfoRegistryIterable<ResourceTypeKeys, ResourceType>
+    const Civilizations: GameInfoRegistryIterable<CivilizationTypeKeys, CivilizationType>
+    const HandicapInfos: GameInfoRegistryIterable<HandicapInfoKeys, HandicapInfo>
+    const Eras: GameInfoRegistryIterable<EraKeys, Era>
+    const Colors: GameInfoRegistryIterable<ColorKey, Color>
+    const MinorTrait: GameInfoRegistryIterable<MinorTraitKeys, MinorTrait>
 }
 
 declare type GameInfoTypes = typeof GameInfo.UnitAIInfos 
@@ -377,18 +466,28 @@ declare namespace UI {
 }
 
 declare namespace PreGame {
-    const SetPlayerColor: (this: void, civ: int, colorId: ColorID) => unknown
+    const SetPlayerColor: (this: void, civ: int, colorId: PlayerColorID) => unknown
     const SetLeaderType: (this: void, civ: int, leaderId: LeaderID) => unknown
+    const SetGameOption: (this: void, key: string, val: unknown) => unknown
+    const SetCivilization: (this: void, slot: int, civ: CivilizationID) => unknown
+    const SetHandicap: (this: void, num: int, val: int) => unknown
 }
 
 declare namespace ContentManager {
     const IsActive: (this: void, id: string, type: unknown) => bool
 }
 
-declare namespace ContentType {
-    const GAMEPLAY: unknown
+declare enum ContentType {
+    GAMEPLAY  // DLCs ?
 }
 
-declare namespace CityUpdateTypes {
-    const CITY_UPDATE_TYPE_BANNER: unknown
+type CityUpdateTypeKeys = "CITY_UPDATE_TYPE_BANNER";
+
+type CityUpdateTypes = GameInfoRegistry<CityUpdateTypeKeys, CityUpdateTypeID>
+
+declare namespace UIManager {
+    const DequeuePopup: (val: unknown) => unknown
+    const QueuePopup: (val1: unknown, val2: unknown) => unknown
 }
+
+declare const IconHookup: (this:void, val1: int, val2: int, val3: unknown, val4: unknown) => unknown
