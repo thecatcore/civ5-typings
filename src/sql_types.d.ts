@@ -766,6 +766,380 @@ declare type GameInfos_Buildings = {
     ArtInfoRandomVariation: BOOLEAN
 }
 
+declare type GameInfos_Building_AreaYieldModifiers = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_ClassesNeededInCity = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * BuildingClasses(Type)
+     */
+    BuildingClassType: TEXT
+}
+
+declare type GameInfos_Building_FreeUnits = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Units(Type)
+     */
+    UnitType: TEXT,
+    NumUnits: INTEGER
+}
+
+declare type GameInfos_Building_DomainFreeExperiences = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Domains(Type)
+     */
+    DomainType: TEXT,
+    Experience: INTEGER
+}
+
+declare type GameInfos_Building_DomainProductionModifiers = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Domains(Type)
+     */
+    DomainType: TEXT,
+    Modifier: INTEGER
+}
+
+/**
+ * Attention: Seems to be not functional in 1.0.1.141, @see http://forums.civfanatics.com/showthread.php?t=404816%7C
+ */
+declare type GameInfos_Building_FreeSpecialistCounts = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Specialists(Type)
+     */
+    SpecialistType: TEXT,
+    Count: INTEGER
+}
+
+declare type GameInfos_Building_Flavors = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Flavors(Type)
+     */
+    FlavorType: TEXT,
+    Flavor: INTEGER
+}
+
+declare type GameInfos_Building_GlobalYieldModifiers = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_HurryModifiers = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * HurryInfos(Type)
+     */
+    HurryType: TEXT,
+    HurryCostModifier: INTEGER
+}
+
+declare type GameInfos_Building_LocalResourceAnds = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Resources(Type)
+     */
+    ResourceType: TEXT
+}
+
+declare type GameInfos_Building_LocalResourceOrs = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Resources(Type)
+     */
+    ResourceType: TEXT
+}
+
+declare type GameInfos_Building_LockedBuildingClasses = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * BuildingClasses(Type)
+     */
+    BuildingClassType: TEXT
+}
+
+declare type GameInfos_Building_PrereqBuildingClasses = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * BuildingClasses(Type)
+     */
+    BuildingClassType: TEXT,
+    NumBuildingNeeded: INTEGER
+}
+
+declare type GameInfos_Building_ResourceQuantityRequirements = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Resources(Type)
+     */
+    ResourceType: TEXT,
+    Cost: INTEGER
+}
+
+declare type GameInfos_Building_ResourceYieldModifiers = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Resources(Type)
+     */
+    ResourceType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_ResourceCultureChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Resources(Type)
+     */
+    ResourceType: TEXT,
+    CultureChange: INTEGER
+}
+
+declare type GameInfos_Building_RiverPlotYieldChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_SeaPlotYieldChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_LakePlotYieldChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_SeaResourceYieldChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_ResourceYieldChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Resources(Type)
+     */
+    ResourceType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_FeatureYieldChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Features(Type)
+     */
+    FeatureType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_SpecialistYieldChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Specialists(Type)
+     */
+    SpecialistType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_UnitCombatFreeExperiences = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * UnitCombatInfos(Type) 
+     */
+    UnitCombatType: TEXT,
+    Experience: INTEGER
+}
+
+declare type GameInfos_Building_UnitCombatProductionModifiers = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * UnitCombatInfos(Type) 
+     */
+    UnitCombatType: TEXT,
+    Modifier: INTEGER
+}
+
+declare type GameInfos_Building_TechAndPrereqs = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Technologies(Type) 
+     */
+    TechType: TEXT
+}
+
+declare type GameInfos_Building_YieldChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_YieldChangesPerPop = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_TechEnhancedYieldChanges = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
+declare type GameInfos_Building_YieldModifiers = {
+    /**
+     * Buildings(Type)
+     */
+    BuildingType: TEXT,
+    /**
+     * Yields(Type) 
+     */
+    YieldType: TEXT,
+    Yield: INTEGER
+}
+
 declare type GameInfos_Calendars = {
     /**
      * Notes: Primary Key, Autoincrement
