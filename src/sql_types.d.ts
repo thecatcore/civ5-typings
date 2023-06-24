@@ -1148,3 +1148,308 @@ declare type GameInfos_Calendars = {
     Type: TEXT,
     Description: TEXT,
 }
+
+declare type GameInfos_Civilizations = {
+    /**
+     * Notes: Primary Key, Autoincrement
+     */
+    ID: INTEGER,
+    /**
+     * Not Null,Unique, key used to reference this civilization typically in the CIVILIZATION_<name> format 
+     */
+    Type: TEXT,
+    /**
+     * Text string description of the civ, for America it is "American Empire" located in the TXT_KEY_CIV_AMERICA_DESC
+     */
+    Description: TEXT,
+    /**
+     * @default NULL
+     * NOT USED
+     */
+    Civilopedia: TEXT,
+    /**
+     * starting text string for the pedia entry 
+     */
+    CivilopediaTag: TEXT,
+    /**
+     * @default Ask Paul
+     * NOT USED 
+     */
+    Strategy: TEXT,
+    /**
+     * @default true
+     * If true, human player can select this civ. 
+     */
+    Playable: BOOLEAN,
+    /**
+     * @default true
+     * If true, the AI can select this civ. Setting both Playable and AIPlayable to false is a good way to remove a civ from a game, without actually deleting the assets (and makes other mods compatible) 
+     */
+    AIPlayable: BOOLEAN,
+    /**
+     * @default NULL
+     * The short text string for this civ. For america its "America" 
+     */
+    ShortDescription: TEXT,
+    /**
+     * @default NULL
+     * The text string for the qualifier to things that belong to this civ. For American, its "American" 
+     */
+    Adjective: TEXT,
+    /**
+     * @default NULL
+     * The default color of this civ for borders, unit flags, etc. The color has to be specified in the CIV5PlayerColors. @see http://modiki.civfanatics.com/index.php?title=CIV5PlayerColors
+     */
+    DefaultPlayerColor: TEXT,
+    /**
+     * @default NULL
+     * NOT USED 
+     */
+    ArtDefineTag: TEXT,
+    /**
+     * @default NULL
+     * Defines the art style used for buildings that are used in this civilization's cities 
+     */
+    ArtStyleType: TEXT,
+    /**
+     * @default NULL
+     * Used to pick different flavors of improvements and wonder art 
+     */
+    ArtStyleSuffix: TEXT,
+    /**
+     * @default NULL
+     * Used to pick different flavors of improvements and wonder art 
+     */
+    ArtStylePrefix: TEXT,
+    /**
+     * @default NULL
+     * NOT USED 
+     */
+    DerivativeCiv: TEXT,
+    /**
+     * @default -1
+     * The number of the icon in the icon atlas used for this civ 
+     */
+    PortraitIndex: INTEGER,
+    /**
+     * @default NULL
+     * IconTextureAtlases(Atlas)
+     * The Icon Atlas that holds the icons for this civ 
+     */
+    IconAtlas: TEXT,
+    /**
+     * @default NULL
+     * IconTextureAtlases(Atlas)
+     * The Icon Atlas that has the alpha layer for this icon 
+     */
+    AlphaIconAtlas: TEXT,
+    /**
+     * @default NULL
+     * The picture (as a .dds file) that is displayed when the civ is selected from the civilization selection menu. Typically this is a map of the civilization 
+     */
+    MapImage: TEXT,
+    /**
+     * @default NULL
+     * The text string that is displayed on the loading (Dawn of Man) screen 
+     */
+    DawnOfManQuote: TEXT,
+    /**
+     * @default NULL
+     * The picture (as a .dds file) that is shown on the loading (Dawn of Man) screen 
+     */
+    DawnOfManImage: TEXT,
+    /**
+     * @default NULL
+     * The audio file that is played the loading (Dawn of Man) screen. Typically this is the reading of the Quote 
+     */
+    DawnOfManAudio: TEXT
+}
+
+declare type GameInfos_Civilization_BuildingClassOverrides = {
+    /**
+     * Civilizations(Type)
+     * Name (Type) of civilization to have building defined 
+     */
+    CivilizationType: TEXT,
+    /**
+     * BuildingClasses(Type)
+     * Not Null
+     */
+    BuildingClassType: TEXT,
+    /**
+     * Buildings(Type)
+     * This defines a civ's Unique Buildings and can be used to block civs from building a specific building, for example a minor civ from building the Sydney Opera House, when tag is left empty: <BuildingType/> 
+     */
+    BuildingType: TEXT
+}
+
+/**
+ * This is a list of the available city names for a civilization.
+ */
+declare type GameInfos_Civilization_CityNames = {
+    /**
+     * Civilizations(Type)
+     * Name (Type) of civilization to have city name defined 
+     */
+    CivilizationType: TEXT,
+    /**
+     * Not Null, text string for available city name for a city 
+     */
+    CityName: TEXT
+}
+
+/**
+ * Any techs set here for a specific civilization won't be available for that civilization to research
+ */
+declare type GameInfos_Civilization_DisableTechs = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * Technologies(Type) 
+     */
+    TechType: TEXT
+}
+
+/**
+ * This is the free buildings available to a civilization when they found their first city. By default all civilizations get a free palace.
+ */
+declare type GameInfos_Civilization_FreeBuildingClasses = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * BuildingClasses(Type) 
+     */
+    BuildingClassType: TEXT
+}
+
+/**
+ * These are the free techs a civilization starts with. By default all civilizations get agriculture.
+ */
+declare type GameInfos_Civilization_FreeTechs = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * Technologies(Type) 
+     */
+    TechType: TEXT
+}
+
+/**
+ * These are the units the civilization starts with. By default all civilizations are set to start with 1 free settler (Count=1).
+ */
+declare type GameInfos_Civilization_FreeUnits = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * UnitClasses(Type) 
+     */
+    UnitClassType: TEXT,
+    /**
+     * UnitAIInfos(Type) 
+     */
+    UnitAIType: TEXT,
+    Count: INTEGER
+}
+
+/**
+ * This is where leaders are associated to their civilizations. In Civ5 each civilization can only have 1 leader.
+ */
+declare type GameInfos_Civilization_Leaders = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * Leaders(Type) 
+     */
+    LeaderheadType: TEXT
+}
+
+/**
+ * Much like the building class overrides this is where unique units are set with the unit they replace for this civilization and civilizations are blocked from building units. 
+ */
+declare type GameInfos_Civilization_UnitClassOverrides = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * UnitClasses(Type) 
+     * Not Null
+     */
+    UnitClassType: TEXT,
+    /**
+     * Units(Type) 
+     */
+    UnitType: TEXT
+}
+
+/**
+ * If a civilization has this set the game will attempt to start them along a coastal tile.
+ * Each civ can have ONLY one of the 4 start bias, if a civilization has more than one, the 1st one will be used, and others will be ignored
+ */
+declare type GameInfos_Civilization_Start_Along_Ocean = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * @default false
+     */
+    StartAlongOcean: BOOLEAN
+}
+
+/**
+ * If a civilization has this set the game will attempt to start them along a river tile.
+ * Each civ can have ONLY one of the 4 start bias, if a civilization has more than one, the 1st one will be used, and others will be ignored
+ */
+declare type GameInfos_Civilization_Start_Along_River = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * @default false
+     */
+    StartAlongRiver: BOOLEAN
+}
+
+/**
+ * If a civilization has this set the game will attempt to start them in the specified region. For example Arabia has Desert set for this.
+ * Each civ can have ONLY one of the 4 start bias, if a civilization has more than one, the 1st one will be used, and others will be ignored
+ * Multiple entries per civ for each start priority/avoid are supported
+ */
+declare type GameInfos_Civilization_Start_Region_Priority = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * Regions(Type) 
+     */
+    RegionType: TEXT
+}
+
+/**
+ * If a civilization has this set the game will attempt to avoid these regions when deciding the civilizations starting location. For example Egypt is set to avoid starts in Jungles.
+ * Each civ can have ONLY one of the 4 start bias, if a civilization has more than one, the 1st one will be used, and others will be ignored. Will only be used if the first 3 bias are empty for a given civilization.
+ * Multiple entries per civ for each start priority/avoid are supported
+ */
+declare type GameInfos_Civilization_Start_Region_Avoid = {
+    /**
+     * Civilizations(Type)
+     */
+    CivilizationType: TEXT,
+    /**
+     * Regions(Type) 
+     */
+    RegionType: TEXT
+}

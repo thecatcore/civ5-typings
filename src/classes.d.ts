@@ -14,5 +14,6 @@ declare const GameInfos: {
     Builds: GameInfosRegistry<typeof BuildActionType, BuildActionType, GameInfos_Builds>,
     BuildingClasses: GameInfosRegistry<typeof BuildingClassType, BuildingClassType, GameInfos_BuildingClasses>,
     Buildings: GameInfosRegistry<typeof BuildingType, BuildingType, GameInfos_Buildings>,
-    Calendars: GameInfosRegistry<typeof CalendarType, CalendarType, GameInfos_Calendars>
+    Calendars: GameInfosRegistry<typeof CalendarType, CalendarType, GameInfos_Calendars>,
+    Civilizations: GameInfosRegistry<typeof CivilizationType, CivilizationType, GameInfos_Civilizations>
 }
