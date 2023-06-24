@@ -159,9 +159,10 @@ declare type GameInfos_Automates = {
      */
     IconIndex: INTEGER,
     /**
+     * @default NULL
      * IconTextureAtlases(Atlas)
      */
-    IconAtlas?: TEXT
+    IconAtlas: TEXT
 }
 
 declare type GameInfos_Beliefs = {
@@ -251,13 +252,23 @@ declare type GameInfos_Builds = {
      * @default false
      */
     RemoveRoute: BOOLEAN,
-    PrereqTech?: TEXT,
     /**
+     * @default NULL
+     */
+    PrereqTech: TEXT,
+    /**
+     * @default NULL
      * ImprovementTypes
      */
-    ImprovementType?: TEXT,
-    RouteType?: TEXT,
-    EntityEvent?: TEXT,
+    ImprovementType: TEXT,
+    /**
+     * @default NULL
+     */
+    RouteType: TEXT,
+    /**
+     * @default NULL
+     */
+    EntityEvent: TEXT,
 }
 
 declare type GameInfos_BuildFeatures = {
@@ -323,6 +334,436 @@ declare type GameInfos_BuildingClass_VictoryThresholds = {
     BuildingClassType: TEXT,
     VictoryType: TEXT,
     Threshold: INTEGER
+}
+
+declare type GameInfos_Buildings = {
+    /**
+     * Notes: Primary Key, Autoincrement
+     */
+    ID: INTEGER,
+    /**
+     * Not Null, Unique
+     */
+    Type: TEXT,
+    /**
+     * Language_en_US(Tag)
+     */
+    Description: TEXT,
+    /**
+     * Language_en_US(Tag)
+     */
+    Civilopedia: TEXT,
+    /**
+     * Language_en_US(Tag)
+     */
+    Strategy: TEXT,
+    /**
+     * Language_en_US(Tag)
+     */
+    Help: TEXT,
+    /**
+     * Language_en_US(Tag)
+     */
+    Quote: TEXT,
+    /**
+     * @default 0
+     * Notes: The ammout of gold the building deducts from your income each turn 
+     */
+    GoldMaintenance: INTEGER,
+    /**
+     * @default -1
+     */
+    MutuallyExclusiveGroup: INTEGER,
+    /**
+     * @default false
+     */
+    TeamShare: BOOLEAN,
+    /**
+     * @default false
+     */
+    Water: BOOLEAN,
+    /**
+     * @default false
+     * Notes: Requires that the city be built next to a river 
+     */
+    River: BOOLEAN,
+    /**
+     * @default false
+     * Notes: Requires that the city be built next to a river or fresh water lake 
+     */
+    FreshWater: BOOLEAN,
+    /**
+     * @default false
+     * Notes: Requires that the city be built next to a mountain 
+     */
+    Mountain: BOOLEAN,
+    /**
+     * @default false
+     * Notes: Requires that a mountain be within the city's borders 
+     */
+    NearbyMountainRequired: BOOLEAN,
+    /**
+     * @default false
+     * Notes: Requires that the city be built on a hill 
+     */
+    Hill: BOOLEAN,
+    /**
+     * @default false
+     * Notes: Requires that the city not be built on a hill 
+     */
+    Flat: BOOLEAN,
+    /**
+     * @default false
+     */
+    FoundsReligion: BOOLEAN,
+    /**
+     * @default false
+     */
+    IsReligious: BOOLEAN,
+    /**
+     * @default false
+     * Notes: The owner's territory costs 1 more movement point for enemy units (global effect) 
+     */
+    BorderObstacle: BOOLEAN,
+    /**
+     * @default false
+     * Notes: The Building can only be built in the capital if True
+     */
+    Capital: BOOLEAN,
+    /**
+     * @default false
+     */
+    GoldenAge: BOOLEAN,
+    /**
+     * @default false
+     */
+    MapCentering: BOOLEAN,
+    /**
+     * @default false
+     */
+    NeverCapture: BOOLEAN,
+    /**
+     * @default false
+     */
+    NukeImmune: BOOLEAN,
+    /**
+     * @default false
+     * Notes: Allows trade routes over water 
+     */
+    AllowsWaterRoutes: BOOLEAN,
+    /**
+     * @default false
+     */
+    ExtraLuxuries: BOOLEAN,
+    /**
+     * @default false
+     */
+    DiplomaticVoting: BOOLEAN,
+    /**
+     * @default 0
+     */
+    Cost: INTEGER,
+    /**
+     * @default 0
+     */
+    NumCityCostMod: INTEGER,
+    /**
+     * @default 0
+     */
+    HurryCostModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    MinAreaSize: INTEGER,
+    /**
+     * @default 0
+     */
+    ConquestProb: INTEGER,
+    /**
+     * @default 0
+     */
+    CitiesPrereq: INTEGER,
+    /**
+     * @default 0
+     */
+    LevelPrereq: INTEGER,
+    /**
+     * @default 0
+     */
+    Culture: INTEGER,
+    /**
+     * @default 0
+     */
+    CultureRateModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    GlobalCultureRateModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    GreatPeopleRateModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    GlobalGreatPeopleRateModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    GreatGeneralRateModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    GoldenAgeModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    UnitUpgradeCostMod: INTEGER,
+    /**
+     * @default 0
+     */
+    Experience: INTEGER,
+    /**
+     * @default 0
+     */
+    GlobalExperience: INTEGER,
+    /**
+     * @default 0
+     */
+    FoodKept: INTEGER,
+    /**
+     * @default 0
+     */
+    Airlift: INTEGER,
+    /**
+     * @default 0
+     */
+    AirModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    NukeModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    NukeExplosionRand: INTEGER,
+    /**
+     * @default 0
+     */
+    HealRateChange: INTEGER,
+    /**
+     * @default 0
+     */
+    Happiness: INTEGER,
+    /**
+     * @default 0
+     */
+    HappinessPerCity: INTEGER,
+    /**
+     * @default 0
+     */
+    CityCountUnhappinessMod: INTEGER,
+    /**
+     * @default false
+     */
+    NoOccupiedUnhappiness: BOOLEAN,
+    /**
+     * @default 0
+     */
+    WorkerSpeedModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    MilitaryProductionModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    SpaceProductionModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    BuildingProductionModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    WonderProductionModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    TradeRouteModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    CapturePlunderModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    PolicyCostModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    PlotCultureCostModifier: INTEGER,
+    /**
+     * @default 0
+     */
+    GlobalPopulationChange: INTEGER,
+    /**
+     * @default 0
+     */
+    TechShare: INTEGER,
+    /**
+     * @default 0
+     */
+    FreeTechs: INTEGER,
+    /**
+     * @default 0
+     */
+    FreePolicies: INTEGER,
+    /**
+     * @default 0
+     */
+    Gold: INTEGER,
+    /**
+     * @default false
+     */
+    AllowsRangeStrike: BOOLEAN,
+    /**
+     * @default 0
+     */
+    Defense: INTEGER,
+    /**
+     * @default 0
+     */
+    GlobalDefenseMod: INTEGER,
+    /**
+     * @default 0
+     */
+    MinorFriendshipChange: INTEGER,
+    /**
+     * @default 0
+     */
+    VictoryPoints: INTEGER,
+    /**
+     * @default NULL
+     * BuildingClasses(Type)
+     */
+    BuildingClass: TEXT,
+    /**
+     * @default NULL
+     */
+    ArtDefineTag: TEXT,
+    /**
+     * @default NULL
+     * Terrains(Type)
+     * Notes: The specified terrain must exist within the city's borders 
+     */
+    NearbyTerrainRequired: TEXT,
+    /**
+     * @default NULL
+     * Victories(Type)
+     */
+    VictoryPrereq: TEXT,
+    /**
+     * @default NULL
+     * Eras(Type)
+     */
+    FreeStartEra: TEXT,
+    /**
+     * @default NULL
+     * Eras(Type)
+     */
+    MaxStartEra: TEXT,
+    /**
+     * @default NULL
+     * Technologies(Type)
+     */
+    ObsoleteTech: TEXT,
+    /**
+     * @default NULL
+     * Technologies(Type)
+     */
+    EnhancedYieldTech: TEXT,
+    /**
+     * @default NULL
+     * BuildingClasses(Type)
+     */
+    FreeBuilding: TEXT,
+    /**
+     * @default NULL
+     * UnitPromotions(Type)
+     */
+    FreePromotion: TEXT,
+    /**
+     * @default NULL
+     * UnitPromotions(Type)
+     */
+    TrainedFreePromotion: TEXT,
+    /**
+     * @default NULL
+     * BuildingClasses(Type)
+     */
+    ReplacementBuildingClass: TEXT,
+    /**
+     * @default NULL
+     * Technologies(Type)
+     */
+    PrereqTech: TEXT,
+    /**
+     * @default NULL
+     * Specialists(Type)
+     */
+    SpecialistType: TEXT,
+    /**
+     * @default 0
+     */
+    SpecialistCount: INTEGER,
+    /**
+     * @default 0
+     * Attention: Seems to be broken in 1.0.1.141, @see http://forums.civfanatics.com/showthread.php?t=404816%7C
+     */
+    SpecialistExtraCulture: INTEGER,
+    /**
+     * @default 0
+     */
+    GreatPeopleRateChange: INTEGER,
+    /**
+     * @default false
+     */
+    CityWall: BOOLEAN,
+    /**
+     * @default 0
+     */
+    DisplayPosition: INTEGER,
+    /**
+     * @default -1
+     */
+    PortraitIndex: INTEGER,
+    /**
+     * @default NULL
+     */
+    WonderSplashImage: TEXT,
+    /**
+     * @default R,T
+     */
+    WonderSplashAnchor: TEXT,
+    WonderSplashAudio: TEXT,
+    /**
+     * @default NULL
+     * IconTextureAtlases(Atlas)
+     */
+    IconAtlas: TEXT,
+    /**
+     * @default false
+     */
+    ArtInfoCulturalVariation: BOOLEAN,
+    /**
+     * @default false
+     */
+    ArtInfoEraVariation: BOOLEAN,
+    /**
+     * @default false
+     */
+    ArtInfoRandomVariation: BOOLEAN
 }
 
 declare type GameInfos_Calendars = {
