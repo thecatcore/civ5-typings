@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/gameinfo/civ5policybranchtypes
 
-declare type BMW_PolicyBranchTypes = {
+declare type BNW_PolicyBranchTypes = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -84,7 +84,7 @@ declare type BMW_PolicyBranchTypes = {
 	AIDelayNoScience: BOOLEAN,
 }
 
-declare type BMW_PolicyBranch_Disables = {
+declare type BNW_PolicyBranch_Disables = {
 	/**
 	 * Reference: PolicyBranchTypes(Type)
 	 */

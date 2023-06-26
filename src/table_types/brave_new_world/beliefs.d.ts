@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/religions/civ5beliefs
 
-declare type BMW_Beliefs = {
+declare type BNW_Beliefs = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -218,7 +218,7 @@ declare type BMW_Beliefs = {
 	SpreadModifierDoublingTech: TEXT,
 }
 
-declare type BMW_Belief_BuildingClassYieldChanges = {
+declare type BNW_Belief_BuildingClassYieldChanges = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -237,7 +237,7 @@ declare type BMW_Belief_BuildingClassYieldChanges = {
 	YieldChange: INTEGER,
 }
 
-declare type BMW_Belief_BuildingClassHappiness = {
+declare type BNW_Belief_BuildingClassHappiness = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -251,7 +251,7 @@ declare type BMW_Belief_BuildingClassHappiness = {
 	Happiness: INTEGER,
 }
 
-declare type BMW_Belief_BuildingClassTourism = {
+declare type BNW_Belief_BuildingClassTourism = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -266,7 +266,7 @@ declare type BMW_Belief_BuildingClassTourism = {
 	Tourism: INTEGER,
 }
 
-declare type BMW_Belief_BuildingClassFaithPurchase = {
+declare type BNW_Belief_BuildingClassFaithPurchase = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -277,7 +277,7 @@ declare type BMW_Belief_BuildingClassFaithPurchase = {
 	BuildingClassType: TEXT,
 }
 
-declare type BMW_Belief_CityYieldChanges = {
+declare type BNW_Belief_CityYieldChanges = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -292,7 +292,7 @@ declare type BMW_Belief_CityYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_HolyCityYieldChanges = {
+declare type BNW_Belief_HolyCityYieldChanges = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -307,7 +307,7 @@ declare type BMW_Belief_HolyCityYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_EraFaithUnitPurchase = {
+declare type BNW_Belief_EraFaithUnitPurchase = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -318,7 +318,7 @@ declare type BMW_Belief_EraFaithUnitPurchase = {
 	EraType: TEXT,
 }
 
-declare type BMW_Belief_FeatureYieldChanges = {
+declare type BNW_Belief_FeatureYieldChanges = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -337,7 +337,7 @@ declare type BMW_Belief_FeatureYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_ImprovementYieldChanges = {
+declare type BNW_Belief_ImprovementYieldChanges = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -355,7 +355,7 @@ declare type BMW_Belief_ImprovementYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_MaxYieldModifierPerFollower = {
+declare type BNW_Belief_MaxYieldModifierPerFollower = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -370,7 +370,7 @@ declare type BMW_Belief_MaxYieldModifierPerFollower = {
 	Max: INTEGER,
 }
 
-declare type BMW_Belief_ResourceQuantityModifiers = {
+declare type BNW_Belief_ResourceQuantityModifiers = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -385,7 +385,7 @@ declare type BMW_Belief_ResourceQuantityModifiers = {
 	ResourceQuantityModifier: INTEGER,
 }
 
-declare type BMW_Belief_ResourceHappiness = {
+declare type BNW_Belief_ResourceHappiness = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -400,7 +400,7 @@ declare type BMW_Belief_ResourceHappiness = {
 	HappinessChange: INTEGER,
 }
 
-declare type BMW_Belief_ResourceYieldChanges = {
+declare type BNW_Belief_ResourceYieldChanges = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -419,7 +419,7 @@ declare type BMW_Belief_ResourceYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_TerrainYieldChanges = {
+declare type BNW_Belief_TerrainYieldChanges = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -438,7 +438,7 @@ declare type BMW_Belief_TerrainYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_YieldChangeAnySpecialist = {
+declare type BNW_Belief_YieldChangeAnySpecialist = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -453,7 +453,7 @@ declare type BMW_Belief_YieldChangeAnySpecialist = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_YieldChangePerForeignCity = {
+declare type BNW_Belief_YieldChangePerForeignCity = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -468,7 +468,7 @@ declare type BMW_Belief_YieldChangePerForeignCity = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_YieldChangePerXForeignFollowers = {
+declare type BNW_Belief_YieldChangePerXForeignFollowers = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -483,7 +483,7 @@ declare type BMW_Belief_YieldChangePerXForeignFollowers = {
 	ForeignFollowers: INTEGER,
 }
 
-declare type BMW_Belief_YieldChangeTradeRoute = {
+declare type BNW_Belief_YieldChangeTradeRoute = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -498,7 +498,7 @@ declare type BMW_Belief_YieldChangeTradeRoute = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_YieldChangeNaturalWonder = {
+declare type BNW_Belief_YieldChangeNaturalWonder = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -513,7 +513,7 @@ declare type BMW_Belief_YieldChangeNaturalWonder = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_YieldChangeWorldWonder = {
+declare type BNW_Belief_YieldChangeWorldWonder = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */
@@ -528,7 +528,7 @@ declare type BMW_Belief_YieldChangeWorldWonder = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Belief_YieldModifierNaturalWonder = {
+declare type BNW_Belief_YieldModifierNaturalWonder = {
 	/**
 	 * Reference: Beliefs(Type)
 	 */

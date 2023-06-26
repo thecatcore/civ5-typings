@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/units/civ5builds
 
-declare type BMW_Builds = {
+declare type BNW_Builds = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -134,7 +134,7 @@ declare type BMW_Builds = {
 	ShowInTechTree: BOOLEAN,
 }
 
-declare type BMW_BuildFeatures = {
+declare type BNW_BuildFeatures = {
 	/**
 	 * Reference: Builds(Type)
 	 */
@@ -162,7 +162,7 @@ declare type BMW_BuildFeatures = {
 	Remove: BOOLEAN,
 }
 
-declare type BMW_Build_TechTimeChanges = {
+declare type BNW_Build_TechTimeChanges = {
 	/**
 	 * Reference: Builds(Type)
 	 */

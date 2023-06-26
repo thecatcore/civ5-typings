@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/units/civ5multiunitformations
 
-declare type BMW_MultiUnitPositions = {
+declare type BNW_MultiUnitPositions = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -19,7 +19,7 @@ declare type BMW_MultiUnitPositions = {
 	Name: TEXT,
 }
 
-declare type BMW_MultiUnitFormations = {
+declare type BNW_MultiUnitFormations = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -42,7 +42,7 @@ declare type BMW_MultiUnitFormations = {
 	RequiresNavalUnitConsistency: BOOLEAN,
 }
 
-declare type BMW_MultiUnitFormation_SlotEntries = {
+declare type BNW_MultiUnitFormation_SlotEntries = {
 	/**
 	 * Reference: MultiUnitFormations(Type)
 	 */

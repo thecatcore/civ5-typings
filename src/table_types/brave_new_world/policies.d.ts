@@ -965,7 +965,7 @@ declare type BNW_Policy_UnitCombatFreeExperiences = {
 	FreeExperience: INTEGER,
 }
 
-declare type BMW_Policy_FreePromotionUnitCombats = {
+declare type BNW_Policy_FreePromotionUnitCombats = {
 	/**
 	 * Reference: Policies(Type)
 	 */
@@ -980,7 +980,7 @@ declare type BMW_Policy_FreePromotionUnitCombats = {
 	PromotionType: TEXT,
 }
 
-declare type BMW_Policy_UnitCombatProductionModifiers = {
+declare type BNW_Policy_UnitCombatProductionModifiers = {
 	/**
 	 * Reference: Policies(Type)
 	 */
@@ -994,7 +994,7 @@ declare type BMW_Policy_UnitCombatProductionModifiers = {
 	ProductionModifier: INTEGER,
 }
 
-declare type BMW_Policy_FreeUnitClasses = {
+declare type BNW_Policy_FreeUnitClasses = {
 	/**
 	 * Reference: Policies(Type)
 	 */
@@ -1009,7 +1009,7 @@ declare type BMW_Policy_FreeUnitClasses = {
 	Count: INTEGER,
 }
 
-declare type BMW_Policy_TourismOnUnitCreation = {
+declare type BNW_Policy_TourismOnUnitCreation = {
 	/**
 	 * Reference: Policies(Type)
 	 */
@@ -1024,7 +1024,7 @@ declare type BMW_Policy_TourismOnUnitCreation = {
 	Tourism: INTEGER,
 }
 
-declare type BMW_Policy_FreeItems = {
+declare type BNW_Policy_FreeItems = {
 	/**
 	 * Reference: Policies(Type)
 	 */

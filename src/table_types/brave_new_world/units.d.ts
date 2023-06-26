@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/units/civ5units
 
-declare type BMW_CivilianAttackPriorities = {
+declare type BNW_CivilianAttackPriorities = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -13,7 +13,7 @@ declare type BMW_CivilianAttackPriorities = {
 	Type: TEXT,
 }
 
-declare type BMW_Units = {
+declare type BNW_Units = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -432,7 +432,7 @@ declare type BMW_Units = {
 	UnitFlagAtlas: TEXT,
 }
 
-declare type BMW_Unit_AITypes = {
+declare type BNW_Unit_AITypes = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -443,7 +443,7 @@ declare type BMW_Unit_AITypes = {
 	UnitAIType: TEXT,
 }
 
-declare type BMW_Unit_Buildings = {
+declare type BNW_Unit_Buildings = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -454,7 +454,7 @@ declare type BMW_Unit_Buildings = {
 	BuildingType: TEXT,
 }
 
-declare type BMW_Unit_BuildingClassRequireds = {
+declare type BNW_Unit_BuildingClassRequireds = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -465,7 +465,7 @@ declare type BMW_Unit_BuildingClassRequireds = {
 	BuildingClassType: TEXT,
 }
 
-declare type BMW_Unit_ProductionModifierBuildings = {
+declare type BNW_Unit_ProductionModifierBuildings = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -479,7 +479,7 @@ declare type BMW_Unit_ProductionModifierBuildings = {
 	ProductionModifier: INTEGER,
 }
 
-declare type BMW_Unit_Builds = {
+declare type BNW_Unit_Builds = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -490,7 +490,7 @@ declare type BMW_Unit_Builds = {
 	BuildType: TEXT,
 }
 
-declare type BMW_Unit_ClassUpgrades = {
+declare type BNW_Unit_ClassUpgrades = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -501,7 +501,7 @@ declare type BMW_Unit_ClassUpgrades = {
 	UnitClassType: TEXT,
 }
 
-declare type BMW_Unit_FreePromotions = {
+declare type BNW_Unit_FreePromotions = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -512,7 +512,7 @@ declare type BMW_Unit_FreePromotions = {
 	PromotionType: TEXT,
 }
 
-declare type BMW_Unit_Flavors = {
+declare type BNW_Unit_Flavors = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -527,7 +527,7 @@ declare type BMW_Unit_Flavors = {
 	Flavor: INTEGER,
 }
 
-declare type BMW_Unit_GreatPersons = {
+declare type BNW_Unit_GreatPersons = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -538,7 +538,7 @@ declare type BMW_Unit_GreatPersons = {
 	GreatPersonType: TEXT,
 }
 
-declare type BMW_Unit_ResourceQuantityRequirements = {
+declare type BNW_Unit_ResourceQuantityRequirements = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -553,7 +553,7 @@ declare type BMW_Unit_ResourceQuantityRequirements = {
 	Cost: INTEGER,
 }
 
-declare type BMW_Unit_UniqueNames = {
+declare type BNW_Unit_UniqueNames = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -569,7 +569,7 @@ declare type BMW_Unit_UniqueNames = {
 	GreatWorkType: TEXT,
 }
 
-declare type BMW_Unit_YieldFromKills = {
+declare type BNW_Unit_YieldFromKills = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -583,7 +583,7 @@ declare type BMW_Unit_YieldFromKills = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Unit_NotAITypes = {
+declare type BNW_Unit_NotAITypes = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -594,7 +594,7 @@ declare type BMW_Unit_NotAITypes = {
 	UnitAIType: TEXT,
 }
 
-declare type BMW_Unit_ProductionTraits = {
+declare type BNW_Unit_ProductionTraits = {
 	/**
 	 * Reference: Units(Type)
 	 */
@@ -608,7 +608,7 @@ declare type BMW_Unit_ProductionTraits = {
 	Trait: INTEGER,
 }
 
-declare type BMW_Unit_TechTypes = {
+declare type BNW_Unit_TechTypes = {
 	/**
 	 * Reference: Units(Type)
 	 */

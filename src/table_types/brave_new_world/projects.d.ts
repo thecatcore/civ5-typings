@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/gameinfo/civ5projects
 
-declare type BMW_Projects = {
+declare type BNW_Projects = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -101,7 +101,7 @@ declare type BMW_Projects = {
 	IconAtlas: TEXT,
 }
 
-declare type BMW_Project_Flavors = {
+declare type BNW_Project_Flavors = {
 	/**
 	 * Reference: Projects(Type)
 	 */
@@ -116,7 +116,7 @@ declare type BMW_Project_Flavors = {
 	Flavor: INTEGER,
 }
 
-declare type BMW_Project_Prereqs = {
+declare type BNW_Project_Prereqs = {
 	/**
 	 * Reference: Projects(Type)
 	 */
@@ -131,7 +131,7 @@ declare type BMW_Project_Prereqs = {
 	AmountNeeded: INTEGER,
 }
 
-declare type BMW_Project_VictoryThresholds = {
+declare type BNW_Project_VictoryThresholds = {
 	/**
 	 * Reference: Projects(Type)
 	 */
@@ -150,7 +150,7 @@ declare type BMW_Project_VictoryThresholds = {
 	MinThreshold: INTEGER,
 }
 
-declare type BMW_Project_ResourceQuantityRequirements = {
+declare type BNW_Project_ResourceQuantityRequirements = {
 	/**
 	 * Reference: Projects(Type)
 	 */

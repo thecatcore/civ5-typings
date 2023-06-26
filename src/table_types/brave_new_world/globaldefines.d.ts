@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/globaldefines
 
-declare type BMW_Defines = {
+declare type BNW_Defines = {
 	/**
 	 * Primary Key
 	 */
@@ -10,7 +10,7 @@ declare type BMW_Defines = {
 	Value: VARIANT,
 }
 
-declare type BMW_PostDefines = {
+declare type BNW_PostDefines = {
 	/**
 	 * Primary Key
 	 */

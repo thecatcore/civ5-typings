@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/gameinfo/civ5processes
 
-declare type BMW_Processes = {
+declare type BNW_Processes = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -35,7 +35,7 @@ declare type BMW_Processes = {
 	IconAtlas: TEXT,
 }
 
-declare type BMW_Process_Flavors = {
+declare type BNW_Process_Flavors = {
 	/**
 	 * Reference: Processes(Type)
 	 */
@@ -50,7 +50,7 @@ declare type BMW_Process_Flavors = {
 	Flavor: INTEGER,
 }
 
-declare type BMW_Process_ProductionYields = {
+declare type BNW_Process_ProductionYields = {
 	/**
 	 * Reference: Processes(Type)
 	 */

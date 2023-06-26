@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/technologies/civ5technologies
 
-declare type BMW_Technologies = {
+declare type BNW_Technologies = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -221,7 +221,7 @@ declare type BMW_Technologies = {
 	AudioIntroHeader: TEXT,
 }
 
-declare type BMW_Technology_DomainExtraMoves = {
+declare type BNW_Technology_DomainExtraMoves = {
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -235,7 +235,7 @@ declare type BMW_Technology_DomainExtraMoves = {
 	Moves: INTEGER,
 }
 
-declare type BMW_Technology_TradeRouteDomainExtraRange = {
+declare type BNW_Technology_TradeRouteDomainExtraRange = {
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -249,7 +249,7 @@ declare type BMW_Technology_TradeRouteDomainExtraRange = {
 	Range: INTEGER,
 }
 
-declare type BMW_Technology_Flavors = {
+declare type BNW_Technology_Flavors = {
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -263,7 +263,7 @@ declare type BMW_Technology_Flavors = {
 	Flavor: INTEGER,
 }
 
-declare type BMW_Technology_ORPrereqTechs = {
+declare type BNW_Technology_ORPrereqTechs = {
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -274,7 +274,7 @@ declare type BMW_Technology_ORPrereqTechs = {
 	PrereqTech: TEXT,
 }
 
-declare type BMW_Technology_PrereqTechs = {
+declare type BNW_Technology_PrereqTechs = {
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -285,7 +285,7 @@ declare type BMW_Technology_PrereqTechs = {
 	PrereqTech: TEXT,
 }
 
-declare type BMW_Technology_FreePromotions = {
+declare type BNW_Technology_FreePromotions = {
 	/**
 	 * Reference: Technologies(Type)
 	 */

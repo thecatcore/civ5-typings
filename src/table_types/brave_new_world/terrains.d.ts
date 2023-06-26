@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/terrain/civ5terrains
 
-declare type BMW_Terrains = {
+declare type BNW_Terrains = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -90,7 +90,7 @@ declare type BMW_Terrains = {
 	IconAtlas: TEXT,
 }
 
-declare type BMW_Terrain_Yields = {
+declare type BNW_Terrain_Yields = {
 	/**
 	 * Reference: Terrains(Type)
 	 */
@@ -105,7 +105,7 @@ declare type BMW_Terrain_Yields = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Terrain_RiverYieldChanges = {
+declare type BNW_Terrain_RiverYieldChanges = {
 	/**
 	 * Reference: Terrains(Type)
 	 */
@@ -120,7 +120,7 @@ declare type BMW_Terrain_RiverYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Terrain_HillsYieldChanges = {
+declare type BNW_Terrain_HillsYieldChanges = {
 	/**
 	 * Reference: Terrains(Type)
 	 */

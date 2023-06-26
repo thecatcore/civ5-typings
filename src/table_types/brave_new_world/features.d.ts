@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/terrain/civ5features
 
-declare type BMW_Features = {
+declare type BNW_Features = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -166,7 +166,7 @@ declare type BMW_Features = {
 	IconAtlas: TEXT,
 }
 
-declare type BMW_FakeFeatures = {
+declare type BNW_FakeFeatures = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -312,7 +312,7 @@ declare type BMW_FakeFeatures = {
 	IconAtlas: TEXT,
 }
 
-declare type BMW_Feature_YieldChanges = {
+declare type BNW_Feature_YieldChanges = {
 	/**
 	 */
 	FeatureType: TEXT,
@@ -325,7 +325,7 @@ declare type BMW_Feature_YieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Feature_RiverYieldChanges = {
+declare type BNW_Feature_RiverYieldChanges = {
 	/**
 	 * Reference: Features(Type)
 	 */
@@ -339,7 +339,7 @@ declare type BMW_Feature_RiverYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Feature_HillsYieldChanges = {
+declare type BNW_Feature_HillsYieldChanges = {
 	/**
 	 * Reference: Features(Type)
 	 */
@@ -353,7 +353,7 @@ declare type BMW_Feature_HillsYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Feature_TerrainBooleans = {
+declare type BNW_Feature_TerrainBooleans = {
 	/**
 	 * Reference: Features(Type)
 	 */
@@ -364,7 +364,7 @@ declare type BMW_Feature_TerrainBooleans = {
 	TerrainType: TEXT,
 }
 
-declare type BMW_Natural_Wonder_Placement = {
+declare type BNW_Natural_Wonder_Placement = {
 	/**
 	 * Primary Key
 	 * Auto Increment

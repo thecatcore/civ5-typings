@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/terrain/civ5resources
 
-declare type BMW_Resources = {
+declare type BNW_Resources = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -200,7 +200,7 @@ declare type BMW_Resources = {
 	IconAtlas: TEXT,
 }
 
-declare type BMW_Resource_YieldChanges = {
+declare type BNW_Resource_YieldChanges = {
 	/**
 	 * Reference: Resources(Type)
 	 */
@@ -215,7 +215,7 @@ declare type BMW_Resource_YieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Resource_Flavors = {
+declare type BNW_Resource_Flavors = {
 	/**
 	 * Reference: Resources(Type)
 	 */
@@ -230,7 +230,7 @@ declare type BMW_Resource_Flavors = {
 	Flavor: INTEGER,
 }
 
-declare type BMW_Resource_TerrainBooleans = {
+declare type BNW_Resource_TerrainBooleans = {
 	/**
 	 * Reference: Resources(Type)
 	 */
@@ -241,7 +241,7 @@ declare type BMW_Resource_TerrainBooleans = {
 	TerrainType: TEXT,
 }
 
-declare type BMW_Resource_FeatureBooleans = {
+declare type BNW_Resource_FeatureBooleans = {
 	/**
 	 * Reference: Resources(Type)
 	 */
@@ -252,7 +252,7 @@ declare type BMW_Resource_FeatureBooleans = {
 	FeatureType: TEXT,
 }
 
-declare type BMW_Resource_FeatureTerrainBooleans = {
+declare type BNW_Resource_FeatureTerrainBooleans = {
 	/**
 	 * Reference: Resources(Type)
 	 */
@@ -263,7 +263,7 @@ declare type BMW_Resource_FeatureTerrainBooleans = {
 	TerrainType: TEXT,
 }
 
-declare type BMW_Resource_QuantityTypes = {
+declare type BNW_Resource_QuantityTypes = {
 	/**
 	 * Reference: Resources(Type)
 	 */

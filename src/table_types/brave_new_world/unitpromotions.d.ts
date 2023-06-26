@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/units/civ5unitpromotions
 
-declare type BMW_UnitPromotions = {
+declare type BNW_UnitPromotions = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -599,7 +599,7 @@ declare type BMW_UnitPromotions = {
 	PediaEntry: TEXT,
 }
 
-declare type BMW_UnitPromotions_Terrains = {
+declare type BNW_UnitPromotions_Terrains = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
@@ -633,7 +633,7 @@ declare type BMW_UnitPromotions_Terrains = {
 	PediaType: TEXT,
 }
 
-declare type BMW_UnitPromotions_Features = {
+declare type BNW_UnitPromotions_Features = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
@@ -667,7 +667,7 @@ declare type BMW_UnitPromotions_Features = {
 	PediaType: TEXT,
 }
 
-declare type BMW_UnitPromotions_UnitClasses = {
+declare type BNW_UnitPromotions_UnitClasses = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
@@ -690,7 +690,7 @@ declare type BMW_UnitPromotions_UnitClasses = {
 	PediaType: TEXT,
 }
 
-declare type BMW_UnitPromotions_Domains = {
+declare type BNW_UnitPromotions_Domains = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
@@ -707,7 +707,7 @@ declare type BMW_UnitPromotions_Domains = {
 	PediaType: TEXT,
 }
 
-declare type BMW_UnitPromotions_UnitCombatMods = {
+declare type BNW_UnitPromotions_UnitCombatMods = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
@@ -724,7 +724,7 @@ declare type BMW_UnitPromotions_UnitCombatMods = {
 	PediaType: TEXT,
 }
 
-declare type BMW_UnitPromotions_UnitCombats = {
+declare type BNW_UnitPromotions_UnitCombats = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
@@ -738,7 +738,7 @@ declare type BMW_UnitPromotions_UnitCombats = {
 	PediaType: TEXT,
 }
 
-declare type BMW_UnitPromotions_CivilianUnitType = {
+declare type BNW_UnitPromotions_CivilianUnitType = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
@@ -749,7 +749,7 @@ declare type BMW_UnitPromotions_CivilianUnitType = {
 	UnitType: TEXT,
 }
 
-declare type BMW_UnitPromotions_PostCombatRandomPromotion = {
+declare type BNW_UnitPromotions_PostCombatRandomPromotion = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */

@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/gameinfo/civ5specialists
 
-declare type BMW_Specialists = {
+declare type BNW_Specialists = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -61,7 +61,7 @@ declare type BMW_Specialists = {
 	GreatPeopleUnitClass: TEXT,
 }
 
-declare type BMW_SpecialistFlavors = {
+declare type BNW_SpecialistFlavors = {
 	/**
 	 * Reference: Specialists(Type)
 	 */
@@ -75,7 +75,7 @@ declare type BMW_SpecialistFlavors = {
 	Flavor: INTEGER,
 }
 
-declare type BMW_SpecialistYields = {
+declare type BNW_SpecialistYields = {
 	/**
 	 * Reference: Specialists(Type)
 	 */

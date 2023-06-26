@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/gameinfo/civ5victories
 
-declare type BMW_Victories = {
+declare type BNW_Victories = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -96,7 +96,7 @@ declare type BMW_Victories = {
 	Audio: TEXT,
 }
 
-declare type BMW_VictoryPointAwards = {
+declare type BNW_VictoryPointAwards = {
 	/**
 	 * Reference: Victories(Type)
 	 */
@@ -107,7 +107,7 @@ declare type BMW_VictoryPointAwards = {
 	VictoryPoints: INTEGER,
 }
 
-declare type BMW_HistoricRankings = {
+declare type BNW_HistoricRankings = {
 	/**
 	 * Primary Key
 	 * Auto Increment

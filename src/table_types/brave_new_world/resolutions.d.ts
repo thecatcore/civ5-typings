@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/gameinfo/civ5resolutions
 
-declare type BMW_LeagueSpecialSessions = {
+declare type BNW_LeagueSpecialSessions = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -62,7 +62,7 @@ declare type BMW_LeagueSpecialSessions = {
 	UnitedNations: BOOLEAN,
 }
 
-declare type BMW_LeagueNames = {
+declare type BNW_LeagueNames = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -80,7 +80,7 @@ declare type BMW_LeagueNames = {
 	NameKey: TEXT,
 }
 
-declare type BMW_LeagueProjectRewards = {
+declare type BNW_LeagueProjectRewards = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -141,7 +141,7 @@ declare type BMW_LeagueProjectRewards = {
 	FreeUnitClass: TEXT,
 }
 
-declare type BMW_LeagueProjects = {
+declare type BNW_LeagueProjects = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -201,7 +201,7 @@ declare type BMW_LeagueProjects = {
 	IconAtlas: TEXT,
 }
 
-declare type BMW_ResolutionDecisions = {
+declare type BNW_ResolutionDecisions = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -218,7 +218,7 @@ declare type BMW_ResolutionDecisions = {
 	Description: TEXT,
 }
 
-declare type BMW_Resolutions = {
+declare type BNW_Resolutions = {
 	/**
 	 * Primary Key
 	 * Auto Increment

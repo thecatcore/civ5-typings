@@ -1,6 +1,6 @@
 // dlc/expansion2/gameplay/xml/terrain/civ5improvements
 
-declare type BMW_Improvements = {
+declare type BNW_Improvements = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -235,7 +235,7 @@ declare type BMW_Improvements = {
 	IconAtlas: TEXT,
 }
 
-declare type BMW_Improvement_Flavors = {
+declare type BNW_Improvement_Flavors = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -250,7 +250,7 @@ declare type BMW_Improvement_Flavors = {
 	Flavor: INTEGER,
 }
 
-declare type BMW_Improvement_Yields = {
+declare type BNW_Improvement_Yields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -265,7 +265,7 @@ declare type BMW_Improvement_Yields = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_YieldPerEra = {
+declare type BNW_Improvement_YieldPerEra = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -280,7 +280,7 @@ declare type BMW_Improvement_YieldPerEra = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_AdjacentCityYields = {
+declare type BNW_Improvement_AdjacentCityYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -295,7 +295,7 @@ declare type BMW_Improvement_AdjacentCityYields = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_CoastalLandYields = {
+declare type BNW_Improvement_CoastalLandYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -310,7 +310,7 @@ declare type BMW_Improvement_CoastalLandYields = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_FreshWaterYields = {
+declare type BNW_Improvement_FreshWaterYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -325,7 +325,7 @@ declare type BMW_Improvement_FreshWaterYields = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_HillsYields = {
+declare type BNW_Improvement_HillsYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -340,7 +340,7 @@ declare type BMW_Improvement_HillsYields = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_AdjacentMountainYieldChanges = {
+declare type BNW_Improvement_AdjacentMountainYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -355,7 +355,7 @@ declare type BMW_Improvement_AdjacentMountainYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_PrereqNatureYields = {
+declare type BNW_Improvement_PrereqNatureYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -370,7 +370,7 @@ declare type BMW_Improvement_PrereqNatureYields = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_RiverSideYields = {
+declare type BNW_Improvement_RiverSideYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -385,7 +385,7 @@ declare type BMW_Improvement_RiverSideYields = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_ValidTerrains = {
+declare type BNW_Improvement_ValidTerrains = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -396,7 +396,7 @@ declare type BMW_Improvement_ValidTerrains = {
 	TerrainType: TEXT,
 }
 
-declare type BMW_Improvement_ValidFeatures = {
+declare type BNW_Improvement_ValidFeatures = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -407,7 +407,7 @@ declare type BMW_Improvement_ValidFeatures = {
 	FeatureType: TEXT,
 }
 
-declare type BMW_Improvement_ValidImprovements = {
+declare type BNW_Improvement_ValidImprovements = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -418,7 +418,7 @@ declare type BMW_Improvement_ValidImprovements = {
 	PrereqImprovement: TEXT,
 }
 
-declare type BMW_Improvement_ResourceTypes = {
+declare type BNW_Improvement_ResourceTypes = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -445,7 +445,7 @@ declare type BMW_Improvement_ResourceTypes = {
 	QuantityRequirement: INTEGER,
 }
 
-declare type BMW_Improvement_ResourceType_Yields = {
+declare type BNW_Improvement_ResourceType_Yields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -464,7 +464,7 @@ declare type BMW_Improvement_ResourceType_Yields = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_RouteYieldChanges = {
+declare type BNW_Improvement_RouteYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -482,7 +482,7 @@ declare type BMW_Improvement_RouteYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_TechYieldChanges = {
+declare type BNW_Improvement_TechYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -500,7 +500,7 @@ declare type BMW_Improvement_TechYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_TechNoFreshWaterYieldChanges = {
+declare type BNW_Improvement_TechNoFreshWaterYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
@@ -518,7 +518,7 @@ declare type BMW_Improvement_TechNoFreshWaterYieldChanges = {
 	Yield: INTEGER,
 }
 
-declare type BMW_Improvement_TechFreshWaterYieldChanges = {
+declare type BNW_Improvement_TechFreshWaterYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
