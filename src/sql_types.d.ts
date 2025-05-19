@@ -2,6 +2,7 @@
 declare type TEXT = string;
 /** SQLite type */
 declare type INTEGER = number;
+declare type INT = INTEGER;
 /** 
  * SQLite type
  * 
@@ -10,6 +11,7 @@ declare type INTEGER = number;
  * - `1` — `TRUE`
  */
 declare type BOOLEAN = 0|1;
+declare type BOOL = BOOLEAN;
 /** SQLite type */
 declare type REAL = number;
 /** 

@@ -1,20 +1,23 @@
-import { parse } from "https://deno.land/x/xml@2.1.1/mod.ts"
-import { document } from "https://deno.land/x/xml@2.1.1/utils/types.ts";
-import { walk } from "https://deno.land/std@0.192.0/fs/walk.ts";
-import { exists } from "https://deno.land/std@0.192.0/fs/exists.ts";
+import { parse } from "@libs/xml"
+import { walk, exists } from "@std/fs";
+import * as console from "node:console";
 
 const decoder = new TextDecoder("utf-8");
 const encoder = new TextEncoder();
 
-const assetsDir = "/home/arthur/.steam/steam/steamapps/common/Sid Meier's Civilization V/steamassets/assets";
+const assetsDir = "/home/arthur/.steam/steam/steamapps/common/Sid Meier's Civilization V/Assets";
 
 async function parseXMLFile(filePath: string) {
     return parse(decoder.decode(await Deno.readFile(filePath)), {
-        flatten: true,
+        flatten: {
+            attributes: true,
+            text: true,
+            empty: true,
+        },
     })
 }
 
-const Tables: Record<string, Table[]> = {}
+const Tables: Record<string, Record<string, Column[]>> = {}
 
 if (!await exists("./tables.json")) {
     for await (const paf of walk(assetsDir, {
@@ -56,14 +59,11 @@ if (!await exists("./tables.json")) {
                                                     }
                                                 }
 
-                                                if (!Tables[uniqueName]) {
-                                                    Tables[uniqueName] = []
+                                                if (!Object.hasOwn(Tables, uniqueName)) {
+                                                    Tables[uniqueName] = {}
                                                 }
 
-                                                Tables[uniqueName].push({
-                                                    name: table["@name"],
-                                                    columns: columnlist
-                                                })
+                                                Tables[uniqueName][table["@name"]] = columnlist
                                             }
                                         }
                                     }
@@ -88,39 +88,111 @@ if (!await exists("./tables.json")) {
     }
 }
 
+const groupedKeys = Object.groupBy(Object.keys(Tables), (entry) => {
+    if (entry.startsWith("DLC_Expansion2")) return "BNW";
+    if (entry.startsWith("DLC_Expansion")) return "GnK";
+    return "Vanilla"
+});
+
+function flatten(value, index, array) {
+    this.push(...array[index])
+    return value;
+}
+
 if (!await exists("./typings")) {
     await Deno.mkdir("./typings")
 }
 
 if (!await exists("./typings/tables")) {
     await Deno.mkdir("./typings/tables")
-
-    for (const key in Tables) {
-        const tables = Tables[key];
-
-        console.log("Generating typings for tables in " + key)
-
-        let fileText = ""
-
-        for (const i in tables) {
-            const table = tables[i];
-
-            fileText += buildTableType(key, table)
-        }
-
-        await Deno.writeFile("./typings/tables/" + key + ".d.ts", encoder.encode(fileText))
-    }
 }
+
+for (const key in groupedKeys) {
+    const files = groupedKeys[key as 'Vanilla'];
+
+    let fileText = "/// <reference path=\"../../sql_types.d.ts\" />" + "\n\n"
+
+    for (const file of files ?? []) {
+        const tables = Tables[file];
+
+        for (const tableName in tables) {
+            const table = tables[tableName];
+
+            fileText += buildTableType(key + "_" + tableName, table)
+        }
+    }
+
+    if (!await exists("../src/table_types/" + key)) {
+        await Deno.mkdir("../src/table_types/" + key)
+    }
+
+    await Deno.writeFile("../src/table_types/" + key + "/" + key + ".d.ts", encoder.encode(fileText))
+}
+
+const expansion2Tables = Object.fromEntries(Object.entries(groupedKeys)
+    .map(([key, value]) => [key, value.map(file => {
+        return Object.keys(Tables[file]);
+    }).flatMap(flatten, [] as string[])]))
+
+const uniqueTableList: Set<string> = new Set(Object.values(expansion2Tables).flatMap(flatten, [] as string[]));
+
+const availability = Object.fromEntries(Array.from(uniqueTableList).map((entry) => {
+    const expansions = [];
+
+    for (const key in expansion2Tables) {
+        if (expansion2Tables[key].includes(entry)) {
+            expansions.push(key);
+        }
+    }
+
+    return [entry, expansions];
+}))
+
+const lines = Object.entries(availability).map(([key, value]) => {
+    let text = `declare type ${key}<D extends DLCs> = `;
+
+    if (value.includes("Vanilla")) {
+        if (value.includes("GnK")) {
+            if (value.includes("BNW")) {
+                text += `TableType<D, Vanilla_${key}, GnK_${key}, BNW_${key}>`
+            } else {
+                console.log("ERROR: BNW not found in " + key + " but G&K and Vanilla are")
+                text += `TableType<D, Vanilla_${key}, GnK_${key}, null>`
+            }
+        } else if (value.includes("BNW")) {
+            text += `TableTypeNoGnK<D, Vanilla_${key}, BNW_${key}>`
+        } else {
+            text += `TableTypeVanilla<D, Vanilla_${key}>`
+        }
+    } else if (value.includes("GnK")) {
+        if (value.includes("BNW")) {
+            text += `TableTypeGnK<D, GnK_${key}, BNW_${key}>`
+        } else {
+            console.log("ERROR: BNW not found in " + key + " but G&K is")
+            text += `TableTypeGnK<D, GnK_${key}, null>`
+        }
+    } else if (value.includes("BNW")) {
+        text += `TableTypeBNW<D, BNW_${key}>`
+    } else {
+        console.log("ERROR: No expansion found in " + key)
+        text += `TableType<D, null, null, null>`
+    }
+
+    return text + ";"
+});
+
+await Deno.writeFile("../src/table_types/index.d.ts", encoder.encode(lines.join("\n\n")));
+
 
 const UnsTables: Record<string, string> = {}
 
 for (const file in Tables) {
-    for (const table of Tables[file]) {
-        const tableName = table.name;
+    for (const tableName in Tables[file]) {
+        const columns = Tables[file][tableName];
 
         if (UnsTables[tableName]) continue;
 
-        for (const column of table.columns) {
+        for (const column of columns) {
             if (column.type === "text" && column.notNull && column.unique) {
                 console.log(column.name + " " + tableName)
                 UnsTables[tableName] = column.name;
@@ -130,6 +202,8 @@ for (const file in Tables) {
     }
 }
 
+const TablesToRows: Record<string, Record<string, object[]>> = {}
+
 for await (const paf of walk(assetsDir, {
     exts: [
         "xml",
@@ -138,22 +212,35 @@ for await (const paf of walk(assetsDir, {
 })) {
         if (paf.isFile) {
             const subPath = paf.path.replace(assetsDir + "/", "")
-            
+
             if (subPath.includes("scenario")) continue;
 
             try {
                 const doc = await parseXMLFile(paf.path);
+                const uniqueName = subPath.replace(".xml", "").replaceAll("/", "_")
 
                 if (Object.hasOwn(doc, "GameData")) {
                     const gameData = doc.GameData
-            
+
                     if (gameData != null && typeof(gameData) == "object") {
-                        console.log("Parsing " + subPath)
+
                         for (const tableName in UnsTables) {
                             if (Object.hasOwn(gameData, tableName)) {
                                 const table = gameData[tableName];
 
-                                console.log(table)
+                                if (Object.hasOwn(table, "Row")) {
+                                    if (!Object.hasOwn(TablesToRows, uniqueName)) {
+                                        TablesToRows[uniqueName] = {}
+                                    }
+
+                                    const rows = table["Row"];
+
+                                    if (Array.isArray(rows)) {
+                                        TablesToRows[uniqueName][tableName] = rows;
+                                    } else if (typeof rows == "object") {
+                                        TablesToRows[uniqueName][tableName] = [rows];
+                                    }
+                                }
                             }
                         }
                     }
@@ -166,6 +253,12 @@ for await (const paf of walk(assetsDir, {
         }
 }
 
+console.log(Object.fromEntries(Object.entries(TablesToRows).map(([key, value]) => {
+    return [key, Object.fromEntries(Object.entries(value).map(([tableName, rows]) => {
+        return [tableName, rows.length]
+    }))]
+})))
+
 type Table = {
     name: string,
     columns: Column[]
@@ -174,14 +267,14 @@ type Table = {
 // deno-lint-ignore no-explicit-any
 function parseColumn(col: Record<string, any>): Column {
     return {
-        name: col["@name"],
-        type: col["@type"],
-        primaryKey: col["@primarykey"],
-        autoIncrement: col["@autoincrement"],
-        notNull: col["@notnull"],
-        unique: col["@unique"],
-        reference: col["@reference"],
-        defaultValue: col["@default"]
+        name: col["name"],
+        type: col["type"],
+        primaryKey: col["primarykey"],
+        autoIncrement: col["autoincrement"],
+        notNull: col["notnull"],
+        unique: col["unique"],
+        reference: col["reference"],
+        defaultValue: col["default"]
     }
 }
 
@@ -196,11 +289,11 @@ type Column = {
     defaultValue?: string | number | boolean
 }
 
-function buildTableType(name: string, table: Table) {
-    let text = `declare type ${name + "_" + table.name} = {`
+function buildTableType(tableName: string, columns: Column[]) {
+    let text = `declare type ${tableName} = {`
 
-    for (const i in table.columns) {
-        const column = table.columns[i];
+    for (const i in columns) {
+        const column = columns[i];
 
         text += "\n\t/**"
 
