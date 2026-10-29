@@ -9,28 +9,30 @@ export type Tests = [
     Expect<Equal<ActiveDataSet, ExampleDataSet>>,
 
     // The mod adds keys to the existing ones, columns to existing tables, and new tables.
-    Accepts<BuildingsType, "BUILDING_MONUMENT">,
-    Accepts<BuildingsType, "BUILDING_EXAMPLE_WONDER">,
-    Expect<Equal<Buildings["ExampleBonus"], INTEGER>>,
-    Expect<Equal<Buildings["Type"], GnK_BNW_BuildingsType>>,
+    Accepts<ExampleKeys["Buildings"], "BUILDING_MONUMENT">,
+    Accepts<ExampleKeys["Buildings"], "BUILDING_EXAMPLE_WONDER">,
+    Expect<Equal<ExampleTables["Buildings"]["ExampleBonus"], INTEGER>>,
+    Expect<Equal<ExampleTables["Buildings"]["Type"], GnK_BNW_BuildingsType>>,
     Expect<Equal<DataSetKeys<ActiveDataSet, "Example_Rewards">, "EXAMPLE_REWARD_SMALL" | "EXAMPLE_REWARD_BIG">>,
 
     // Both expansions are optional: Gods and Kings civilizations only exist with it.
-    Accepts<CivilizationsType<GnK_DataSet>, "CIVILIZATION_AUSTRIA">,
-    Accepts<CivilizationsType<GnK_BNW_DataSet>, "CIVILIZATION_AUSTRIA">,
+    Accepts<GnK_DataSet["keys"]["Civilizations"], "CIVILIZATION_AUSTRIA">,
+    Accepts<GnK_BNW_DataSet["keys"]["Civilizations"], "CIVILIZATION_AUSTRIA">,
     // @ts-expect-error
-    Accepts<CivilizationsType<BNW_DataSet>, "CIVILIZATION_AUSTRIA">,
+    Accepts<BNW_DataSet["keys"]["Civilizations"], "CIVILIZATION_AUSTRIA">,
     // @ts-expect-error
-    Accepts<CivilizationsType<Vanilla_DataSet>, "CIVILIZATION_AUSTRIA">,
+    Accepts<Vanilla_DataSet["keys"]["Civilizations"], "CIVILIZATION_AUSTRIA">,
 
     // Brave New World content only exists with it.
-    Accepts<CivilizationsType<BNW_DataSet>, "CIVILIZATION_ZULU">,
+    Accepts<BNW_DataSet["keys"]["Civilizations"], "CIVILIZATION_ZULU">,
     // @ts-expect-error
-    Accepts<CivilizationsType<GnK_DataSet>, "CIVILIZATION_ZULU">,
+    Accepts<GnK_DataSet["keys"]["Civilizations"], "CIVILIZATION_ZULU">,
 
     // Tables missing from a data set.
-    Expect<Equal<GreatWorks<Vanilla_DataSet>, never>>,
-    Expect<Equal<GreatWorksType<GnK_DataSet>, never>>,
+    // @ts-expect-error
+    Expect<Equal<Vanilla_DataSet["tables"]["GreatWorks"], never>>,
+    // @ts-expect-error
+    Expect<Equal<GnK_DataSet["keys"]["GreatWorks"], never>>,
     Expect<Equal<keyof GameInfoOf<Vanilla_DataSet> & "GreatWorks", never>>,
     Expect<Equal<keyof GameInfoOf<BNW_DataSet> & "GreatWorks", "GreatWorks">>,
 ];

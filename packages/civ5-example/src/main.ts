@@ -1,4 +1,4 @@
-function describeBuilding(building: Buildings): string {
+function describeBuilding(building: ExampleTables["Buildings"]): string {
     return `${building.Type}: ${building.Cost} production, ${building.ExampleBonus} bonus`;
 }
 

@@ -10,4 +10,7 @@ type ExampleDataSet = ExtendDataSet<GnK_BNW_DataSet, {
     },
 }>;
 
+type ExampleTables = ExampleDataSet["tables"];
+type ExampleKeys = ExampleDataSet["keys"];
+
 interface Civ5TypingsConfig { dataSet: ExampleDataSet }
