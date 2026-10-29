@@ -1,0 +1,20 @@
+{
+  // Type checks the mod and the type tests, see "tsconfig.build.json" to build the mod.
+  "include": ["src", "test"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": ["lua-types/5.1", "civ5-typings"],
+    "strict": true,
+    // Also checks the typings themselves.
+    "skipLibCheck": false
+  },
+  "tstl": {
+    "luaTarget": "5.1",
+    "noHeader": true,
+    "noImplicitGlobalVariables": true,
+    "noImplicitSelf": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "civ5-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Example mod using the civ5-typings, also type tests for them.",
+  "author": "Cat Core",
+  "license": "MIT",
+  "scripts": {
+    "build": "tstl -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "civ5-typings": "workspace:*",
+    "lua-types": "^2.14.1",
+    "typescript": "6.0.2",
+    "typescript-to-lua": "1.36.0"
+  }
+}

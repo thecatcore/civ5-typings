@@ -170,6 +170,21 @@ importers:
         specifier: runtime:^24.0.0
         version: runtime:24.22.2
 
+  packages/civ5-example:
+    devDependencies:
+      civ5-typings:
+        specifier: workspace:*
+        version: link:../civ5-typings
+      lua-types:
+        specifier: ^2.14.1
+        version: 2.14.1
+      typescript:
+        specifier: 6.0.2
+        version: 6.0.2
+      typescript-to-lua:
+        specifier: 1.36.0
+        version: 1.36.0(typescript@6.0.2)
+
   packages/civ5-scraper:
     dependencies:
       '@libs/xml':
@@ -184,10 +199,11 @@ importers:
         version: 6.0.2
 
   packages/civ5-typings:
-    devDependencies:
+    dependencies:
       '@typescript-to-lua/language-extensions':
         specifier: ^1.19.0
         version: 1.19.0
+    devDependencies:
       lua-types:
         specifier: ^2.14.1
         version: 2.14.1
