@@ -1,0 +1,20 @@
+{
+  "name": "civ5-scraper",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Generates the civ5-typings table types from the Civilization 5 game assets.",
+  "author": "Cat Core",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "scrape": "node main.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@libs/xml": "jsr:^6.0.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "6.0.2"
+  }
+}

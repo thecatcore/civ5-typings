@@ -1,5 +1,4 @@
 {
-  // The scraper is a separate Deno project.
   "include": ["src"],
   "compilerOptions": {
     // Needed since this is a library.

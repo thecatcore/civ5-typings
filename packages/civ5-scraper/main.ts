@@ -1,14 +1,16 @@
 import { parse } from "@libs/xml"
-import { walk, exists } from "@std/fs";
-import * as console from "node:console";
+import { existsSync } from "node:fs";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { join, resolve } from "node:path";
 
-const decoder = new TextDecoder("utf-8");
-const encoder = new TextEncoder();
+const assetsDir = process.env.CIV5_ASSETS_DIR ?? "/home/arthur/.steam/steam/steamapps/common/Sid Meier's Civilization V/Assets";
 
-const assetsDir = "/home/arthur/.steam/steam/steamapps/common/Sid Meier's Civilization V/Assets";
+const tablesCache = resolve(import.meta.dirname, "tables.json");
+const tableTypesDir = resolve(import.meta.dirname, "../civ5-typings/src/table_types");
 
-async function parseXMLFile(filePath: string) {
-    return parse(decoder.decode(await Deno.readFile(filePath)), {
+// The parsed XML is loosely typed, its shape is checked at runtime.
+async function parseXMLFile(filePath: string): Promise<Record<string, any>> {
+    return parse(await readFile(filePath, "utf-8"), {
         flatten: {
             attributes: true,
             text: true,
@@ -17,15 +19,26 @@ async function parseXMLFile(filePath: string) {
     })
 }
 
+// Recursively yields every ".xml" file under the given directory, sorted for a deterministic output.
+async function* walkXML(dir: string): AsyncGenerator<{ path: string, isFile: boolean }> {
+    const entries = (await readdir(dir, { withFileTypes: true }))
+        .sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+
+    for (const entry of entries) {
+        const path = join(dir, entry.name);
+
+        if (entry.isDirectory()) {
+            yield* walkXML(path);
+        } else if (entry.isFile() && entry.name.endsWith(".xml")) {
+            yield { path, isFile: true };
+        }
+    }
+}
+
 const Tables: Record<string, Record<string, Column[]>> = {}
 
-if (!await exists("./tables.json")) {
-    for await (const paf of walk(assetsDir, {
-        exts: [
-            "xml",
-            ".xml"
-        ]
-    })) {
+if (!existsSync(tablesCache)) {
+    for await (const paf of walkXML(assetsDir)) {
         console.log("Parsing " + paf.path)
         if (paf.isFile) {
             const subPath = paf.path.replace(assetsDir + "/", "")
@@ -80,9 +93,9 @@ if (!await exists("./tables.json")) {
         }
     }
 
-    await Deno.writeFile("./tables.json", encoder.encode(JSON.stringify(Tables, undefined, 4)))
+    await writeFile(tablesCache, JSON.stringify(Tables, undefined, 4))
 } else {
-    const old_Tables = JSON.parse(decoder.decode(await Deno.readFile('./tables.json')));
+    const old_Tables = JSON.parse(await readFile(tablesCache, "utf-8"));
     for (const key in old_Tables) {
         Tables[key] = old_Tables[key];
     }
@@ -94,17 +107,9 @@ const groupedKeys = Object.groupBy(Object.keys(Tables), (entry) => {
     return "Vanilla"
 });
 
-function flatten(value, index, array) {
+function flatten<T>(this: T[], value: T[], index: number, array: T[][]) {
     this.push(...array[index])
     return value;
-}
-
-if (!await exists("./typings")) {
-    await Deno.mkdir("./typings")
-}
-
-if (!await exists("./typings/tables")) {
-    await Deno.mkdir("./typings/tables")
 }
 
 for (const key in groupedKeys) {
@@ -122,11 +127,9 @@ for (const key in groupedKeys) {
         }
     }
 
-    if (!await exists("../src/table_types/" + key)) {
-        await Deno.mkdir("../src/table_types/" + key)
-    }
+    await mkdir(join(tableTypesDir, key), { recursive: true })
 
-    await Deno.writeFile("../src/table_types/" + key + "/" + key + ".d.ts", encoder.encode(fileText))
+    await writeFile(join(tableTypesDir, key, key + ".d.ts"), fileText)
 }
 
 const expansion2Tables = Object.fromEntries(Object.entries(groupedKeys)
@@ -181,7 +184,7 @@ const lines = Object.entries(availability).map(([key, value]) => {
     return text + ";"
 });
 
-await Deno.writeFile("../src/table_types/index.d.ts", encoder.encode(lines.join("\n\n")));
+await writeFile(join(tableTypesDir, "index.d.ts"), lines.join("\n\n"));
 
 
 const UnsTables: Record<string, string> = {}
@@ -204,12 +207,7 @@ for (const file in Tables) {
 
 const TablesToRows: Record<string, Record<string, object[]>> = {}
 
-for await (const paf of walk(assetsDir, {
-    exts: [
-        "xml",
-        ".xml"
-    ]
-})) {
+for await (const paf of walkXML(assetsDir)) {
         if (paf.isFile) {
             const subPath = paf.path.replace(assetsDir + "/", "")
 
@@ -264,7 +262,6 @@ type Table = {
     columns: Column[]
 }
 
-// deno-lint-ignore no-explicit-any
 function parseColumn(col: Record<string, any>): Column {
     return {
         name: col["name"],

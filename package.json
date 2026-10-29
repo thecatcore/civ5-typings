@@ -1,19 +1,19 @@
 {
-  "name": "civ5-typings",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "civ5-typings-monorepo",
+  "private": true,
   "author": "Cat Core",
   "license": "MIT",
-  "devDependencies": {
-    "@typescript-to-lua/language-extensions": "^1.19.0",
-    "lua-types": "^2.14.1",
-    "ts-node": "^10.9.2",
-    "typescript": "6.0.2",
-    "typescript-to-lua": "1.36.0"
+  "scripts": {
+    "build": "pnpm --filter civ5-typings build",
+    "scrape": "pnpm --filter civ5-scraper scrape",
+    "typecheck": "pnpm -r typecheck"
   },
-  "packageManager": "pnpm@12.16.1"
+  "packageManager": "pnpm@12.16.1",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.0.0",
+      "onFail": "download"
+    }
+  }
 }
