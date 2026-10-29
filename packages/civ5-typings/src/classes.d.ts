@@ -12,19 +12,16 @@ type GameInfoTable<T, K extends string> = {
     readonly [typeOrID: string | int]: T | undefined
 } & ((this: void, filter?: string | Partial<T>) => LuaIterable<T>)
 
-type GameInfoTablesOf<D extends DLCs> = {
-    readonly [K in keyof GameInfoTables<D> as [GameInfoTables<D>[K]] extends [null] ? never : K]: GameInfoTable<
-        GameInfoTables<D>[K],
-        K extends keyof GameInfoTypeKeys<D> ? GameInfoTypeKeys<D>[K] : never
-    >
+type GameInfoOf<S extends DataSet> = {
+    readonly [K in keyof S["tables"] & string]: GameInfoTable<S["tables"][K], DataSetKeys<S, K>>
 }
 
 // See: http://modiki.civfanatics.com/index.php?title=Lua_and_UI_Reference_(Civ5)
-declare const GameInfo: GameInfoTablesOf<ActiveDLC>;
+declare const GameInfo: GameInfoOf<ActiveDataSet>;
 
 /** The `ID` of every row, by key (usually `Type`): `GameInfoTypes.BUILDING_MONUMENT` */
 declare const GameInfoTypes: {
-    readonly [T in GameInfoTypeKeys<ActiveDLC>[keyof GameInfoTypeKeys<ActiveDLC>]]: int
+    readonly [T in ActiveDataSet["keys"][keyof ActiveDataSet["keys"]]]: int
 } & {
     readonly [type: string]: int | undefined
 };

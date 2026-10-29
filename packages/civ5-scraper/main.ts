@@ -317,6 +317,14 @@ function buildTypeUnion(dlc: DLC, tableName: string, values: string[]) {
     return `declare type ${typeName(dlc, tableName)} =\n${values.map(value => `\t| ${JSON.stringify(value)}`).join("\n")};\n\n`
 }
 
+// The tables of the DLC and the key values of their rows, see "data_set.d.ts".
+function buildDataSet(dlc: DLC) {
+    const tables = Object.keys(Data[dlc].tables).map(table => `\t\t${table}: ${dlc}_${table},`);
+    const keys = Object.keys(Data[dlc].types).map(table => `\t\t${table}: ${typeName(dlc, table)},`);
+
+    return `declare interface ${dlc}_DataSet {\n\ttables: {\n${tables.join("\n")}\n\t},\n\tkeys: {\n${keys.join("\n")}\n\t},\n}\n`
+}
+
 for (const dlc of DLCS) {
     let fileText = "/// <reference path=\"../../sql_types.d.ts\" />" + "\n\n"
 
@@ -327,6 +335,8 @@ for (const dlc of DLCS) {
     for (const tableName in Data[dlc].types) {
         fileText += buildTypeUnion(dlc, tableName, Data[dlc].types[tableName])
     }
+
+    fileText += buildDataSet(dlc)
 
     await mkdir(join(tableTypesDir, dlc), { recursive: true })
 
@@ -342,24 +352,10 @@ for (const table of typedTables) {
     }
 }
 
-// Picks the type matching the DLC, or the fallback when the DLC doesn't have it.
-function dlcSwitch(name: (dlc: DLC) => string, has: (dlc: DLC) => boolean, fallback: string) {
-    return `TableType<D, ${DLCS.map(dlc => has(dlc) ? name(dlc) : fallback).join(", ")}>`
-}
-
+// Shorthands for the rows and row keys of each table, in the active data set by default, `never` when missing from it.
 const lines = [
-    ...allTables.map(table => `declare type ${table}<D extends DLCs> = ${dlcSwitch(
-        dlc => `${dlc}_${table}`,
-        dlc => Object.hasOwn(Data[dlc].tables, table),
-        "null",
-    )};`),
-    ...typedTables.map(table => `declare type ${table}${typeNameSuffix}<D extends DLCs> = ${dlcSwitch(
-        dlc => typeName(dlc, table),
-        dlc => Object.hasOwn(Data[dlc].types, table),
-        "never",
-    )};`),
-    `/** Every database table, \`null\` when missing from the DLC. */\ndeclare interface GameInfoTables<D extends DLCs> {\n${allTables.map(table => `\t${table}: ${table}<D>;`).join("\n")}\n}`,
-    `/** The key values (usually \`Type\`) of the rows of each table, \`never\` when missing from the DLC. */\ndeclare interface GameInfoTypeKeys<D extends DLCs> {\n${typedTables.map(table => `\t${table}: ${table}${typeNameSuffix}<D>;`).join("\n")}\n}`,
+    ...allTables.map(table => `declare type ${table}<S extends DataSet = ActiveDataSet> = DataSetTable<S, "${table}">;`),
+    ...typedTables.map(table => `declare type ${table}${typeNameSuffix}<S extends DataSet = ActiveDataSet> = DataSetKeys<S, "${table}">;`),
 ];
 
 await writeFile(join(tableTypesDir, "index.d.ts"), lines.join("\n\n") + "\n");
