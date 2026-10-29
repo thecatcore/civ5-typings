@@ -1,5 +1,6 @@
 /** SQLite type */
 declare type TEXT = string;
+declare type STRING = TEXT;
 /** SQLite type */
 declare type INTEGER = number;
 declare type INT = INTEGER;

@@ -5,6 +5,14 @@
 Provides type indications to Civilization 5 Lua Modding API.\
 Powered by TypeScriptToLua transpiler.
 
+## Usage
+
+`GameInfo` and `GameInfoTypes` are typed after the Brave New World database by default. To target another ruleset:
+
+```ts
+interface Civ5TypingsConfig { dlc: DLCs.GODS_AND_KINGS }
+```
+
 ## Development
 
 This repository is a [pnpm](https://pnpm.io) workspace:
@@ -21,4 +29,4 @@ pnpm build
 pnpm scrape # set CIV5_ASSETS_DIR to your "Sid Meier's Civilization V/Assets" folder
 ```
 
-The scraper caches the table schemas in `packages/civ5-scraper/tables.json`; delete it to re-scan the game assets.
+The scraper caches the table schemas and row keys of each DLC in `packages/civ5-scraper/tables.json`; delete it to re-scan the game assets.

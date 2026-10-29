@@ -10,7 +10,7 @@ declare type GnK_AICityStrategies = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_AICityStrategiesType,
 	/**
 	 */
 	CheckTriggerTurnCount: INTEGER,
@@ -55,11 +55,11 @@ declare type GnK_AICityStrategy_Flavors = {
 	/**
 	 * Reference: AICityStrategies(Type)
 	 */
-	AICityStrategyType: TEXT,
+	AICityStrategyType: GnK_AICityStrategiesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -69,11 +69,11 @@ declare type GnK_AICityStrategy_PersonalityFlavorThresholdMods = {
 	/**
 	 * Reference: AICityStrategies(Type)
 	 */
-	AICityStrategyType: TEXT,
+	AICityStrategyType: GnK_AICityStrategiesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -89,7 +89,7 @@ declare type GnK_AIEconomicStrategies = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_AIEconomicStrategiesType,
 	/**
 	 * @default false
 	 */
@@ -136,11 +136,11 @@ declare type GnK_AIEconomicStrategy_Player_Flavors = {
 	/**
 	 * Reference: AIEconomicStrategies(Type)
 	 */
-	AIEconomicStrategyType: TEXT,
+	AIEconomicStrategyType: GnK_AIEconomicStrategiesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -150,11 +150,11 @@ declare type GnK_AIEconomicStrategy_City_Flavors = {
 	/**
 	 * Reference: AIEconomicStrategies(Type)
 	 */
-	AIEconomicStrategyType: TEXT,
+	AIEconomicStrategyType: GnK_AIEconomicStrategiesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -164,11 +164,66 @@ declare type GnK_AIEconomicStrategy_PersonalityFlavorThresholdMods = {
 	/**
 	 * Reference: AIEconomicStrategies(Type)
 	 */
-	AIEconomicStrategyType: TEXT,
+	AIEconomicStrategyType: GnK_AIEconomicStrategiesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
+	/**
+	 */
+	Flavor: INTEGER,
+}
+
+declare type GnK_AIGrandStrategies = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_AIGrandStrategiesType,
+}
+
+declare type GnK_AIGrandStrategy_Flavors = {
+	/**
+	 * Reference: AIGrandStrategies(Type)
+	 */
+	AIGrandStrategyType: GnK_AIGrandStrategiesType,
+	/**
+	 * Reference: Flavors(Type)
+	 */
+	FlavorType: GnK_FlavorsType,
+	/**
+	 */
+	Flavor: INTEGER,
+}
+
+declare type GnK_AIGrandStrategy_Yields = {
+	/**
+	 * Reference: AIGrandStrategies(Type)
+	 */
+	AIGrandStrategyType: GnK_AIGrandStrategiesType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_AIGrandStrategy_FlavorMods = {
+	/**
+	 * Reference: AIGrandStrategies(Type)
+	 */
+	AIGrandStrategyType: GnK_AIGrandStrategiesType,
+	/**
+	 * Reference: Flavors(Type)
+	 */
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -184,7 +239,7 @@ declare type GnK_AIMilitaryStrategies = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_AIMilitaryStrategiesType,
 	/**
 	 * @default false
 	 */
@@ -239,11 +294,11 @@ declare type GnK_AIMilitaryStrategy_Player_Flavors = {
 	/**
 	 * Reference: AIMilitaryStrategies(Type)
 	 */
-	AIMilitaryStrategyType: TEXT,
+	AIMilitaryStrategyType: GnK_AIMilitaryStrategiesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -253,11 +308,11 @@ declare type GnK_AIMilitaryStrategy_City_Flavors = {
 	/**
 	 * Reference: AIMilitaryStrategies(Type)
 	 */
-	AIMilitaryStrategyType: TEXT,
+	AIMilitaryStrategyType: GnK_AIMilitaryStrategiesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -267,11 +322,11 @@ declare type GnK_AIMilitaryStrategy_PersonalityFlavorThresholdMods = {
 	/**
 	 * Reference: AIMilitaryStrategies(Type)
 	 */
-	AIMilitaryStrategyType: TEXT,
+	AIMilitaryStrategyType: GnK_AIMilitaryStrategiesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -287,11 +342,11 @@ declare type GnK_CitySpecializations = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_CitySpecializationsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Subtype: INTEGER,
@@ -313,11 +368,11 @@ declare type GnK_CitySpecialization_Flavors = {
 	/**
 	 * Reference: CitySpecializations(Type)
 	 */
-	CitySpecializationType: TEXT,
+	CitySpecializationType: GnK_CitySpecializationsType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -327,14 +382,250 @@ declare type GnK_CitySpecialization_TargetYields = {
 	/**
 	 * Reference: CitySpecializations(Type)
 	 */
-	CitySpecializationType: TEXT,
+	CitySpecializationType: GnK_CitySpecializationsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
+}
+
+declare type GnK_TacticalMoves = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_TacticalMovesType,
+	/**
+	 * @default true
+	 */
+	OperationsCanRecruit: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	DominanceZoneMove: BOOLEAN,
+	/**
+	 */
+	OffenseFlavorWeight: INTEGER,
+	/**
+	 */
+	DefenseFlavorWeight: INTEGER,
+	/**
+	 */
+	Priority: INTEGER,
+}
+
+declare type GnK_Attitudes = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_AttitudesType,
+	/**
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_Calendars = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 */
+	Type: TEXT,
+	/**
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_CitySizes = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_CitySizesType,
+}
+
+declare type GnK_Concepts = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_ConceptsType,
+	/**
+	 * Not Null
+	 */
+	Topic: TEXT,
+	/**
+	 * Not Null
+	 */
+	Description: TEXT,
+	/**
+	 * Not Null
+	 */
+	Summary: TEXT,
+	/**
+	 */
+	AdvisorQuestion: TEXT,
+	/**
+	 * Not Null
+	 */
+	Advisor: TEXT,
+	/**
+	 */
+	CivilopediaPage: INTEGER,
+	/**
+	 */
+	CivilopediaPageText: TEXT,
+	/**
+	 */
+	CivilopediaHeaderType: TEXT,
+	/**
+	 * Reference: Concepts(Type)
+	 */
+	InsertAfter: GnK_ConceptsType,
+	/**
+	 * Reference: Concepts(Type)
+	 */
+	InsertBefore: GnK_ConceptsType,
+}
+
+declare type GnK_Concepts_RelatedConcept = {
+	/**
+	 * Reference: Concepts(Type)
+	 */
+	ConceptType: GnK_ConceptsType,
+	/**
+	 * Reference: Concepts(Type)
+	 */
+	RelatedConcept: GnK_ConceptsType,
+}
+
+declare type GnK_Contacts = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_ContactsType,
+}
+
+declare type GnK_DenialInfos = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: TEXT,
+	/**
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_Domains = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_DomainsType,
+	/**
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_InvisibleInfos = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_InvisibleInfosType,
+	/**
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_MajorCivApproachTypes = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_MajorCivApproachTypesType,
+}
+
+declare type GnK_MemoryInfos = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: TEXT,
+	/**
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_MinorCivApproachTypes = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_MinorCivApproachTypesType,
 }
 
 declare type GnK_MinorCivTraits = {
@@ -347,7 +638,7 @@ declare type GnK_MinorCivTraits = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_MinorCivTraitsType,
 	/**
 	 */
 	Description: TEXT,
@@ -382,6 +673,71 @@ declare type GnK_MinorCivTraits_Status = {
 	StatusMeterIconAtlasIndex: INTEGER,
 }
 
+declare type GnK_Months = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_MonthsType,
+	/**
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_Seasons = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_SeasonsType,
+	/**
+	 * Not Null
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_UnitAIInfos = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_UnitAIInfosType,
+	/**
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_UnitCombatInfos = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_UnitCombatInfosType,
+	/**
+	 */
+	Description: TEXT,
+}
+
 declare type GnK_BuildingClasses = {
 	/**
 	 * Primary Key
@@ -392,7 +748,7 @@ declare type GnK_BuildingClasses = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_BuildingClassesType,
 	/**
 	 */
 	Description: TEXT,
@@ -429,11 +785,11 @@ declare type GnK_BuildingClass_VictoryThresholds = {
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 * Reference: Victories(Type)
 	 */
-	VictoryType: TEXT,
+	VictoryType: GnK_VictoriesType,
 	/**
 	 */
 	Threshold: INTEGER,
@@ -449,7 +805,7 @@ declare type GnK_Buildings = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_BuildingsType,
 	/**
 	 * Reference: Language_en_US(Tag)
 	 */
@@ -834,7 +1190,7 @@ declare type GnK_Buildings = {
 	 * @default NULL
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClass: TEXT,
+	BuildingClass: GnK_BuildingClassesType,
 	/**
 	 * @default NULL
 	 */
@@ -843,27 +1199,27 @@ declare type GnK_Buildings = {
 	 * @default NULL
 	 * Reference: Terrains(Type)
 	 */
-	NearbyTerrainRequired: TEXT,
+	NearbyTerrainRequired: GnK_TerrainsType,
 	/**
 	 * @default NULL
 	 * Reference: Terrains(Type)
 	 */
-	ProhibitedCityTerrain: TEXT,
+	ProhibitedCityTerrain: GnK_TerrainsType,
 	/**
 	 * @default NULL
 	 * Reference: Victories(Type)
 	 */
-	VictoryPrereq: TEXT,
+	VictoryPrereq: GnK_VictoriesType,
 	/**
 	 * @default NULL
 	 * Reference: Eras(Type)
 	 */
-	FreeStartEra: TEXT,
+	FreeStartEra: GnK_ErasType,
 	/**
 	 * @default NULL
 	 * Reference: Eras(Type)
 	 */
-	MaxStartEra: TEXT,
+	MaxStartEra: GnK_ErasType,
 	/**
 	 * @default NULL
 	 * Reference: Technologies(Type)
@@ -878,32 +1234,32 @@ declare type GnK_Buildings = {
 	 * @default NULL
 	 * Reference: BuildingClasses(Type)
 	 */
-	FreeBuilding: TEXT,
+	FreeBuilding: GnK_BuildingClassesType,
 	/**
 	 * @default NULL
 	 * Reference: BuildingClasses(Type)
 	 */
-	FreeBuildingThisCity: TEXT,
+	FreeBuildingThisCity: GnK_BuildingClassesType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	FreePromotion: TEXT,
+	FreePromotion: GnK_UnitPromotionsType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	TrainedFreePromotion: TEXT,
+	TrainedFreePromotion: GnK_UnitPromotionsType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	FreePromotionRemoved: TEXT,
+	FreePromotionRemoved: GnK_UnitPromotionsType,
 	/**
 	 * @default NULL
 	 * Reference: BuildingClasses(Type)
 	 */
-	ReplacementBuildingClass: TEXT,
+	ReplacementBuildingClass: GnK_BuildingClassesType,
 	/**
 	 * @default NULL
 	 * Reference: Technologies(Type)
@@ -913,7 +1269,7 @@ declare type GnK_Buildings = {
 	 * @default NULL
 	 * Reference: Specialists(Type)
 	 */
-	SpecialistType: TEXT,
+	SpecialistType: GnK_SpecialistsType,
 	/**
 	 * @default 0
 	 */
@@ -972,11 +1328,11 @@ declare type GnK_Building_AreaYieldModifiers = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -986,11 +1342,11 @@ declare type GnK_Building_BuildingClassHappiness = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 */
 	Happiness: INTEGER,
@@ -1000,15 +1356,15 @@ declare type GnK_Building_BuildingClassYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: INTEGER,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -1019,22 +1375,22 @@ declare type GnK_Building_ClassesNeededInCity = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 }
 
 declare type GnK_Building_FreeUnits = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 */
 	NumUnits: INTEGER,
@@ -1044,11 +1400,11 @@ declare type GnK_Building_DomainFreeExperiences = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Domains(Type)
 	 */
-	DomainType: TEXT,
+	DomainType: GnK_DomainsType,
 	/**
 	 */
 	Experience: INTEGER,
@@ -1058,11 +1414,11 @@ declare type GnK_Building_DomainProductionModifiers = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Domains(Type)
 	 */
-	DomainType: TEXT,
+	DomainType: GnK_DomainsType,
 	/**
 	 */
 	Modifier: INTEGER,
@@ -1072,11 +1428,11 @@ declare type GnK_Building_FreeSpecialistCounts = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Specialists(Type)
 	 */
-	SpecialistType: TEXT,
+	SpecialistType: GnK_SpecialistsType,
 	/**
 	 */
 	Count: INTEGER,
@@ -1086,11 +1442,11 @@ declare type GnK_Building_Flavors = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -1100,11 +1456,11 @@ declare type GnK_Building_GlobalYieldModifiers = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1114,11 +1470,11 @@ declare type GnK_Building_HurryModifiers = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: HurryInfos(Type)
 	 */
-	HurryType: TEXT,
+	HurryType: GnK_HurryInfosType,
 	/**
 	 */
 	HurryCostModifier: INTEGER,
@@ -1128,44 +1484,44 @@ declare type GnK_Building_LocalResourceAnds = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 }
 
 declare type GnK_Building_LocalResourceOrs = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 }
 
 declare type GnK_Building_LockedBuildingClasses = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 }
 
 declare type GnK_Building_PrereqBuildingClasses = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 */
 	NumBuildingNeeded: INTEGER,
@@ -1175,11 +1531,11 @@ declare type GnK_Building_ResourceQuantity = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 */
 	Quantity: INTEGER,
@@ -1189,11 +1545,11 @@ declare type GnK_Building_ResourceQuantityRequirements = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 */
 	Cost: INTEGER,
@@ -1203,15 +1559,15 @@ declare type GnK_Building_ResourceYieldModifiers = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1221,11 +1577,11 @@ declare type GnK_Building_ResourceCultureChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 */
 	CultureChange: INTEGER,
@@ -1235,11 +1591,11 @@ declare type GnK_Building_ResourceFaithChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 */
 	FaithChange: INTEGER,
@@ -1249,11 +1605,11 @@ declare type GnK_Building_RiverPlotYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1263,11 +1619,11 @@ declare type GnK_Building_SeaPlotYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1277,11 +1633,11 @@ declare type GnK_Building_LakePlotYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1291,11 +1647,11 @@ declare type GnK_Building_SeaResourceYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1305,15 +1661,15 @@ declare type GnK_Building_ResourceYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1323,15 +1679,15 @@ declare type GnK_Building_FeatureYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Features(Type)
 	 */
-	FeatureType: TEXT,
+	FeatureType: GnK_FeaturesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1341,15 +1697,15 @@ declare type GnK_Building_TerrainYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Terrains(Type)
 	 */
-	TerrainType: TEXT,
+	TerrainType: GnK_TerrainsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1359,15 +1715,15 @@ declare type GnK_Building_SpecialistYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Specialists(Type)
 	 */
-	SpecialistType: TEXT,
+	SpecialistType: GnK_SpecialistsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1377,11 +1733,11 @@ declare type GnK_Building_UnitCombatFreeExperiences = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	UnitCombatType: TEXT,
+	UnitCombatType: GnK_UnitCombatInfosType,
 	/**
 	 */
 	Experience: INTEGER,
@@ -1391,11 +1747,11 @@ declare type GnK_Building_UnitCombatProductionModifiers = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	UnitCombatType: TEXT,
+	UnitCombatType: GnK_UnitCombatInfosType,
 	/**
 	 */
 	Modifier: INTEGER,
@@ -1405,7 +1761,7 @@ declare type GnK_Building_TechAndPrereqs = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -1416,11 +1772,11 @@ declare type GnK_Building_YieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1430,11 +1786,11 @@ declare type GnK_Building_YieldChangesPerPop = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1444,11 +1800,11 @@ declare type GnK_Building_TechEnhancedYieldChanges = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1458,11 +1814,11 @@ declare type GnK_Building_YieldModifiers = {
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -1478,7 +1834,7 @@ declare type GnK_Civilizations = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_CivilizationsType,
 	/**
 	 * Reference: Language_en_US(Tag)
 	 */
@@ -1580,23 +1936,23 @@ declare type GnK_Civilization_BuildingClassOverrides = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Not Null
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 }
 
 declare type GnK_Civilization_CityNames = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Not Null
 	 * Reference: Language_en_US(Tag)
@@ -1608,7 +1964,7 @@ declare type GnK_Civilization_DisableTechs = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -1619,18 +1975,18 @@ declare type GnK_Civilization_FreeBuildingClasses = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 }
 
 declare type GnK_Civilization_FreeTechs = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -1641,15 +1997,15 @@ declare type GnK_Civilization_FreeUnits = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Reference: UnitClasses(Type)
 	 */
-	UnitClassType: TEXT,
+	UnitClassType: GnK_UnitClassesType,
 	/**
 	 * Reference: UnitAIInfos(Type)
 	 */
-	UnitAIType: TEXT,
+	UnitAIType: GnK_UnitAIInfosType,
 	/**
 	 */
 	Count: INTEGER,
@@ -1659,29 +2015,29 @@ declare type GnK_Civilization_Leaders = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Reference: Leaders(Type)
 	 */
-	LeaderheadType: TEXT,
+	LeaderheadType: GnK_LeadersType,
 }
 
 declare type GnK_Civilization_Religions = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Reference: Religions(Type)
 	 */
-	ReligionType: TEXT,
+	ReligionType: GnK_ReligionsType,
 }
 
 declare type GnK_Civilization_SpyNames = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Not Null
 	 * Reference: Language_en_US(Tag)
@@ -1693,23 +2049,23 @@ declare type GnK_Civilization_UnitClassOverrides = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Not Null
 	 * Reference: UnitClasses(Type)
 	 */
-	UnitClassType: TEXT,
+	UnitClassType: GnK_UnitClassesType,
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 }
 
 declare type GnK_Civilization_Start_Along_Ocean = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * @default false
 	 */
@@ -1720,7 +2076,7 @@ declare type GnK_Civilization_Start_Along_River = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * @default false
 	 */
@@ -1731,22 +2087,22 @@ declare type GnK_Civilization_Start_Region_Priority = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Reference: Regions(Type)
 	 */
-	RegionType: TEXT,
+	RegionType: GnK_RegionsType,
 }
 
 declare type GnK_Civilization_Start_Region_Avoid = {
 	/**
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * Reference: Regions(Type)
 	 */
-	RegionType: TEXT,
+	RegionType: GnK_RegionsType,
 }
 
 declare type GnK_MinorCivilizations = {
@@ -1759,7 +2115,7 @@ declare type GnK_MinorCivilizations = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_MinorCivilizationsType,
 	/**
 	 */
 	Description: TEXT,
@@ -1795,18 +2151,18 @@ declare type GnK_MinorCivilizations = {
 	 * Not Null
 	 * Reference: MinorCivTraits(Type)
 	 */
-	MinorCivTrait: TEXT,
+	MinorCivTrait: GnK_MinorCivTraitsType,
 }
 
 declare type GnK_MinorCivilization_Flavors = {
 	/**
 	 * Reference: MinorCivilizations(Type)
 	 */
-	MinorCivType: TEXT,
+	MinorCivType: GnK_MinorCivilizationsType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 * @default -1
 	 */
@@ -1817,11 +2173,27 @@ declare type GnK_MinorCivilization_CityNames = {
 	/**
 	 * Reference: MinorCivilizations(Type)
 	 */
-	MinorCivType: TEXT,
+	MinorCivType: GnK_MinorCivilizationsType,
 	/**
 	 * Not Null
 	 */
 	CityName: TEXT,
+}
+
+declare type GnK_Regions = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_RegionsType,
+	/**
+	 */
+	Description: TEXT,
 }
 
 declare type GnK_Traits = {
@@ -1834,7 +2206,7 @@ declare type GnK_Traits = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_TraitsType,
 	/**
 	 */
 	Description: TEXT,
@@ -2085,7 +2457,7 @@ declare type GnK_Traits = {
 	 * @default NULL
 	 * Reference: UnitClasses(Type)
 	 */
-	FreeUnit: TEXT,
+	FreeUnit: GnK_UnitClassesType,
 	/**
 	 * @default NULL
 	 * Reference: Technologies(Type)
@@ -2095,17 +2467,17 @@ declare type GnK_Traits = {
 	 * @default NULL
 	 * Reference: Improvements(Type)
 	 */
-	CombatBonusImprovement: TEXT,
+	CombatBonusImprovement: GnK_ImprovementsType,
 	/**
 	 * @default NULL
 	 * Reference: Buildings(Type)
 	 */
-	FreeBuilding: TEXT,
+	FreeBuilding: GnK_BuildingsType,
 	/**
 	 * @default NULL
 	 * Reference: Buildings(Type)
 	 */
-	FreeBuildingOnConquest: TEXT,
+	FreeBuildingOnConquest: GnK_BuildingsType,
 	/**
 	 * @default NULL
 	 * Reference: Technologies(Type)
@@ -2122,11 +2494,11 @@ declare type GnK_Trait_ExtraYieldThresholds = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -2136,11 +2508,11 @@ declare type GnK_Trait_YieldChanges = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -2150,11 +2522,11 @@ declare type GnK_Trait_YieldChangesStrategicResources = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -2164,11 +2536,11 @@ declare type GnK_Trait_YieldChangesNaturalWonder = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -2178,11 +2550,11 @@ declare type GnK_Trait_YieldModifiers = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -2192,37 +2564,37 @@ declare type GnK_Trait_FreePromotions = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 }
 
 declare type GnK_Trait_FreePromotionUnitCombats = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	UnitCombatType: TEXT,
+	UnitCombatType: GnK_UnitCombatInfosType,
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 }
 
 declare type GnK_Trait_MovesChangeUnitCombats = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	UnitCombatType: TEXT,
+	UnitCombatType: GnK_UnitCombatInfosType,
 	/**
 	 */
 	MovesChange: INT,
@@ -2232,7 +2604,7 @@ declare type GnK_Trait_Terrains = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 */
 	TerrainType: TEXT,
@@ -2246,11 +2618,11 @@ declare type GnK_Trait_ResourceQuantityModifiers = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * @default 0
 	 */
@@ -2261,11 +2633,11 @@ declare type GnK_Trait_FreeResourceFirstXCities = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 */
 	ResourceQuantity: INTEGER,
@@ -2278,15 +2650,15 @@ declare type GnK_Trait_ImprovementYieldChanges = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -2296,15 +2668,15 @@ declare type GnK_Trait_SpecialistYieldChanges = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Specialists(Type)
 	 */
-	SpecialistType: TEXT,
+	SpecialistType: GnK_SpecialistsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -2314,16 +2686,191 @@ declare type GnK_Trait_UnimprovedFeatureYieldChanges = {
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 * Reference: Features(Type)
 	 */
-	FeatureType: TEXT,
+	FeatureType: GnK_FeaturesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Diplomacy_Responses = {
+	/**
+	 */
+	LeaderType: STRING,
+	/**
+	 */
+	ResponseType: STRING,
+	/**
+	 */
+	Response: STRING,
+	/**
+	 * @default 1
+	 */
+	Bias: INTEGER,
+}
+
+declare type GnK_ArtStyleTypes = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_ArtStyleTypesType,
+}
+
+declare type GnK_Climates = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_ClimatesType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * @default 0
+	 */
+	DesertPercentChange: INTEGER,
+	/**
+	 */
+	JungleLatitude: INTEGER,
+	/**
+	 */
+	HillRange: INTEGER,
+	/**
+	 */
+	MountainPercent: INTEGER,
+	/**
+	 * @default 0.0
+	 */
+	SnowLatitudeChange: FLOAT,
+	/**
+	 * @default 0.0
+	 */
+	TundraLatitudeChange: FLOAT,
+	/**
+	 * @default 0.0
+	 */
+	GrassLatitudeChange: FLOAT,
+	/**
+	 * @default 0.0
+	 */
+	DesertBottomLatitudeChange: FLOAT,
+	/**
+	 * @default 0.0
+	 */
+	DesertTopLatitudeChange: FLOAT,
+	/**
+	 */
+	IceLatitude: FLOAT,
+	/**
+	 */
+	RandIceLatitude: FLOAT,
+}
+
+declare type GnK_CultureLevels = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_CultureLevelsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * @default 0
+	 */
+	CityDefenseModifier: INTEGER,
+}
+
+declare type GnK_CultureLevel_SpeedThresholds = {
+	/**
+	 * Reference: CultureLevels(Type)
+	 */
+	CultureLevelType: GnK_CultureLevelsType,
+	/**
+	 * Reference: GameSpeeds(Type)
+	 */
+	GameSpeedType: GnK_GameSpeedsType,
+	/**
+	 * @default 0
+	 */
+	Threshold: INTEGER,
+}
+
+declare type GnK_Cursors = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_CursorsType,
+	/**
+	 */
+	CursorPath: TEXT,
+}
+
+declare type GnK_EmphasizeInfos = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_EmphasizeInfosType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Strategy: TEXT,
+	/**
+	 */
+	AvoidGrowth: BOOLEAN,
+	/**
+	 */
+	GreatPeople: BOOLEAN,
+}
+
+declare type GnK_EmphasizeInfo_Yields = {
+	/**
+	 * Reference: EmphasizeInfos(Type)
+	 */
+	EmphasizeType: GnK_EmphasizeInfosType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * Not Null
 	 */
 	Yield: INTEGER,
 }
@@ -2338,7 +2885,7 @@ declare type GnK_Eras = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_ErasType,
 	/**
 	 */
 	Description: TEXT,
@@ -2494,7 +3041,7 @@ declare type GnK_Era_Soundtracks = {
 	/**
 	 * Reference: Eras(Type)
 	 */
-	EraType: TEXT,
+	EraType: GnK_ErasType,
 	/**
 	 */
 	SoundTrack: TEXT,
@@ -2504,11 +3051,11 @@ declare type GnK_Era_CitySoundscapes = {
 	/**
 	 * Reference: Eras(Type)
 	 */
-	EraType: TEXT,
+	EraType: GnK_ErasType,
 	/**
 	 * Reference: CitySizes(Type)
 	 */
-	CitySizeType: TEXT,
+	CitySizeType: GnK_CitySizesType,
 	/**
 	 */
 	SoundscapeScript: TEXT,
@@ -2518,10 +3065,58 @@ declare type GnK_Era_NewEraVOs = {
 	/**
 	 * Reference: Eras(Type)
 	 */
-	EraType: TEXT,
+	EraType: GnK_ErasType,
 	/**
 	 */
 	VOScript: TEXT,
+}
+
+declare type GnK_Flavors = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_FlavorsType,
+}
+
+declare type GnK_GameOptions = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_GameOptionsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Help: TEXT,
+	/**
+	 * @default false
+	 */
+	Default: BOOLEAN,
+	/**
+	 * @default true
+	 */
+	Visible: BOOLEAN,
+	/**
+	 * @default true
+	 */
+	SupportsSinglePlayer: BOOLEAN,
+	/**
+	 * @default true
+	 */
+	SupportsMultiplayer: BOOLEAN,
 }
 
 declare type GnK_GameSpeeds = {
@@ -2534,7 +3129,7 @@ declare type GnK_GameSpeeds = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_GameSpeedsType,
 	/**
 	 */
 	Description: TEXT,
@@ -2672,13 +3267,123 @@ declare type GnK_GameSpeed_Turns = {
 	/**
 	 * Reference: GameSpeeds(Type)
 	 */
-	GameSpeedType: TEXT,
+	GameSpeedType: GnK_GameSpeedsType,
 	/**
 	 */
 	MonthIncrement: INTEGER,
 	/**
 	 */
 	TurnsPerIncrement: INTEGER,
+}
+
+declare type GnK_GoodyHuts = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Unique
+	 */
+	Type: TEXT,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Sound: TEXT,
+	/**
+	 * @default 0
+	 */
+	Gold: INTEGER,
+	/**
+	 * @default 0
+	 */
+	NumGoldRandRolls: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldRandAmount: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MapOffset: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MapRange: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MapProb: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Experience: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Healing: INTEGER,
+	/**
+	 * @default 0
+	 */
+	DamagePrereq: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Population: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Culture: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Faith: INTEGER,
+	/**
+	 * @default 0
+	 */
+	ProphetPercent: INTEGER,
+	/**
+	 * @default 0
+	 */
+	RevealNearbyBarbariansRange: INTEGER,
+	/**
+	 * @default false
+	 */
+	Tech: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	RevealUnknownResource: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	UpgradeUnit: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	PantheonFaith: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Bad: BOOLEAN,
+	/**
+	 * @default NULL
+	 */
+	UnitClass: TEXT,
+	/**
+	 * @default NULL
+	 */
+	BarbarianUnitClass: TEXT,
+	/**
+	 * @default 0
+	 */
+	BarbarianUnitProb: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MinBarbarians: INTEGER,
 }
 
 declare type GnK_HandicapInfos = {
@@ -2691,7 +3396,7 @@ declare type GnK_HandicapInfos = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_HandicapInfosType,
 	/**
 	 */
 	Description: TEXT,
@@ -2941,7 +3646,7 @@ declare type GnK_HandicapInfo_Goodies = {
 	/**
 	 * Reference: HandicapInfos(Type)
 	 */
-	HandicapType: TEXT,
+	HandicapType: GnK_HandicapInfosType,
 	/**
 	 * Reference: GoodyHuts(Type)
 	 */
@@ -2952,7 +3657,7 @@ declare type GnK_HandicapInfo_FreeTechs = {
 	/**
 	 * Reference: HandicapInfos(Type)
 	 */
-	HandicapType: TEXT,
+	HandicapType: GnK_HandicapInfosType,
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -2963,11 +3668,141 @@ declare type GnK_HandicapInfo_AIFreeTechs = {
 	/**
 	 * Reference: HandicapInfos(Type)
 	 */
-	HandicapType: TEXT,
+	HandicapType: GnK_HandicapInfosType,
 	/**
 	 * Reference: Technologies(Type)
 	 */
 	TechType: TEXT,
+}
+
+declare type GnK_HurryInfos = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_HurryInfosType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * Reference: Policies(Type)
+	 */
+	PolicyPrereq: GnK_PoliciesType,
+	/**
+	 * @default 0
+	 */
+	GoldPerProduction: INTEGER,
+	/**
+	 * @default 0
+	 */
+	ProductionPerPopulation: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldPerBeaker: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldPerCulture: INTEGER,
+}
+
+declare type GnK_IconFontTextures = {
+	/**
+	 * Primary Key
+	 */
+	IconFontTexture: TEXT,
+	/**
+	 */
+	IconFontTextureFile: TEXT,
+}
+
+declare type GnK_IconFontMapping = {
+	/**
+	 * Primary Key
+	 */
+	IconName: TEXT,
+	/**
+	 */
+	IconMapping: INTEGER,
+	/**
+	 * @default ICON_FONT_TEXTURE_DEFAULT
+	 * Reference: IconFontTextures(IconFontTexture)
+	 */
+	IconFontTexture: TEXT,
+}
+
+declare type GnK_IconTextureAtlases = {
+	/**
+	 * Not Null
+	 */
+	Atlas: TEXT,
+	/**
+	 * Not Null
+	 */
+	IconSize: INTEGER,
+	/**
+	 * Not Null
+	 */
+	Filename: TEXT,
+	/**
+	 * Not Null
+	 */
+	IconsPerRow: TEXT,
+	/**
+	 * Not Null
+	 */
+	IconsPerColumn: TEXT,
+}
+
+declare type GnK_MultiplayerOptions = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_MultiplayerOptionsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Help: TEXT,
+	/**
+	 * @default false
+	 */
+	Default: BOOLEAN,
+}
+
+declare type GnK_PlayerOptions = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_PlayerOptionsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Help: TEXT,
+	/**
+	 * @default false
+	 */
+	Default: BOOLEAN,
 }
 
 declare type GnK_Policies = {
@@ -2980,7 +3815,7 @@ declare type GnK_Policies = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_PoliciesType,
 	/**
 	 * @default write a bug on this
 	 * Reference: Language_en_US(Tag)
@@ -3002,7 +3837,7 @@ declare type GnK_Policies = {
 	 * @default NULL
 	 * Reference: PolicyBranchTypes(Type)
 	 */
-	PolicyBranchType: TEXT,
+	PolicyBranchType: GnK_PolicyBranchTypesType,
 	/**
 	 * @default 0
 	 */
@@ -3468,11 +4303,11 @@ declare type GnK_Policy_CityYieldChanges = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * Not Null
 	 */
@@ -3483,11 +4318,11 @@ declare type GnK_Policy_CoastalCityYieldChanges = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * Not Null
 	 */
@@ -3498,11 +4333,11 @@ declare type GnK_Policy_CapitalYieldChanges = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * Not Null
 	 */
@@ -3513,11 +4348,11 @@ declare type GnK_Policy_CapitalYieldPerPopChanges = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * Not Null
 	 */
@@ -3528,11 +4363,11 @@ declare type GnK_Policy_CapitalYieldModifiers = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * Not Null
 	 */
@@ -3543,22 +4378,22 @@ declare type GnK_Policy_Disables = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyDisable: TEXT,
+	PolicyDisable: GnK_PoliciesType,
 }
 
 declare type GnK_Policy_Flavors = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 * Not Null
 	 */
@@ -3569,11 +4404,11 @@ declare type GnK_Policy_HurryModifiers = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: HurryInfos(Type)
 	 */
-	HurryType: TEXT,
+	HurryType: GnK_HurryInfosType,
 	/**
 	 */
 	HurryCostModifier: INTEGER,
@@ -3583,33 +4418,33 @@ declare type GnK_Policy_PrereqPolicies = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PrereqPolicy: TEXT,
+	PrereqPolicy: GnK_PoliciesType,
 }
 
 declare type GnK_Policy_PrereqORPolicies = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PrereqPolicy: TEXT,
+	PrereqPolicy: GnK_PoliciesType,
 }
 
 declare type GnK_Policy_SpecialistExtraYields = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * Not Null
 	 */
@@ -3620,15 +4455,15 @@ declare type GnK_Policy_BuildingClassYieldModifiers = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	YieldMod: INTEGER,
@@ -3638,15 +4473,15 @@ declare type GnK_Policy_BuildingClassYieldChanges = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	YieldChange: INTEGER,
@@ -3656,11 +4491,11 @@ declare type GnK_Policy_BuildingClassCultureChanges = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 */
 	CultureChange: INTEGER,
@@ -3670,11 +4505,11 @@ declare type GnK_Policy_BuildingClassProductionModifiers = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 */
 	ProductionModifier: INTEGER,
@@ -3684,11 +4519,11 @@ declare type GnK_Policy_BuildingClassHappiness = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 	/**
 	 */
 	Happiness: INTEGER,
@@ -3698,15 +4533,15 @@ declare type GnK_Policy_ImprovementYieldChanges = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -3716,11 +4551,11 @@ declare type GnK_Policy_ImprovementCultureChanges = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 */
 	CultureChange: INTEGER,
@@ -3730,22 +4565,22 @@ declare type GnK_Policy_ValidSpecialists = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Specialists(Type)
 	 */
-	SpecialistType: TEXT,
+	SpecialistType: GnK_SpecialistsType,
 }
 
 declare type GnK_Policy_YieldModifiers = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * Not Null
 	 */
@@ -3756,22 +4591,22 @@ declare type GnK_Policy_FreePromotions = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 }
 
 declare type GnK_Policy_UnitCombatFreeExperiences = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	UnitCombatType: TEXT,
+	UnitCombatType: GnK_UnitCombatInfosType,
 	/**
 	 */
 	FreeExperience: INTEGER,
@@ -3781,26 +4616,26 @@ declare type GnK_Policy_FreePromotionUnitCombats = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	UnitCombatType: TEXT,
+	UnitCombatType: GnK_UnitCombatInfosType,
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 }
 
 declare type GnK_Policy_UnitCombatProductionModifiers = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	UnitCombatType: TEXT,
+	UnitCombatType: GnK_UnitCombatInfosType,
 	/**
 	 */
 	ProductionModifier: INTEGER,
@@ -3810,11 +4645,11 @@ declare type GnK_Policy_FreeUnitClasses = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Reference: UnitClasses(Type)
 	 */
-	UnitClassType: TEXT,
+	UnitClassType: GnK_UnitClassesType,
 	/**
 	 * Not Null
 	 */
@@ -3825,7 +4660,7 @@ declare type GnK_Policy_FreeItems = {
 	/**
 	 * Reference: Policies(Type)
 	 */
-	PolicyType: TEXT,
+	PolicyType: GnK_PoliciesType,
 	/**
 	 * Not Null
 	 */
@@ -3850,7 +4685,7 @@ declare type GnK_PolicyBranchTypes = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_PolicyBranchTypesType,
 	/**
 	 * Reference: Language_en_US(Tag)
 	 */
@@ -3875,17 +4710,17 @@ declare type GnK_PolicyBranchTypes = {
 	 * @default NULL
 	 * Reference: Eras(Type)
 	 */
-	EraPrereq: TEXT,
+	EraPrereq: GnK_ErasType,
 	/**
 	 * @default NULL
 	 * Reference: Policies(Type)
 	 */
-	FreePolicy: TEXT,
+	FreePolicy: GnK_PoliciesType,
 	/**
 	 * @default NULL
 	 * Reference: Policies(Type)
 	 */
-	FreeFinishingPolicy: TEXT,
+	FreeFinishingPolicy: GnK_PoliciesType,
 	/**
 	 * @default false
 	 */
@@ -3912,11 +4747,11 @@ declare type GnK_PolicyBranch_Disables = {
 	/**
 	 * Reference: PolicyBranchTypes(Type)
 	 */
-	PolicyBranchType: TEXT,
+	PolicyBranchType: GnK_PolicyBranchTypesType,
 	/**
 	 * Reference: PolicyBranchTypes(Type)
 	 */
-	PolicyBranchDisable: TEXT,
+	PolicyBranchDisable: GnK_PolicyBranchTypesType,
 }
 
 declare type GnK_Processes = {
@@ -3929,7 +4764,7 @@ declare type GnK_Processes = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_ProcessesType,
 	/**
 	 */
 	Description: TEXT,
@@ -3958,11 +4793,11 @@ declare type GnK_Process_Flavors = {
 	/**
 	 * Reference: Processes(Type)
 	 */
-	ProcessType: TEXT,
+	ProcessType: GnK_ProcessesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 * Not Null
 	 */
@@ -3973,15 +4808,715 @@ declare type GnK_Process_ProductionYields = {
 	/**
 	 * Reference: Processes(Type)
 	 */
-	ProcessType: TEXT,
+	ProcessType: GnK_ProcessesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * Not Null
 	 */
 	Yield: INTEGER,
+}
+
+declare type GnK_Projects = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_ProjectsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Civilopedia: TEXT,
+	/**
+	 */
+	Strategy: TEXT,
+	/**
+	 */
+	Help: TEXT,
+	/**
+	 */
+	Requirements: TEXT,
+	/**
+	 * @default 0
+	 */
+	MaxGlobalInstances: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MaxTeamInstances: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Cost: INTEGER,
+	/**
+	 * @default 0
+	 */
+	NukeInterception: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CultureBranchesRequired: INTEGER,
+	/**
+	 * @default 0
+	 */
+	TechShare: INTEGER,
+	/**
+	 * @default 0
+	 */
+	VictoryDelayPercent: INTEGER,
+	/**
+	 * @default false
+	 */
+	Spaceship: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Religious: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	AllowsNukes: BOOLEAN,
+	/**
+	 * @default NULL
+	 */
+	MovieDefineTag: TEXT,
+	/**
+	 * @default NULL
+	 */
+	VictoryPrereq: TEXT,
+	/**
+	 * @default NULL
+	 */
+	TechPrereq: TEXT,
+	/**
+	 * @default NULL
+	 */
+	EveryoneSpecialUnit: TEXT,
+	/**
+	 * @default NULL
+	 */
+	CreateSound: TEXT,
+	/**
+	 * @default NULL
+	 */
+	AnyonePrereqProject: TEXT,
+	/**
+	 * @default -1
+	 */
+	PortraitIndex: INTEGER,
+	/**
+	 * @default NULL
+	 * Reference: IconTextureAtlases(Atlas)
+	 */
+	IconAtlas: TEXT,
+}
+
+declare type GnK_Project_Flavors = {
+	/**
+	 * Reference: Projects(Type)
+	 */
+	ProjectType: GnK_ProjectsType,
+	/**
+	 * Reference: Flavors(Type)
+	 */
+	FlavorType: GnK_FlavorsType,
+	/**
+	 * Not Null
+	 */
+	Flavor: INTEGER,
+}
+
+declare type GnK_Project_Prereqs = {
+	/**
+	 * Reference: Projects(Type)
+	 */
+	ProjectType: GnK_ProjectsType,
+	/**
+	 * Reference: Projects(Type)
+	 */
+	PrereqProjectType: GnK_ProjectsType,
+	/**
+	 * @default 1
+	 */
+	AmountNeeded: INTEGER,
+}
+
+declare type GnK_Project_VictoryThresholds = {
+	/**
+	 * Reference: Projects(Type)
+	 */
+	ProjectType: GnK_ProjectsType,
+	/**
+	 * Reference: Victories(Type)
+	 */
+	VictoryType: GnK_VictoriesType,
+	/**
+	 * Not Null
+	 */
+	Threshold: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MinThreshold: INTEGER,
+}
+
+declare type GnK_Project_ResourceQuantityRequirements = {
+	/**
+	 * Reference: Projects(Type)
+	 */
+	ProjectType: GnK_ProjectsType,
+	/**
+	 * Reference: Resources(Type)
+	 */
+	ResourceType: GnK_ResourcesType,
+	/**
+	 * Not Null
+	 */
+	Quantity: INTEGER,
+}
+
+declare type GnK_ReplayDataSets = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_ReplayDataSetsType,
+	/**
+	 */
+	Name: TEXT,
+	/**
+	 */
+	Description: TEXT,
+}
+
+declare type GnK_SeaLevels = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_SeaLevelsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * Not Null
+	 */
+	SeaLevelChange: INTEGER,
+}
+
+declare type GnK_SmallAwards = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: TEXT,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Civilopedia: TEXT,
+	/**
+	 */
+	Notification: TEXT,
+	/**
+	 */
+	TeamNotification: TEXT,
+	/**
+	 * @default 0
+	 */
+	NumVictoryPoints: INTEGER,
+	/**
+	 * @default 0
+	 */
+	NumCities: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CityPopulation: INTEGER,
+}
+
+declare type GnK_Specialists = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_SpecialistsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Help: TEXT,
+	/**
+	 */
+	Civilopedia: TEXT,
+	/**
+	 */
+	Strategy: TEXT,
+	/**
+	 */
+	GreatPeopleTitle: TEXT,
+	/**
+	 * @default -1
+	 */
+	PortraitIndex: INTEGER,
+	/**
+	 * @default NULL
+	 * Reference: IconTextureAtlases(Atlas)
+	 */
+	IconAtlas: TEXT,
+	/**
+	 * @default false
+	 */
+	Visible: BOOLEAN,
+	/**
+	 * @default 0
+	 */
+	Cost: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Experience: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GreatPeopleRateChange: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CulturePerTurn: INTEGER,
+	/**
+	 * @default NULL
+	 */
+	GreatPeopleUnitClass: TEXT,
+}
+
+declare type GnK_SpecialistFlavors = {
+	/**
+	 * Reference: Specialists(Type)
+	 */
+	SpecialistType: GnK_SpecialistsType,
+	/**
+	 * Reference: Flavors(Type)
+	 */
+	FlavorType: GnK_FlavorsType,
+	/**
+	 */
+	Flavor: INTEGER,
+}
+
+declare type GnK_SpecialistYields = {
+	/**
+	 * Reference: Specialists(Type)
+	 */
+	SpecialistType: GnK_SpecialistsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Trades = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_TradesType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * @default 0
+	 */
+	InitialPercent: INTEGER,
+	/**
+	 * @default 0
+	 */
+	AIWeightPercent: INTEGER,
+}
+
+declare type GnK_TurnTimers = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_TurnTimersType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	BaseTime: INTEGER,
+	/**
+	 */
+	CityResource: INTEGER,
+	/**
+	 */
+	UnitResource: INTEGER,
+	/**
+	 */
+	FirstTurnMultiplier: INTEGER,
+}
+
+declare type GnK_Victories = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_VictoriesType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	VictoryStatement: TEXT,
+	/**
+	 */
+	VictoryBackground: TEXT,
+	/**
+	 */
+	Civilopedia: TEXT,
+	/**
+	 * @default false
+	 */
+	WinsGame: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	TargetScore: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	EndScore: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Conquest: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	DiploVote: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Permanent: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ReligionInAllCities: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	FindAllNaturalWonders: BOOLEAN,
+	/**
+	 * @default 0
+	 */
+	PopulationPercentLead: INTEGER,
+	/**
+	 * @default 0
+	 */
+	LandPercent: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MinLandPercent: INTEGER,
+	/**
+	 * @default 0
+	 */
+	NumCultureCities: INTEGER,
+	/**
+	 * @default 0
+	 */
+	TotalCultureRatio: INTEGER,
+	/**
+	 * @default 0
+	 */
+	VictoryDelayTurns: INTEGER,
+	/**
+	 */
+	VictoryMovie: TEXT,
+	/**
+	 * @default NULL
+	 */
+	CityCulture: TEXT,
+	/**
+	 * @default NULL
+	 */
+	Audio: TEXT,
+}
+
+declare type GnK_VictoryPointAwards = {
+	/**
+	 * Reference: Victories(Type)
+	 */
+	VictoryType: GnK_VictoriesType,
+	/**
+	 * Not Null
+	 */
+	VictoryPoints: INTEGER,
+}
+
+declare type GnK_HistoricRankings = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 */
+	HistoricLeader: TEXT,
+	/**
+	 */
+	LeaderQuote: TEXT,
+	/**
+	 * @default 0
+	 */
+	LeaderScore: INTEGER,
+}
+
+declare type GnK_VoteSources = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_VoteSourcesType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	PopupText: TEXT,
+	/**
+	 */
+	SecretaryGeneralText: TEXT,
+	/**
+	 */
+	VoteInterval: INTEGER,
+	/**
+	 * @default NULL
+	 */
+	FreeSpecialist: TEXT,
+	/**
+	 * @default NULL
+	 */
+	Policy: TEXT,
+}
+
+declare type GnK_Votes = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_VotesType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * @default 0
+	 */
+	PopulationThreshold: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MinVoters: INTEGER,
+	/**
+	 * @default false
+	 */
+	CityVoting: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	CivVoting: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	SecretaryGeneral: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Victory: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	FreeTrade: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	NoNukes: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	DefensivePact: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	OpenBorders: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ForcePeace: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ForceNoTrade: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ForceWar: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	AssignCity: BOOLEAN,
+}
+
+declare type GnK_Vote_DiploVotes = {
+	/**
+	 * Reference: Votes(Type)
+	 */
+	VoteType: GnK_VotesType,
+	/**
+	 */
+	DiploVoteType: TEXT,
+}
+
+declare type GnK_Worlds = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_WorldsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Help: TEXT,
+	/**
+	 */
+	DefaultPlayers: INTEGER,
+	/**
+	 */
+	DefaultMinorCivs: INTEGER,
+	/**
+	 */
+	FogTilesPerBarbarianCamp: INTEGER,
+	/**
+	 */
+	NumNaturalWonders: INTEGER,
+	/**
+	 */
+	UnitNameModifier: INTEGER,
+	/**
+	 */
+	TargetNumCities: INTEGER,
+	/**
+	 */
+	NumFreeBuildingResources: INTEGER,
+	/**
+	 */
+	BuildingClassPrereqModifier: INTEGER,
+	/**
+	 */
+	MaxConscriptModifier: INTEGER,
+	/**
+	 */
+	GridWidth: INTEGER,
+	/**
+	 */
+	GridHeight: INTEGER,
+	/**
+	 */
+	MaxActiveReligions: INTEGER,
+	/**
+	 */
+	TerrainGrainChange: INTEGER,
+	/**
+	 */
+	FeatureGrainChange: INTEGER,
+	/**
+	 */
+	ResearchPercent: INTEGER,
+	/**
+	 */
+	NumCitiesUnhappinessPercent: INTEGER,
+	/**
+	 */
+	NumCitiesPolicyCostMod: INTEGER,
+	/**
+	 */
+	AdvancedStartPointsMod: INTEGER,
+	/**
+	 * @default -1
+	 */
+	PortraitIndex: INTEGER,
+	/**
+	 * @default NULL
+	 * Reference: IconTextureAtlases(Atlas)
+	 */
+	IconAtlas: TEXT,
 }
 
 declare type GnK_Defines = {
@@ -4007,7 +5542,7 @@ declare type GnK_PostDefines = {
 	Table: TEXT,
 }
 
-declare type GnK_Beliefs = {
+declare type GnK_Colors = {
 	/**
 	 * Primary Key
 	 * Auto Increment
@@ -4017,477 +5552,419 @@ declare type GnK_Beliefs = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_ColorsType,
+	/**
+	 * @default 1.0
+	 */
+	Red: FLOAT,
+	/**
+	 * @default 1.0
+	 */
+	Green: FLOAT,
+	/**
+	 * @default 1.0
+	 */
+	Blue: FLOAT,
+	/**
+	 * @default 1.0
+	 */
+	Alpha: FLOAT,
+}
+
+declare type GnK_InterfaceModes = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_InterfaceModesType,
 	/**
 	 */
 	Description: TEXT,
 	/**
 	 */
-	ShortDescription: TEXT,
+	Help: TEXT,
+	/**
+	 */
+	DisabledHelp: TEXT,
+	/**
+	 */
+	CursorType: TEXT,
+	/**
+	 */
+	Mission: TEXT,
+	/**
+	 */
+	HotKey: TEXT,
+	/**
+	 */
+	HotKeyAlt: TEXT,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriority: INTEGER,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriorityAlt: INTEGER,
+	/**
+	 * @default 0
+	 */
+	OrderPriority: INTEGER,
 	/**
 	 * @default false
 	 */
-	Pantheon: BOOLEAN,
+	AltDown: BOOLEAN,
 	/**
 	 * @default false
 	 */
-	Founder: BOOLEAN,
+	AltDownAlt: BOOLEAN,
 	/**
 	 * @default false
 	 */
-	Follower: BOOLEAN,
+	ShiftDown: BOOLEAN,
 	/**
 	 * @default false
 	 */
-	Enhancer: BOOLEAN,
+	ShiftDownAlt: BOOLEAN,
 	/**
 	 * @default false
 	 */
-	RequiresPeace: BOOLEAN,
+	CtrlDown: BOOLEAN,
 	/**
 	 * @default false
 	 */
-	EnablesFaithBuying: BOOLEAN,
+	CtrlDownAlt: BOOLEAN,
 	/**
-	 * @default 0
+	 * @default false
 	 */
-	MinPopulation: INTEGER,
+	Visible: BOOLEAN,
 	/**
-	 * @default 0
+	 * @default false
 	 */
-	MinFollowers: INTEGER,
+	GotoPlot: BOOLEAN,
 	/**
-	 * @default 0
+	 * @default false
 	 */
-	MaxDistance: INTEGER,
+	HighlightPlot: BOOLEAN,
 	/**
-	 * @default 0
+	 * @default false
 	 */
-	CityGrowthModifier: INTEGER,
+	SelectType: BOOLEAN,
 	/**
-	 * @default 0
+	 * @default false
 	 */
-	FaithFromKills: INTEGER,
+	SelectAll: BOOLEAN,
 	/**
-	 * @default 0
+	 * @default -1
 	 */
-	FaithFromDyingUnits: INTEGER,
-	/**
-	 * @default 0
-	 */
-	RiverHappiness: INTEGER,
-	/**
-	 * @default 0
-	 */
-	HappinessPerCity: INTEGER,
-	/**
-	 * @default 0
-	 */
-	HappinessPerFollowingCity: INTEGER,
-	/**
-	 * @default 0
-	 */
-	HappinessPerXPeacefulForeignFollowers: INTEGER,
-	/**
-	 * @default 0
-	 */
-	PlotCultureCostModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	CityRangeStrikeModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	CombatModifierEnemyCities: INTEGER,
-	/**
-	 * @default 0
-	 */
-	CombatModifierFriendlyCities: INTEGER,
-	/**
-	 * @default 0
-	 */
-	FriendlyHealChange: INTEGER,
-	/**
-	 * @default 0
-	 */
-	CityStateFriendshipModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	LandBarbarianConversionPercent: INTEGER,
-	/**
-	 * @default 0
-	 */
-	WonderProductionModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	PlayerHappiness: INTEGER,
-	/**
-	 * @default 0
-	 */
-	PlayerCultureModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	GoldPerFollowingCity: INTEGER,
-	/**
-	 * @default 0
-	 */
-	GoldPerXFollowers: INTEGER,
-	/**
-	 * @default 0
-	 */
-	GoldPerFirstCityConversion: INTEGER,
-	/**
-	 * @default 0
-	 */
-	SciencePerOtherReligionFollower: INTEGER,
-	/**
-	 * @default 0
-	 */
-	SpreadDistanceModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	SpreadStrengthModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	ProphetStrengthModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	ProphetCostModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	MissionaryStrengthModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	MissionaryCostModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	FriendlyCityStateSpreadModifier: INTEGER,
-	/**
-	 * @default 0
-	 */
-	GreatPersonExpendedFaith: INTEGER,
-	/**
-	 * @default 0
-	 */
-	CityStateMinimumInfluence: INTEGER,
+	IconIndex: INTEGER,
 	/**
 	 * @default NULL
-	 * Reference: Eras(Type)
+	 * Reference: IconTextureAtlases(Atlas)
 	 */
-	ObsoleteEra: TEXT,
+	IconAtlas: TEXT,
+}
+
+declare type GnK_PlayerColors = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_PlayerColorsType,
+	/**
+	 * Not Null
+	 * Reference: Colors(type)
+	 */
+	PrimaryColor: TEXT,
+	/**
+	 * Not Null
+	 * Reference: Colors(Type)
+	 */
+	SecondaryColor: GnK_ColorsType,
+	/**
+	 * Not Null
+	 * Reference: Colors(Type)
+	 */
+	TextColor: GnK_ColorsType,
+}
+
+declare type GnK_Leaders = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_LeadersType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Civilopedia: TEXT,
+	/**
+	 */
+	CivilopediaTag: TEXT,
+	/**
+	 */
+	ArtDefineTag: TEXT,
+	/**
+	 * @default 0
+	 */
+	VictoryCompetitiveness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	WonderCompetitiveness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MinorCivCompetitiveness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Boldness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	DiploBalance: INTEGER,
+	/**
+	 * @default 0
+	 */
+	WarmongerHate: INTEGER,
+	/**
+	 * @default 0
+	 */
+	WorkAgainstWillingness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	WorkWithWillingness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	DenounceWillingness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	DoFWillingness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Loyalty: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Neediness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Forgiveness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Chattiness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Meanness: INTEGER,
+	/**
+	 * @default -1
+	 */
+	PortraitIndex: INTEGER,
 	/**
 	 * @default NULL
-	 * Reference: Resources(Type)
+	 * Reference: IconTextureAtlases(Atlas)
 	 */
-	ResourceRevealed: TEXT,
+	IconAtlas: TEXT,
 	/**
 	 * @default NULL
-	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassEnabled: TEXT,
+	PackageID: TEXT,
+}
+
+declare type GnK_Leader_MajorCivApproachBiases = {
+	/**
+	 * Reference: Leaders(Type)
+	 */
+	LeaderType: GnK_LeadersType,
+	/**
+	 * Reference: MajorCivApproachTypes(Type)
+	 */
+	MajorCivApproachType: GnK_MajorCivApproachTypesType,
+	/**
+	 */
+	Bias: INTEGER,
+}
+
+declare type GnK_Leader_MinorCivApproachBiases = {
+	/**
+	 * Reference: Leaders(Type)
+	 */
+	LeaderType: GnK_LeadersType,
+	/**
+	 * Reference: MinorCivApproachTypes(Type)
+	 */
+	MinorCivApproachType: GnK_MinorCivApproachTypesType,
+	/**
+	 */
+	Bias: INTEGER,
+}
+
+declare type GnK_Leader_Flavors = {
+	/**
+	 * Reference: Leaders(Type)
+	 */
+	LeaderType: GnK_LeadersType,
+	/**
+	 * Reference: Flavors(Type)
+	 */
+	FlavorType: GnK_FlavorsType,
+	/**
+	 * @default -1
+	 */
+	Flavor: INTEGER,
+}
+
+declare type GnK_Leader_Traits = {
+	/**
+	 * Reference: Leaders(Type)
+	 */
+	LeaderType: GnK_LeadersType,
+	/**
+	 * Reference: Traits(Type)
+	 */
+	TraitType: GnK_TraitsType,
+}
+
+declare type GnK_Routes = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_RoutesType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * @default 0
+	 */
+	AdvancedStartCost: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Value: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Movement: INTEGER,
+	/**
+	 * @default 0
+	 */
+	FlatMovement: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldMaintenance: INTEGER,
+	/**
+	 * @default false
+	 */
+	Industrial: BOOLEAN,
+	/**
+	 * @default -1
+	 */
+	PortraitIndex: INTEGER,
 	/**
 	 * @default NULL
+	 * Reference: IconTextureAtlases(Atlas)
+	 */
+	IconAtlas: TEXT,
+	/**
+	 */
+	Civilopedia: TEXT,
+}
+
+declare type GnK_Route_Yields = {
+	/**
+	 * Reference: Routes(Type)
+	 */
+	RouteType: GnK_RoutesType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * Not Null
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Route_TechMovementChanges = {
+	/**
+	 * Reference: Routes(Type)
+	 */
+	RouteType: GnK_RoutesType,
+	/**
 	 * Reference: Technologies(Type)
 	 */
-	SpreadModifierDoublingTech: TEXT,
+	TechType: TEXT,
+	/**
+	 * Not Null
+	 */
+	MovementChange: INTEGER,
 }
 
-declare type GnK_Belief_BuildingClassYieldChanges = {
+declare type GnK_Route_ResourceQuantityRequirements = {
 	/**
-	 * Reference: Beliefs(Type)
+	 * Reference: Routes(Type)
 	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: BuildingClasses(Type)
-	 */
-	BuildingClassType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	YieldChange: INTEGER,
-}
-
-declare type GnK_Belief_BuildingClassHappiness = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: BuildingClasses(Type)
-	 */
-	BuildingClassType: TEXT,
-	/**
-	 */
-	Happiness: INTEGER,
-}
-
-declare type GnK_Belief_CityYieldChanges = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_HolyCityYieldChanges = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_FeatureYieldChanges = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Features(Type)
-	 */
-	FeatureType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_ImprovementYieldChanges = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Improvements(Type)
-	 */
-	ImprovementType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: TEXT,
-	/**
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_MaxYieldModifierPerFollower = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Max: INTEGER,
-}
-
-declare type GnK_Belief_ResourceQuantityModifiers = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
+	RouteType: GnK_RoutesType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
-	 * @default 0
+	 * Not Null
 	 */
-	ResourceQuantityModifier: INTEGER,
+	Cost: INTEGER,
 }
 
-declare type GnK_Belief_ResourceHappiness = {
+declare type GnK_Notifications = {
 	/**
-	 * Reference: Beliefs(Type)
+	 * Primary Key
+	 * Auto Increment
 	 */
-	BeliefType: TEXT,
+	ID: INTEGER,
 	/**
-	 * Reference: Resources(Type)
+	 * Unique
 	 */
-	ResourceType: TEXT,
-	/**
-	 * @default 0
-	 */
-	HappinessChange: INTEGER,
-}
-
-declare type GnK_Belief_ResourceYieldChanges = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Resources(Type)
-	 */
-	ResourceType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
+	NotificationType: TEXT,
 	/**
 	 * @default 0
 	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_TerrainYieldChanges = {
+	Welcomeness: INTEGER,
 	/**
-	 * Reference: Beliefs(Type)
+	 * @default false
 	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Terrains(Type)
-	 */
-	TerrainType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_YieldChangeAnySpecialist = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_YieldChangePerForeignCity = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_YieldChangePerXForeignFollowers = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	ForeignFollowers: INTEGER,
-}
-
-declare type GnK_Belief_YieldChangeTradeRoute = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_YieldChangeNaturalWonder = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_YieldChangeWorldWonder = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
-}
-
-declare type GnK_Belief_YieldModifierNaturalWonder = {
-	/**
-	 * Reference: Beliefs(Type)
-	 */
-	BeliefType: TEXT,
-	/**
-	 * Reference: Yields(Type)
-	 */
-	YieldType: INTEGER,
-	/**
-	 * @default 0
-	 */
-	Yield: INTEGER,
+	Urgent: BOOL,
 }
 
 declare type GnK_Technologies = {
@@ -4690,7 +6167,7 @@ declare type GnK_Technology_DomainExtraMoves = {
 	/**
 	 * Reference: Domains(Type)
 	 */
-	DomainType: TEXT,
+	DomainType: GnK_DomainsType,
 	/**
 	 */
 	Moves: INTEGER,
@@ -4704,7 +6181,7 @@ declare type GnK_Technology_Flavors = {
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 */
 	Flavor: INTEGER,
@@ -4740,7 +6217,7 @@ declare type GnK_Technology_FreePromotions = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 }
 
 declare type GnK_Features = {
@@ -4753,7 +6230,7 @@ declare type GnK_Features = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_FeaturesType,
 	/**
 	 */
 	Description: TEXT,
@@ -4802,7 +6279,7 @@ declare type GnK_Features = {
 	/**
 	 * Reference: Terrains(Type)
 	 */
-	GrowthTerrainType: TEXT,
+	GrowthTerrainType: GnK_TerrainsType,
 	/**
 	 * @default 0
 	 */
@@ -4810,7 +6287,7 @@ declare type GnK_Features = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	AdjacentUnitFreePromotion: TEXT,
+	AdjacentUnitFreePromotion: GnK_UnitPromotionsType,
 	/**
 	 * @default 0
 	 */
@@ -4917,7 +6394,7 @@ declare type GnK_FakeFeatures = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_FakeFeaturesType,
 	/**
 	 */
 	Description: TEXT,
@@ -4962,7 +6439,7 @@ declare type GnK_FakeFeatures = {
 	/**
 	 * Reference: Terrains(Type)
 	 */
-	GrowthTerrainType: TEXT,
+	GrowthTerrainType: GnK_TerrainsType,
 	/**
 	 * @default 0
 	 */
@@ -5058,7 +6535,7 @@ declare type GnK_Feature_YieldChanges = {
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -5068,11 +6545,11 @@ declare type GnK_Feature_RiverYieldChanges = {
 	/**
 	 * Reference: Features(Type)
 	 */
-	FeatureType: TEXT,
+	FeatureType: GnK_FeaturesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -5082,11 +6559,11 @@ declare type GnK_Feature_HillsYieldChanges = {
 	/**
 	 * Reference: Features(Type)
 	 */
-	FeatureType: TEXT,
+	FeatureType: GnK_FeaturesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -5096,11 +6573,11 @@ declare type GnK_Feature_TerrainBooleans = {
 	/**
 	 * Reference: Features(Type)
 	 */
-	FeatureType: TEXT,
+	FeatureType: GnK_FeaturesType,
 	/**
 	 * Reference: Terrains(Type)
 	 */
-	TerrainType: TEXT,
+	TerrainType: GnK_TerrainsType,
 }
 
 declare type GnK_Natural_Wonder_Placement = {
@@ -5113,7 +6590,7 @@ declare type GnK_Natural_Wonder_Placement = {
 	 * Not Null
 	 * Unique
 	 */
-	NaturalWonderType: TEXT,
+	NaturalWonderType: GnK_Natural_Wonder_PlacementType,
 	/**
 	 * @default -1
 	 */
@@ -5626,7 +7103,7 @@ declare type GnK_Improvements = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_ImprovementsType,
 	/**
 	 */
 	Description: TEXT,
@@ -5646,12 +7123,12 @@ declare type GnK_Improvements = {
 	 * @default NULL
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementPillage: TEXT,
+	ImprovementPillage: GnK_ImprovementsType,
 	/**
 	 * @default NULL
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementUpgrade: TEXT,
+	ImprovementUpgrade: GnK_ImprovementsType,
 	/**
 	 * @default false
 	 */
@@ -5660,7 +7137,7 @@ declare type GnK_Improvements = {
 	 * @default NULL
 	 * Reference: Civilizations(Type)
 	 */
-	CivilizationType: TEXT,
+	CivilizationType: GnK_CivilizationsType,
 	/**
 	 * @default false
 	 */
@@ -5808,11 +7285,11 @@ declare type GnK_Improvement_Flavors = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 * Not Null
 	 */
@@ -5823,11 +7300,11 @@ declare type GnK_Improvement_Yields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -5838,11 +7315,11 @@ declare type GnK_Improvement_AdjacentCityYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -5853,11 +7330,11 @@ declare type GnK_Improvement_CoastalLandYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -5868,11 +7345,11 @@ declare type GnK_Improvement_FreshWaterYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -5883,11 +7360,11 @@ declare type GnK_Improvement_HillsYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -5898,11 +7375,11 @@ declare type GnK_Improvement_AdjacentMountainYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -5913,11 +7390,11 @@ declare type GnK_Improvement_PrereqNatureYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -5928,11 +7405,11 @@ declare type GnK_Improvement_RiverSideYields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -5943,33 +7420,33 @@ declare type GnK_Improvement_ValidTerrains = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Terrains(Type)
 	 */
-	TerrainType: TEXT,
+	TerrainType: GnK_TerrainsType,
 }
 
 declare type GnK_Improvement_ValidFeatures = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Features(Type)
 	 */
-	FeatureType: TEXT,
+	FeatureType: GnK_FeaturesType,
 }
 
 declare type GnK_Improvement_ResourceTypes = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * @default true
 	 */
@@ -5992,15 +7469,15 @@ declare type GnK_Improvement_ResourceType_Yields = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -6011,15 +7488,15 @@ declare type GnK_Improvement_RouteYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Routes(Type)
 	 */
-	RouteType: TEXT,
+	RouteType: GnK_RoutesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -6029,7 +7506,7 @@ declare type GnK_Improvement_TechYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -6037,7 +7514,7 @@ declare type GnK_Improvement_TechYieldChanges = {
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -6047,7 +7524,7 @@ declare type GnK_Improvement_TechNoFreshWaterYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -6055,7 +7532,7 @@ declare type GnK_Improvement_TechNoFreshWaterYieldChanges = {
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -6065,7 +7542,7 @@ declare type GnK_Improvement_TechFreshWaterYieldChanges = {
 	/**
 	 * Reference: Improvements(Type)
 	 */
-	ImprovementType: TEXT,
+	ImprovementType: GnK_ImprovementsType,
 	/**
 	 * Reference: Technologies(Type)
 	 */
@@ -6073,10 +7550,26 @@ declare type GnK_Improvement_TechFreshWaterYieldChanges = {
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
+}
+
+declare type GnK_ResourceClasses = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_ResourceClassesType,
+	/**
+	 */
+	UniqueRange: INTEGER,
 }
 
 declare type GnK_Resources = {
@@ -6089,7 +7582,7 @@ declare type GnK_Resources = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_ResourcesType,
 	/**
 	 */
 	Description: TEXT,
@@ -6265,11 +7758,11 @@ declare type GnK_Resource_YieldChanges = {
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 * @default 0
 	 */
@@ -6280,11 +7773,11 @@ declare type GnK_Resource_Flavors = {
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 * @default 0
 	 */
@@ -6295,44 +7788,325 @@ declare type GnK_Resource_TerrainBooleans = {
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * Reference: Terrains(Type)
 	 */
-	TerrainType: TEXT,
+	TerrainType: GnK_TerrainsType,
 }
 
 declare type GnK_Resource_FeatureBooleans = {
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * Reference: Features(Type)
 	 */
-	FeatureType: TEXT,
+	FeatureType: GnK_FeaturesType,
 }
 
 declare type GnK_Resource_FeatureTerrainBooleans = {
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * Reference: Terrains(Type)
 	 */
-	TerrainType: TEXT,
+	TerrainType: GnK_TerrainsType,
 }
 
 declare type GnK_Resource_QuantityTypes = {
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * Not Null
 	 */
 	Quantity: INTEGER,
+}
+
+declare type GnK_Terrains = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_TerrainsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Civilopedia: TEXT,
+	/**
+	 */
+	ArtDefineTag: TEXT,
+	/**
+	 * @default false
+	 */
+	Water: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Impassable: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Found: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	FoundCoast: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	FoundFreshWater: BOOLEAN,
+	/**
+	 * @default 1
+	 */
+	Movement: INTEGER,
+	/**
+	 * @default 1
+	 */
+	SeeFrom: INTEGER,
+	/**
+	 * @default 1
+	 */
+	SeeThrough: INTEGER,
+	/**
+	 * @default 0
+	 */
+	BuildModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	Defense: INTEGER,
+	/**
+	 * @default 0
+	 */
+	InfluenceCost: INTEGER,
+	/**
+	 */
+	Button: TEXT,
+	/**
+	 */
+	WorldSoundscapeAudioScript: TEXT,
+	/**
+	 * @default false
+	 */
+	GraphicalOnly: BOOLEAN,
+	/**
+	 * @default -1
+	 */
+	PortraitIndex: INTEGER,
+	/**
+	 */
+	EffectTypeTag: TEXT,
+	/**
+	 * @default NULL
+	 * Reference: IconTextureAtlases(Atlas)
+	 */
+	IconAtlas: TEXT,
+}
+
+declare type GnK_Terrain_Yields = {
+	/**
+	 * Reference: Terrains(Type)
+	 */
+	TerrainType: GnK_TerrainsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Terrain_RiverYieldChanges = {
+	/**
+	 * Reference: Terrains(Type)
+	 */
+	TerrainType: GnK_TerrainsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Terrain_HillsYieldChanges = {
+	/**
+	 * Reference: Terrains(Type)
+	 */
+	TerrainType: GnK_TerrainsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Yields = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_YieldsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	IconString: TEXT,
+	/**
+	 * @default 0
+	 */
+	HillsChange: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MountainChange: INTEGER,
+	/**
+	 * @default 0
+	 */
+	LakeChange: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CityChange: INTEGER,
+	/**
+	 * @default 0
+	 */
+	PopulationChangeOffset: INTEGER,
+	/**
+	 * @default 0
+	 */
+	PopulationChangeDivisor: INTEGER,
+	/**
+	 */
+	MinCity: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldenAgeYield: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldenAgeYieldThreshold: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldenAgeYieldMod: INTEGER,
+	/**
+	 */
+	AIWeightPercent: INTEGER,
+}
+
+declare type GnK_Automates = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 */
+	Type: TEXT,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * @default 
+	 */
+	Help: TEXT,
+	/**
+	 * @default 
+	 */
+	DisabledHelp: TEXT,
+	/**
+	 */
+	HotKey: TEXT,
+	/**
+	 */
+	HotKeyAlt: TEXT,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriority: INTEGER,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriorityAlt: INTEGER,
+	/**
+	 * @default 0
+	 */
+	OrderPriority: INTEGER,
+	/**
+	 * @default false
+	 */
+	AltDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	AltDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ShiftDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ShiftDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	CtrlDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	CtrlDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Visible: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ConfirmCommand: BOOLEAN,
+	/**
+	 */
+	Automate: TEXT,
+	/**
+	 */
+	Command: TEXT,
+	/**
+	 * @default -1
+	 */
+	IconIndex: INTEGER,
+	/**
+	 * @default NULL
+	 * Reference: IconTextureAtlases(Atlas)
+	 */
+	IconAtlas: TEXT,
 }
 
 declare type GnK_Builds = {
@@ -6345,7 +8119,7 @@ declare type GnK_Builds = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_BuildsType,
 	/**
 	 */
 	Description: TEXT,
@@ -6461,7 +8235,7 @@ declare type GnK_BuildFeatures = {
 	/**
 	 * Reference: Builds(Type)
 	 */
-	BuildType: TEXT,
+	BuildType: GnK_BuildsType,
 	/**
 	 */
 	FeatureType: TEXT,
@@ -6489,7 +8263,7 @@ declare type GnK_Build_TechTimeChanges = {
 	/**
 	 * Reference: Builds(Type)
 	 */
-	BuildType: TEXT,
+	BuildType: GnK_BuildsType,
 	/**
 	 */
 	TechType: TEXT,
@@ -6497,6 +8271,262 @@ declare type GnK_Build_TechTimeChanges = {
 	 * @default 0
 	 */
 	TimeChange: INTEGER,
+}
+
+declare type GnK_Commands = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_CommandsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * @default 
+	 */
+	Help: TEXT,
+	/**
+	 * @default 
+	 */
+	DisabledHelp: TEXT,
+	/**
+	 */
+	HotKey: TEXT,
+	/**
+	 */
+	HotKeyAlt: TEXT,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriority: INTEGER,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriorityAlt: INTEGER,
+	/**
+	 * @default 0
+	 */
+	OrderPriority: INTEGER,
+	/**
+	 * @default false
+	 */
+	AltDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	AltDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ShiftDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ShiftDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	CtrlDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	CtrlDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Visible: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	All: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ConfirmCommand: BOOLEAN,
+	/**
+	 */
+	Automate: TEXT,
+	/**
+	 * @default -1
+	 */
+	IconIndex: INTEGER,
+	/**
+	 * @default NULL
+	 * Reference: IconTextureAtlases(Atlas)
+	 */
+	IconAtlas: TEXT,
+}
+
+declare type GnK_Controls = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_ControlsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * @default 
+	 */
+	Help: TEXT,
+	/**
+	 * @default 
+	 */
+	DisabledHelp: TEXT,
+	/**
+	 */
+	Button: TEXT,
+	/**
+	 */
+	HotKey: TEXT,
+	/**
+	 */
+	HotKeyAlt: TEXT,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriority: INTEGER,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriorityAlt: INTEGER,
+	/**
+	 * @default false
+	 */
+	AltDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	AltDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ShiftDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ShiftDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	CtrlDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	CtrlDownAlt: BOOLEAN,
+}
+
+declare type GnK_Missions = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_MissionsType,
+	/**
+	 * Reference: Language_en_US(Tag)
+	 */
+	Description: TEXT,
+	/**
+	 * @default 
+	 * Reference: Language_en_US(Tag)
+	 */
+	Help: TEXT,
+	/**
+	 * @default 
+	 * Reference: Language_en_US(Tag)
+	 */
+	DisabledHelp: TEXT,
+	/**
+	 */
+	HotKey: TEXT,
+	/**
+	 */
+	HotKeyAlt: TEXT,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriority: INTEGER,
+	/**
+	 * @default 0
+	 */
+	HotKeyPriorityAlt: INTEGER,
+	/**
+	 * @default 0
+	 */
+	OrderPriority: INTEGER,
+	/**
+	 * @default false
+	 */
+	AltDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	AltDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ShiftDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	ShiftDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	CtrlDown: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	CtrlDownAlt: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Visible: BOOLEAN,
+	/**
+	 * @default NULL
+	 */
+	Waypoint: TEXT,
+	/**
+	 */
+	Time: INTEGER,
+	/**
+	 */
+	Target: BOOLEAN,
+	/**
+	 */
+	Build: BOOLEAN,
+	/**
+	 */
+	Sound: BOOLEAN,
+	/**
+	 */
+	EntityEventType: TEXT,
+	/**
+	 * @default -1
+	 */
+	IconIndex: INTEGER,
+	/**
+	 * @default NULL
+	 * Reference: IconTextureAtlases(Atlas)
+	 */
+	IconAtlas: TEXT,
 }
 
 declare type GnK_MultiUnitPositions = {
@@ -6509,7 +8539,7 @@ declare type GnK_MultiUnitPositions = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_MultiUnitPositionsType,
 	/**
 	 */
 	Description: TEXT,
@@ -6528,7 +8558,7 @@ declare type GnK_MultiUnitFormations = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_MultiUnitFormationsType,
 	/**
 	 */
 	Description: TEXT,
@@ -6545,22 +8575,133 @@ declare type GnK_MultiUnitFormation_SlotEntries = {
 	/**
 	 * Reference: MultiUnitFormations(Type)
 	 */
-	MultiUnitFormationType: TEXT,
+	MultiUnitFormationType: GnK_MultiUnitFormationsType,
 	/**
 	 * Reference: UnitAIInfos(Type)
 	 */
-	PrimaryUnitType: TEXT,
+	PrimaryUnitType: GnK_UnitAIInfosType,
 	/**
 	 * Reference: UnitAIInfos(Type)
 	 */
-	SecondaryUnitType: TEXT,
+	SecondaryUnitType: GnK_UnitAIInfosType,
 	/**
 	 * Reference: MultiUnitPositions(Type)
 	 */
-	MultiUnitPositionType: TEXT,
+	MultiUnitPositionType: GnK_MultiUnitPositionsType,
 	/**
 	 */
 	RequiredSlot: BOOLEAN,
+}
+
+declare type GnK_SpecialUnits = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 */
+	Type: TEXT,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	Valid: BOOLEAN,
+	/**
+	 */
+	CityLoad: BOOLEAN,
+}
+
+declare type GnK_SpecialUnit_CarrierUnitAI = {
+	/**
+	 * Reference: SpecialUnits(Type)
+	 */
+	SpecialUnitType: TEXT,
+	/**
+	 */
+	UnitAIType: TEXT,
+}
+
+declare type GnK_SpecialUnit_ProductionTraits = {
+	/**
+	 * Reference: SpecialUnits(Type)
+	 */
+	SpecialUnitType: TEXT,
+	/**
+	 * Reference: Traits(Type)
+	 */
+	TraitType: GnK_TraitsType,
+	/**
+	 */
+	Trait: INTEGER,
+}
+
+declare type GnK_UnitClasses = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_UnitClassesType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 * @default -1
+	 */
+	MaxGlobalInstances: INTEGER,
+	/**
+	 * @default -1
+	 */
+	MaxTeamInstances: INTEGER,
+	/**
+	 * @default -1
+	 */
+	MaxPlayerInstances: INTEGER,
+	/**
+	 * @default 0
+	 */
+	InstanceCostModifier: INTEGER,
+	/**
+	 */
+	DefaultUnit: TEXT,
+}
+
+declare type GnK_MovementRates = {
+	/**
+	 * Not Null
+	 */
+	Type: TEXT,
+	/**
+	 * Not Null
+	 */
+	NumHexes: INTEGER,
+	/**
+	 */
+	TotalTime: FLOAT,
+	/**
+	 */
+	EaseIn: FLOAT,
+	/**
+	 */
+	EaseOut: FLOAT,
+	/**
+	 */
+	IndividualOffset: FLOAT,
+	/**
+	 */
+	RowOffset: FLOAT,
+	/**
+	 */
+	CurveRoll: FLOAT,
+	/**
+	 */
+	PathSubdivision: INTEGER,
 }
 
 declare type GnK_UnitPromotions = {
@@ -6573,7 +8714,7 @@ declare type GnK_UnitPromotions = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_UnitPromotionsType,
 	/**
 	 * Reference: Language_en_US(Tag)
 	 */
@@ -7061,47 +9202,47 @@ declare type GnK_UnitPromotions = {
 	 * @default NULL
 	 * Reference: InvisibleInfos(Type)
 	 */
-	Invisible: TEXT,
+	Invisible: GnK_InvisibleInfosType,
 	/**
 	 * @default NULL
 	 * Reference: InvisibleInfos(Type)
 	 */
-	SeeInvisible: TEXT,
+	SeeInvisible: GnK_InvisibleInfosType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionPrereq: TEXT,
+	PromotionPrereq: GnK_UnitPromotionsType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionPrereqOr1: TEXT,
+	PromotionPrereqOr1: GnK_UnitPromotionsType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionPrereqOr2: TEXT,
+	PromotionPrereqOr2: GnK_UnitPromotionsType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionPrereqOr3: TEXT,
+	PromotionPrereqOr3: GnK_UnitPromotionsType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionPrereqOr4: TEXT,
+	PromotionPrereqOr4: GnK_UnitPromotionsType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionPrereqOr5: TEXT,
+	PromotionPrereqOr5: GnK_UnitPromotionsType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionPrereqOr6: TEXT,
+	PromotionPrereqOr6: GnK_UnitPromotionsType,
 	/**
 	 */
 	PediaType: TEXT,
@@ -7115,11 +9256,11 @@ declare type GnK_UnitPromotions_Terrains = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 	/**
 	 * Reference: Terrains(Type)
 	 */
-	TerrainType: TEXT,
+	TerrainType: GnK_TerrainsType,
 	/**
 	 * @default 0
 	 */
@@ -7149,11 +9290,11 @@ declare type GnK_UnitPromotions_Features = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 	/**
 	 * Reference: Features(Type)
 	 */
-	FeatureType: TEXT,
+	FeatureType: GnK_FeaturesType,
 	/**
 	 * @default 0
 	 */
@@ -7183,11 +9324,11 @@ declare type GnK_UnitPromotions_UnitClasses = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 	/**
 	 * Reference: UnitClasses(Type)
 	 */
-	UnitClassType: TEXT,
+	UnitClassType: GnK_UnitClassesType,
 	/**
 	 */
 	Modifier: INTEGER,
@@ -7206,11 +9347,11 @@ declare type GnK_UnitPromotions_Domains = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 	/**
 	 * Reference: Domains(Type)
 	 */
-	DomainType: TEXT,
+	DomainType: GnK_DomainsType,
 	/**
 	 */
 	Modifier: INTEGER,
@@ -7223,11 +9364,11 @@ declare type GnK_UnitPromotions_UnitCombatMods = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 	/**
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	UnitCombatType: TEXT,
+	UnitCombatType: GnK_UnitCombatInfosType,
 	/**
 	 */
 	Modifier: INTEGER,
@@ -7240,11 +9381,11 @@ declare type GnK_UnitPromotions_UnitCombats = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 	/**
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	UnitCombatType: TEXT,
+	UnitCombatType: GnK_UnitCombatInfosType,
 	/**
 	 */
 	PediaType: TEXT,
@@ -7254,11 +9395,11 @@ declare type GnK_UnitPromotions_CivilianUnitType = {
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 }
 
 declare type GnK_CivilianAttackPriorities = {
@@ -7271,7 +9412,7 @@ declare type GnK_CivilianAttackPriorities = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_CivilianAttackPrioritiesType,
 }
 
 declare type GnK_Units = {
@@ -7284,7 +9425,7 @@ declare type GnK_Units = {
 	 * Not Null
 	 * Unique
 	 */
-	Type: TEXT,
+	Type: GnK_UnitsType,
 	/**
 	 * Reference: Language_en_US(Tag)
 	 */
@@ -7344,7 +9485,7 @@ declare type GnK_Units = {
 	 * @default NULL
 	 * Reference: UnitClasses(Type)
 	 */
-	Class: TEXT,
+	Class: GnK_UnitClassesType,
 	/**
 	 * @default NULL
 	 * Reference: SpecialUnits(Type)
@@ -7354,17 +9495,17 @@ declare type GnK_Units = {
 	 * @default NULL
 	 * Reference: UnitClasses(Type)
 	 */
-	Capture: TEXT,
+	Capture: GnK_UnitClassesType,
 	/**
 	 * @default NULL
 	 * Reference: UnitCombatInfos(Type)
 	 */
-	CombatClass: TEXT,
+	CombatClass: GnK_UnitCombatInfosType,
 	/**
 	 * @default NULL
 	 * Reference: Domains(Type)
 	 */
-	Domain: TEXT,
+	Domain: GnK_DomainsType,
 	/**
 	 * @default NULL
 	 */
@@ -7373,7 +9514,7 @@ declare type GnK_Units = {
 	 * @default NULL
 	 * Reference: UnitAIInfos(Type)
 	 */
-	DefaultUnitAI: TEXT,
+	DefaultUnitAI: GnK_UnitAIInfosType,
 	/**
 	 * @default false
 	 */
@@ -7453,7 +9594,7 @@ declare type GnK_Units = {
 	 * @default NULL
 	 * Reference: UnitClasses(Type)
 	 */
-	GoodyHutUpgradeUnitClass: TEXT,
+	GoodyHutUpgradeUnitClass: GnK_UnitClassesType,
 	/**
 	 * @default 0
 	 */
@@ -7571,7 +9712,7 @@ declare type GnK_Units = {
 	 * @default NULL
 	 * Reference: Domains(Type)
 	 */
-	DomainCargo: TEXT,
+	DomainCargo: GnK_DomainsType,
 	/**
 	 * @default 0
 	 */
@@ -7604,17 +9745,17 @@ declare type GnK_Units = {
 	 * @default NULL
 	 * Reference: Projects(Type)
 	 */
-	ProjectPrereq: TEXT,
+	ProjectPrereq: GnK_ProjectsType,
 	/**
 	 * @default NULL
 	 * Reference: Projects(Type)
 	 */
-	SpaceshipProject: TEXT,
+	SpaceshipProject: GnK_ProjectsType,
 	/**
 	 * @default NULL
 	 * Reference: UnitPromotions(Type)
 	 */
-	LeaderPromotion: TEXT,
+	LeaderPromotion: GnK_UnitPromotionsType,
 	/**
 	 * @default 0
 	 */
@@ -7656,44 +9797,44 @@ declare type GnK_Unit_AITypes = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: UnitAIInfos(Type)
 	 */
-	UnitAIType: TEXT,
+	UnitAIType: GnK_UnitAIInfosType,
 }
 
 declare type GnK_Unit_Buildings = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 }
 
 declare type GnK_Unit_BuildingClassRequireds = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: BuildingClasses(Type)
 	 */
-	BuildingClassType: TEXT,
+	BuildingClassType: GnK_BuildingClassesType,
 }
 
 declare type GnK_Unit_ProductionModifierBuildings = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: Buildings(Type)
 	 */
-	BuildingType: TEXT,
+	BuildingType: GnK_BuildingsType,
 	/**
 	 */
 	ProductionModifier: INTEGER,
@@ -7703,44 +9844,44 @@ declare type GnK_Unit_Builds = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: Builds(Type)
 	 */
-	BuildType: TEXT,
+	BuildType: GnK_BuildsType,
 }
 
 declare type GnK_Unit_ClassUpgrades = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: UnitClasses(Type)
 	 */
-	UnitClassType: TEXT,
+	UnitClassType: GnK_UnitClassesType,
 }
 
 declare type GnK_Unit_FreePromotions = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: UnitPromotions(Type)
 	 */
-	PromotionType: TEXT,
+	PromotionType: GnK_UnitPromotionsType,
 }
 
 declare type GnK_Unit_Flavors = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: Flavors(Type)
 	 */
-	FlavorType: TEXT,
+	FlavorType: GnK_FlavorsType,
 	/**
 	 * Not Null
 	 */
@@ -7751,22 +9892,22 @@ declare type GnK_Unit_GreatPersons = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: Specialists(Type)
 	 */
-	GreatPersonType: TEXT,
+	GreatPersonType: GnK_SpecialistsType,
 }
 
 declare type GnK_Unit_ResourceQuantityRequirements = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: Resources(Type)
 	 */
-	ResourceType: TEXT,
+	ResourceType: GnK_ResourcesType,
 	/**
 	 * @default 1
 	 */
@@ -7777,7 +9918,7 @@ declare type GnK_Unit_UniqueNames = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Not Null
 	 * Reference: Language_en_US(Tag)
@@ -7789,11 +9930,11 @@ declare type GnK_Unit_YieldFromKills = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: Yields(Type)
 	 */
-	YieldType: TEXT,
+	YieldType: GnK_YieldsType,
 	/**
 	 */
 	Yield: INTEGER,
@@ -7803,22 +9944,22 @@ declare type GnK_Unit_NotAITypes = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: UnitAIInfos(Type)
 	 */
-	UnitAIType: TEXT,
+	UnitAIType: GnK_UnitAIInfosType,
 }
 
 declare type GnK_Unit_ProductionTraits = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: Traits(Type)
 	 */
-	TraitType: TEXT,
+	TraitType: GnK_TraitsType,
 	/**
 	 */
 	Trait: INTEGER,
@@ -7828,10 +9969,3209 @@ declare type GnK_Unit_TechTypes = {
 	/**
 	 * Reference: Units(Type)
 	 */
-	UnitType: TEXT,
+	UnitType: GnK_UnitsType,
 	/**
 	 * Reference: Technologies(Type)
 	 */
 	TechType: TEXT,
 }
+
+declare type GnK_AnimationCategories = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: TEXT,
+	/**
+	 */
+	DefaultTo: TEXT,
+	/**
+	 * @default -1
+	 */
+	BaseID: INTEGER,
+}
+
+declare type GnK_AnimationPaths = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 */
+	Type: TEXT,
+	/**
+	 * @default false
+	 */
+	MissionPath: BOOLEAN,
+}
+
+declare type GnK_AnimationPath_Entries = {
+	/**
+	 * Reference: AnimationPaths(Type)
+	 */
+	AnimationPathType: TEXT,
+	/**
+	 */
+	Category: TEXT,
+	/**
+	 */
+	Operator: TEXT,
+	/**
+	 * @default 0
+	 */
+	Parameter: FLOAT,
+}
+
+declare type GnK_EntityEvents = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 */
+	Type: TEXT,
+	/**
+	 * @default false
+	 */
+	UpdateFormation: BOOLEAN,
+}
+
+declare type GnK_EntityEvent_AnimationPaths = {
+	/**
+	 * Reference: EntityEvents(Type)
+	 */
+	EntityEventType: TEXT,
+	/**
+	 * Reference: AnimationPaths(Type)
+	 */
+	AnimationPathType: TEXT,
+}
+
+declare type GnK_Beliefs = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_BeliefsType,
+	/**
+	 */
+	Description: TEXT,
+	/**
+	 */
+	ShortDescription: TEXT,
+	/**
+	 * @default false
+	 */
+	Pantheon: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Founder: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Follower: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	Enhancer: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	RequiresPeace: BOOLEAN,
+	/**
+	 * @default false
+	 */
+	EnablesFaithBuying: BOOLEAN,
+	/**
+	 * @default 0
+	 */
+	MinPopulation: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MinFollowers: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MaxDistance: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CityGrowthModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	FaithFromKills: INTEGER,
+	/**
+	 * @default 0
+	 */
+	FaithFromDyingUnits: INTEGER,
+	/**
+	 * @default 0
+	 */
+	RiverHappiness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	HappinessPerCity: INTEGER,
+	/**
+	 * @default 0
+	 */
+	HappinessPerFollowingCity: INTEGER,
+	/**
+	 * @default 0
+	 */
+	HappinessPerXPeacefulForeignFollowers: INTEGER,
+	/**
+	 * @default 0
+	 */
+	PlotCultureCostModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CityRangeStrikeModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CombatModifierEnemyCities: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CombatModifierFriendlyCities: INTEGER,
+	/**
+	 * @default 0
+	 */
+	FriendlyHealChange: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CityStateFriendshipModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	LandBarbarianConversionPercent: INTEGER,
+	/**
+	 * @default 0
+	 */
+	WonderProductionModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	PlayerHappiness: INTEGER,
+	/**
+	 * @default 0
+	 */
+	PlayerCultureModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldPerFollowingCity: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldPerXFollowers: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GoldPerFirstCityConversion: INTEGER,
+	/**
+	 * @default 0
+	 */
+	SciencePerOtherReligionFollower: INTEGER,
+	/**
+	 * @default 0
+	 */
+	SpreadDistanceModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	SpreadStrengthModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	ProphetStrengthModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	ProphetCostModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MissionaryStrengthModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	MissionaryCostModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	FriendlyCityStateSpreadModifier: INTEGER,
+	/**
+	 * @default 0
+	 */
+	GreatPersonExpendedFaith: INTEGER,
+	/**
+	 * @default 0
+	 */
+	CityStateMinimumInfluence: INTEGER,
+	/**
+	 * @default NULL
+	 * Reference: Eras(Type)
+	 */
+	ObsoleteEra: GnK_ErasType,
+	/**
+	 * @default NULL
+	 * Reference: Resources(Type)
+	 */
+	ResourceRevealed: GnK_ResourcesType,
+	/**
+	 * @default NULL
+	 * Reference: BuildingClasses(Type)
+	 */
+	BuildingClassEnabled: GnK_BuildingClassesType,
+	/**
+	 * @default NULL
+	 * Reference: Technologies(Type)
+	 */
+	SpreadModifierDoublingTech: TEXT,
+}
+
+declare type GnK_Belief_BuildingClassYieldChanges = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: BuildingClasses(Type)
+	 */
+	BuildingClassType: GnK_BuildingClassesType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	YieldChange: INTEGER,
+}
+
+declare type GnK_Belief_BuildingClassHappiness = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: BuildingClasses(Type)
+	 */
+	BuildingClassType: GnK_BuildingClassesType,
+	/**
+	 */
+	Happiness: INTEGER,
+}
+
+declare type GnK_Belief_CityYieldChanges = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_HolyCityYieldChanges = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_FeatureYieldChanges = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Features(Type)
+	 */
+	FeatureType: GnK_FeaturesType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_ImprovementYieldChanges = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Improvements(Type)
+	 */
+	ImprovementType: GnK_ImprovementsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_MaxYieldModifierPerFollower = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Max: INTEGER,
+}
+
+declare type GnK_Belief_ResourceQuantityModifiers = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Resources(Type)
+	 */
+	ResourceType: GnK_ResourcesType,
+	/**
+	 * @default 0
+	 */
+	ResourceQuantityModifier: INTEGER,
+}
+
+declare type GnK_Belief_ResourceHappiness = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Resources(Type)
+	 */
+	ResourceType: GnK_ResourcesType,
+	/**
+	 * @default 0
+	 */
+	HappinessChange: INTEGER,
+}
+
+declare type GnK_Belief_ResourceYieldChanges = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Resources(Type)
+	 */
+	ResourceType: GnK_ResourcesType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_TerrainYieldChanges = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Terrains(Type)
+	 */
+	TerrainType: GnK_TerrainsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_YieldChangeAnySpecialist = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_YieldChangePerForeignCity = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_YieldChangePerXForeignFollowers = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	ForeignFollowers: INTEGER,
+}
+
+declare type GnK_Belief_YieldChangeTradeRoute = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_YieldChangeNaturalWonder = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_YieldChangeWorldWonder = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Belief_YieldModifierNaturalWonder = {
+	/**
+	 * Reference: Beliefs(Type)
+	 */
+	BeliefType: GnK_BeliefsType,
+	/**
+	 * Reference: Yields(Type)
+	 */
+	YieldType: GnK_YieldsType,
+	/**
+	 * @default 0
+	 */
+	Yield: INTEGER,
+}
+
+declare type GnK_Religions = {
+	/**
+	 * Primary Key
+	 * Auto Increment
+	 */
+	ID: INTEGER,
+	/**
+	 * Not Null
+	 * Unique
+	 */
+	Type: GnK_ReligionsType,
+	/**
+	 * Reference: Language_en_US(Tag)
+	 */
+	Description: TEXT,
+	/**
+	 * Reference: Language_en_US(Tag)
+	 */
+	Civilopedia: TEXT,
+	/**
+	 * @default -1
+	 */
+	EarliestFoundDate: INTEGER,
+	/**
+	 * @default -1
+	 */
+	PortraitIndex: INTEGER,
+	/**
+	 * @default NULL
+	 * Reference: IconTextureAtlases(Atlas)
+	 */
+	IconAtlas: TEXT,
+	/**
+	 */
+	IconString: TEXT,
+}
+
+declare type GnK_CivilizationsType =
+	| "CIVILIZATION_MONGOL"
+	| "CIVILIZATION_INCA"
+	| "CIVILIZATION_SPAIN"
+	| "CIVILIZATION_POLYNESIA"
+	| "CIVILIZATION_DENMARK"
+	| "CIVILIZATION_KOREA"
+	| "CIVILIZATION_BABYLON"
+	| "CIVILIZATION_AMERICA"
+	| "CIVILIZATION_ARABIA"
+	| "CIVILIZATION_AZTEC"
+	| "CIVILIZATION_CHINA"
+	| "CIVILIZATION_EGYPT"
+	| "CIVILIZATION_ENGLAND"
+	| "CIVILIZATION_FRANCE"
+	| "CIVILIZATION_GERMANY"
+	| "CIVILIZATION_GREECE"
+	| "CIVILIZATION_INDIA"
+	| "CIVILIZATION_IROQUOIS"
+	| "CIVILIZATION_JAPAN"
+	| "CIVILIZATION_OTTOMAN"
+	| "CIVILIZATION_PERSIA"
+	| "CIVILIZATION_ROME"
+	| "CIVILIZATION_RUSSIA"
+	| "CIVILIZATION_SIAM"
+	| "CIVILIZATION_SONGHAI"
+	| "CIVILIZATION_MINOR"
+	| "CIVILIZATION_BARBARIAN"
+	| "CIVILIZATION_AUSTRIA"
+	| "CIVILIZATION_BYZANTIUM"
+	| "CIVILIZATION_CARTHAGE"
+	| "CIVILIZATION_CELTS"
+	| "CIVILIZATION_ETHIOPIA"
+	| "CIVILIZATION_HUNS"
+	| "CIVILIZATION_MAYA"
+	| "CIVILIZATION_NETHERLANDS"
+	| "CIVILIZATION_SWEDEN";
+
+declare type GnK_ColorsType =
+	| "COLOR_PLAYER_MONGOL_ICON"
+	| "COLOR_PLAYER_MONGOL_BACKGROUND"
+	| "COLOR_PLAYER_INCA_ICON"
+	| "COLOR_PLAYER_INCA_BACKGROUND"
+	| "COLOR_PLAYER_SPAIN_ICON"
+	| "COLOR_PLAYER_SPAIN_BACKGROUND"
+	| "COLOR_PLAYER_POLYNESIA_ICON"
+	| "COLOR_PLAYER_POLYNESIA_BACKGROUND"
+	| "COLOR_PLAYER_DENMARK_ICON"
+	| "COLOR_PLAYER_DENMARK_BACKGROUND"
+	| "COLOR_PLAYER_KOREA_ICON"
+	| "COLOR_PLAYER_KOREA_BACKGROUND"
+	| "COLOR_PLAYER_NEBUCHADNEZZAR_ICON"
+	| "COLOR_PLAYER_NEBUCHADNEZZAR_BACKGROUND"
+	| "COLOR_CLEAR"
+	| "COLOR_ALPHA_GREY"
+	| "COLOR_WHITE"
+	| "COLOR_BLACK"
+	| "COLOR_DARK_GREY"
+	| "COLOR_GREY"
+	| "COLOR_LIGHT_GREY"
+	| "COLOR_GREEN"
+	| "COLOR_BLUE"
+	| "COLOR_XP_BLUE"
+	| "COLOR_CYAN"
+	| "COLOR_YELLOW"
+	| "COLOR_MAGENTA"
+	| "COLOR_YIELD_FOOD"
+	| "COLOR_YIELD_PRODUCTION"
+	| "COLOR_YIELD_GOLD"
+	| "COLOR_CITY_BLUE"
+	| "COLOR_CITY_GREY"
+	| "COLOR_CITY_BROWN"
+	| "COLOR_CITY_GREEN"
+	| "COLOR_FONT_RED"
+	| "COLOR_FONT_GREEN"
+	| "COLOR_RESEARCH_STORED"
+	| "COLOR_RESEARCH_RATE"
+	| "COLOR_CULTURE_STORED"
+	| "COLOR_CULTURE_RATE"
+	| "COLOR_GREAT_PEOPLE_STORED"
+	| "COLOR_GREAT_PEOPLE_RATE"
+	| "COLOR_NEGATIVE_RATE"
+	| "COLOR_EMPTY"
+	| "COLOR_POPUP_TEXT"
+	| "COLOR_POPUP_SELECTED"
+	| "COLOR_TECH_TEXT"
+	| "COLOR_UNIT_TEXT"
+	| "COLOR_BUILDING_TEXT"
+	| "COLOR_PROJECT_TEXT"
+	| "COLOR_HIGHLIGHT_TEXT"
+	| "COLOR_ALT_HIGHLIGHT_TEXT"
+	| "COLOR_WARNING_TEXT"
+	| "COLOR_POSITIVE_TEXT"
+	| "COLOR_NEGATIVE_TEXT"
+	| "COLOR_BROWN_TEXT"
+	| "COLOR_SELECTED_TEXT"
+	| "COLOR_WATER_TEXT"
+	| "COLOR_MENU_BLUE"
+	| "COLOR_DAWN_OF_MAN_TEXT"
+	| "COLOR_ADVISOR_HIGHLIGHT_TEXT"
+	| "COLOR_TECH_GREEN"
+	| "COLOR_TECH_BLUE"
+	| "COLOR_TECH_WORKING"
+	| "COLOR_TECH_BLACK"
+	| "COLOR_TECH_RED"
+	| "COLOR_RED"
+	| "COLOR_PLAYER_BLACK"
+	| "COLOR_PLAYER_BLACK_TEXT"
+	| "COLOR_PLAYER_BLUE"
+	| "COLOR_PLAYER_LIGHT_BLUE_TEXT"
+	| "COLOR_PLAYER_BROWN"
+	| "COLOR_PLAYER_BROWN_TEXT"
+	| "COLOR_PLAYER_CYAN"
+	| "COLOR_PLAYER_CYAN_TEXT"
+	| "COLOR_PLAYER_DARK_BLUE"
+	| "COLOR_PLAYER_DARK_BLUE_TEXT"
+	| "COLOR_PLAYER_DARK_CYAN"
+	| "COLOR_PLAYER_DARK_CYAN_TEXT"
+	| "COLOR_PLAYER_DARK_GREEN"
+	| "COLOR_PLAYER_DARK_DARK_GREEN"
+	| "COLOR_PLAYER_DARK_GREEN_TEXT"
+	| "COLOR_PLAYER_DARK_PINK"
+	| "COLOR_PLAYER_DARK_PINK_TEXT"
+	| "COLOR_PLAYER_DARK_PURPLE"
+	| "COLOR_PLAYER_DARK_PURPLE_TEXT"
+	| "COLOR_PLAYER_DARK_RED"
+	| "COLOR_PLAYER_DARK_RED_TEXT"
+	| "COLOR_PLAYER_DARK_YELLOW"
+	| "COLOR_PLAYER_DARK_YELLOW_TEXT"
+	| "COLOR_PLAYER_GRAY"
+	| "COLOR_PLAYER_GRAY_TEXT"
+	| "COLOR_PLAYER_GREEN"
+	| "COLOR_PLAYER_GREEN_TEXT"
+	| "COLOR_PLAYER_ORANGE"
+	| "COLOR_PLAYER_ORANGE_TEXT"
+	| "COLOR_PLAYER_PEACH"
+	| "COLOR_PLAYER_PEACH_TEXT"
+	| "COLOR_PLAYER_PINK"
+	| "COLOR_PLAYER_PINK_TEXT"
+	| "COLOR_PLAYER_PURPLE"
+	| "COLOR_PLAYER_PURPLE_TEXT"
+	| "COLOR_PLAYER_RED"
+	| "COLOR_PLAYER_RED_TEXT"
+	| "COLOR_PLAYER_WHITE"
+	| "COLOR_PLAYER_WHITE_TEXT"
+	| "COLOR_PLAYER_YELLOW"
+	| "COLOR_PLAYER_YELLOW_TEXT"
+	| "COLOR_PLAYER_LIGHT_GREEN"
+	| "COLOR_PLAYER_LIGHT_GREEN_TEXT"
+	| "COLOR_PLAYER_LIGHT_BLUE"
+	| "COLOR_PLAYER_BLUE_TEXT"
+	| "COLOR_PLAYER_LIGHT_YELLOW"
+	| "COLOR_PLAYER_LIGHT_YELLOW_TEXT"
+	| "COLOR_PLAYER_LIGHT_PURPLE"
+	| "COLOR_PLAYER_LIGHT_PURPLE_TEXT"
+	| "COLOR_PLAYER_LIGHT_ORANGE"
+	| "COLOR_PLAYER_LIGHT_ORANGE_TEXT"
+	| "COLOR_PLAYER_MIDDLE_PURPLE"
+	| "COLOR_PLAYER_MIDDLE_PURPLE_TEXT"
+	| "COLOR_PLAYER_GOLDENROD"
+	| "COLOR_PLAYER_DARK_GRAY"
+	| "COLOR_PLAYER_DARK_GRAY_TEXT"
+	| "COLOR_PLAYER_MIDDLE_GREEN"
+	| "COLOR_PLAYER_MIDDLE_GREEN_TEXT"
+	| "COLOR_PLAYER_DARK_LEMON"
+	| "COLOR_PLAYER_DARK_LEMON_TEXT"
+	| "COLOR_PLAYER_MIDDLE_BLUE"
+	| "COLOR_PLAYER_MIDDLE_BLUE_TEXT"
+	| "COLOR_PLAYER_MIDDLE_CYAN"
+	| "COLOR_PLAYER_MIDDLE_CYAN_TEXT"
+	| "COLOR_PLAYER_MAROON"
+	| "COLOR_PLAYER_LIGHT_BROWN"
+	| "COLOR_PLAYER_LIGHT_BROWN_TEXT"
+	| "COLOR_PLAYER_DARK_ORANGE"
+	| "COLOR_PLAYER_DARK_ORANGE_TEXT"
+	| "COLOR_PLAYER_DARK_DARK_GREEN_TEXT"
+	| "COLOR_PLAYER_PALE_RED"
+	| "COLOR_PLAYER_DARK_INDIGO"
+	| "COLOR_PLAYER_DARK_INDIGO_TEXT"
+	| "COLOR_PLAYER_PALE_ORANGE"
+	| "COLOR_PLAYER_LIGHT_BLACK"
+	| "COLOR_PLAYER_LIGHT_BLACK_TEXT"
+	| "COLOR_PLAYER_MINOR_ICON"
+	| "COLOR_PLAYER_BARBARIAN_ICON"
+	| "COLOR_PLAYER_AMERICA_ICON"
+	| "COLOR_PLAYER_ARABIA_ICON"
+	| "COLOR_PLAYER_AZTEC_ICON"
+	| "COLOR_PLAYER_CHINA_ICON"
+	| "COLOR_PLAYER_EGYPT_ICON"
+	| "COLOR_PLAYER_ENGLAND_ICON"
+	| "COLOR_PLAYER_FRANCE_ICON"
+	| "COLOR_PLAYER_GERMANY_ICON"
+	| "COLOR_PLAYER_GREECE_ICON"
+	| "COLOR_PLAYER_INDIA_ICON"
+	| "COLOR_PLAYER_IROQUOIS_ICON"
+	| "COLOR_PLAYER_JAPAN_ICON"
+	| "COLOR_PLAYER_OTTOMAN_ICON"
+	| "COLOR_PLAYER_PERSIA_ICON"
+	| "COLOR_PLAYER_ROME_ICON"
+	| "COLOR_PLAYER_RUSSIA_ICON"
+	| "COLOR_PLAYER_SIAM_ICON"
+	| "COLOR_PLAYER_SONGHAI_ICON"
+	| "COLOR_PLAYER_BARBARIAN_BACKGROUND"
+	| "COLOR_PLAYER_AMERICA_BACKGROUND"
+	| "COLOR_PLAYER_ARABIA_BACKGROUND"
+	| "COLOR_PLAYER_AZTEC_BACKGROUND"
+	| "COLOR_PLAYER_CHINA_BACKGROUND"
+	| "COLOR_PLAYER_EGYPT_BACKGROUND"
+	| "COLOR_PLAYER_ENGLAND_BACKGROUND"
+	| "COLOR_PLAYER_FRANCE_BACKGROUND"
+	| "COLOR_PLAYER_GERMANY_BACKGROUND"
+	| "COLOR_PLAYER_GREECE_BACKGROUND"
+	| "COLOR_PLAYER_INDIA_BACKGROUND"
+	| "COLOR_PLAYER_IROQUOIS_BACKGROUND"
+	| "COLOR_PLAYER_JAPAN_BACKGROUND"
+	| "COLOR_PLAYER_OTTOMAN_BACKGROUND"
+	| "COLOR_PLAYER_PERSIA_BACKGROUND"
+	| "COLOR_PLAYER_ROME_BACKGROUND"
+	| "COLOR_PLAYER_RUSSIA_BACKGROUND"
+	| "COLOR_PLAYER_SIAM_BACKGROUND"
+	| "COLOR_PLAYER_SONGHAI_BACKGROUND"
+	| "COLOR_PLAYER_AUSTRIA_ICON"
+	| "COLOR_PLAYER_AUSTRIA_BACKGROUND"
+	| "COLOR_PLAYER_BYZANTIUM_ICON"
+	| "COLOR_PLAYER_BYZANTIUM_BACKGROUND"
+	| "COLOR_PLAYER_CARTHAGE_ICON"
+	| "COLOR_PLAYER_CARTHAGE_BACKGROUND"
+	| "COLOR_PLAYER_CELTS_ICON"
+	| "COLOR_PLAYER_CELTS_BACKGROUND"
+	| "COLOR_PLAYER_ETHIOPIA_ICON"
+	| "COLOR_PLAYER_ETHIOPIA_BACKGROUND"
+	| "COLOR_PLAYER_HUNS_ICON"
+	| "COLOR_PLAYER_HUNS_BACKGROUND"
+	| "COLOR_PLAYER_MAYA_ICON"
+	| "COLOR_PLAYER_MAYA_BACKGROUND"
+	| "COLOR_PLAYER_NETHERLANDS_ICON"
+	| "COLOR_PLAYER_NETHERLANDS_BACKGROUND"
+	| "COLOR_PLAYER_SWEDEN_ICON"
+	| "COLOR_PLAYER_SWEDEN_BACKGROUND"
+	| "COLOR_FADING_POSITIVE_TEXT"
+	| "COLOR_FADING_NEGATIVE_TEXT";
+
+declare type GnK_PlayerColorsType =
+	| "PLAYERCOLOR_MONGOL"
+	| "PLAYERCOLOR_INCA"
+	| "PLAYERCOLOR_SPAIN"
+	| "PLAYERCOLOR_POLYNESIA"
+	| "PLAYERCOLOR_DENMARK"
+	| "PLAYERCOLOR_KOREA"
+	| "PLAYERCOLOR_BABYLON"
+	| "PLAYERCOLOR_BLACK"
+	| "PLAYERCOLOR_BLUE"
+	| "PLAYERCOLOR_BROWN"
+	| "PLAYERCOLOR_CYAN"
+	| "PLAYERCOLOR_DARK_BLUE"
+	| "PLAYERCOLOR_DARK_CYAN"
+	| "PLAYERCOLOR_DARK_GREEN"
+	| "PLAYERCOLOR_DARK_PINK"
+	| "PLAYERCOLOR_DARK_PURPLE"
+	| "PLAYERCOLOR_DARK_RED"
+	| "PLAYERCOLOR_DARK_YELLOW"
+	| "PLAYERCOLOR_GRAY"
+	| "PLAYERCOLOR_GREEN"
+	| "PLAYERCOLOR_ORANGE"
+	| "PLAYERCOLOR_PEACH"
+	| "PLAYERCOLOR_PINK"
+	| "PLAYERCOLOR_PURPLE"
+	| "PLAYERCOLOR_RED"
+	| "PLAYERCOLOR_WHITE"
+	| "PLAYERCOLOR_YELLOW"
+	| "PLAYERCOLOR_LIGHT_GREEN"
+	| "PLAYERCOLOR_LIGHT_BLUE"
+	| "PLAYERCOLOR_LIGHT_YELLOW"
+	| "PLAYERCOLOR_LIGHT_PURPLE"
+	| "PLAYERCOLOR_LIGHT_ORANGE"
+	| "PLAYERCOLOR_MIDDLE_PURPLE"
+	| "PLAYERCOLOR_DARK_GRAY"
+	| "PLAYERCOLOR_MIDDLE_GREEN"
+	| "PLAYERCOLOR_DARK_LEMON"
+	| "PLAYERCOLOR_MIDDLE_BLUE"
+	| "PLAYERCOLOR_MIDDLE_CYAN"
+	| "PLAYERCOLOR_LIGHT_BROWN"
+	| "PLAYERCOLOR_DARK_ORANGE"
+	| "PLAYERCOLOR_DARK_DARK_GREEN"
+	| "PLAYERCOLOR_DARK_INDIGO"
+	| "PLAYERCOLOR_RED_AND_GOLD"
+	| "PLAYERCOLOR_GOLD_AND_BLACK"
+	| "PLAYERCOLOR_GREEN_AND_BLACK"
+	| "PLAYERCOLOR_DARK_CYAN_AND_LEMON"
+	| "PLAYERCOLOR_BLACK_AND_GREEN"
+	| "PLAYERCOLOR_GREEN_AND_WHITE"
+	| "PLAYERCOLOR_CYAN_AND_GRAY"
+	| "PLAYERCOLOR_DARK_INDIGO_AND_WHITE"
+	| "PLAYERCOLOR_ORANGE_AND_GREEN"
+	| "PLAYERCOLOR_BARBARIAN"
+	| "PLAYERCOLOR_MINOR_WHITE"
+	| "PLAYERCOLOR_MINOR_GRAY"
+	| "PLAYERCOLOR_MINOR_BLUE"
+	| "PLAYERCOLOR_MINOR_MIDDLE_BLUE"
+	| "PLAYERCOLOR_MINOR_CYAN"
+	| "PLAYERCOLOR_MINOR_MIDDLE_CYAN"
+	| "PLAYERCOLOR_MINOR_PEACH"
+	| "PLAYERCOLOR_MINOR_GREEN"
+	| "PLAYERCOLOR_MINOR_LIGHT_GREEN"
+	| "PLAYERCOLOR_MINOR_LIGHT_BLUE"
+	| "PLAYERCOLOR_MINOR_PURPLE"
+	| "PLAYERCOLOR_MINOR_MIDDLE_PURPLE"
+	| "PLAYERCOLOR_MINOR_LIGHT_PURPLE"
+	| "PLAYERCOLOR_MINOR_LIGHT_ORANGE"
+	| "PLAYERCOLOR_MINOR_YELLOW"
+	| "PLAYERCOLOR_MINOR_LIGHT_YELLOW"
+	| "PLAYERCOLOR_MINOR_GOLDENROD"
+	| "PLAYERCOLOR_MINOR_DARK_LEMON"
+	| "PLAYERCOLOR_AMERICA"
+	| "PLAYERCOLOR_ARABIA"
+	| "PLAYERCOLOR_AZTEC"
+	| "PLAYERCOLOR_CHINA"
+	| "PLAYERCOLOR_EGYPT"
+	| "PLAYERCOLOR_ENGLAND"
+	| "PLAYERCOLOR_FRANCE"
+	| "PLAYERCOLOR_GERMANY"
+	| "PLAYERCOLOR_GREECE"
+	| "PLAYERCOLOR_INDIA"
+	| "PLAYERCOLOR_IROQUOIS"
+	| "PLAYERCOLOR_JAPAN"
+	| "PLAYERCOLOR_OTTOMAN"
+	| "PLAYERCOLOR_PERSIA"
+	| "PLAYERCOLOR_ROME"
+	| "PLAYERCOLOR_RUSSIA"
+	| "PLAYERCOLOR_SIAM"
+	| "PLAYERCOLOR_SONGHAI"
+	| "PLAYERCOLOR_AUSTRIA"
+	| "PLAYERCOLOR_BYZANTIUM"
+	| "PLAYERCOLOR_CARTHAGE"
+	| "PLAYERCOLOR_CELTS"
+	| "PLAYERCOLOR_ETHIOPIA"
+	| "PLAYERCOLOR_HUNS"
+	| "PLAYERCOLOR_MAYA"
+	| "PLAYERCOLOR_NETHERLANDS"
+	| "PLAYERCOLOR_SWEDEN";
+
+declare type GnK_LeadersType =
+	| "LEADER_GENGHIS_KHAN"
+	| "LEADER_ISABELLA"
+	| "LEADER_PACHACUTI"
+	| "LEADER_KAMEHAMEHA"
+	| "LEADER_HARALD"
+	| "LEADER_SEJONG"
+	| "LEADER_NEBUCHADNEZZAR"
+	| "LEADER_ALEXANDER"
+	| "LEADER_ASKIA"
+	| "LEADER_AUGUSTUS"
+	| "LEADER_BARBARIAN"
+	| "LEADER_BISMARCK"
+	| "LEADER_CATHERINE"
+	| "LEADER_DARIUS"
+	| "LEADER_ELIZABETH"
+	| "LEADER_GANDHI"
+	| "LEADER_HARUN_AL_RASHID"
+	| "LEADER_HIAWATHA"
+	| "LEADER_MONTEZUMA"
+	| "LEADER_NAPOLEON"
+	| "LEADER_ODA_NOBUNAGA"
+	| "LEADER_RAMESSES"
+	| "LEADER_RAMKHAMHAENG"
+	| "LEADER_SULEIMAN"
+	| "LEADER_WASHINGTON"
+	| "LEADER_WU_ZETIAN"
+	| "LEADER_ATTILA"
+	| "LEADER_BOUDICCA"
+	| "LEADER_DIDO"
+	| "LEADER_GUSTAVUS_ADOLPHUS"
+	| "LEADER_MARIA"
+	| "LEADER_PACAL"
+	| "LEADER_SELASSIE"
+	| "LEADER_THEODORA"
+	| "LEADER_WILLIAM";
+
+declare type GnK_TraitsType =
+	| "TRAIT_TERROR"
+	| "TRAIT_SEVEN_CITIES"
+	| "TRAIT_GREAT_ANDEAN_ROAD"
+	| "TRAIT_WAYFINDING"
+	| "TRAIT_VIKING_FURY"
+	| "TRAIT_SCHOLARS_JADE_HALL"
+	| "TRAIT_INGENIOUS"
+	| "TRAIT_PHILOSOPHICAL"
+	| "TRAIT_INDUSTRIOUS"
+	| "TRAIT_CREATIVE"
+	| "TRAIT_FINANCIAL"
+	| "TRAIT_CHARISMATIC"
+	| "TRAIT_ART_OF_WAR"
+	| "TRAIT_POPULATION_GROWTH"
+	| "TRAIT_STRATEGIC_RICHES"
+	| "TRAIT_OCEAN_MOVEMENT"
+	| "TRAIT_CITY_STATE_BONUSES"
+	| "TRAIT_CITY_STATE_FRIENDSHIP"
+	| "TRAIT_FIGHT_WELL_DAMAGED"
+	| "TRAIT_CONVERTS_LAND_BARBARIANS"
+	| "TRAIT_CONVERTS_SEA_BARBARIANS"
+	| "TRAIT_IGNORE_TERRAIN_IN_FOREST"
+	| "TRAIT_CAPITAL_BUILDINGS_CHEAPER"
+	| "TRAIT_RIVER_EXPANSION"
+	| "TRAIT_CULTURE_FROM_KILLS"
+	| "TRAIT_ENHANCED_CULTURE"
+	| "TRAIT_LAND_TRADE_GOLD"
+	| "TRAIT_WONDER_BUILDER"
+	| "TRAIT_AMPHIB_WARLORD"
+	| "TRAIT_ENHANCED_GOLDEN_AGES"
+	| "TRAIT_FAITH_FROM_NATURE"
+	| "TRAIT_EXTRA_BELIEF"
+	| "TRAIT_DIPLOMACY_GREAT_PEOPLE"
+	| "TRAIT_RAZE_AND_HORSES"
+	| "TRAIT_ANNEX_CITY_STATE"
+	| "TRAIT_PHOENICIAN_HERITAGE"
+	| "TRAIT_LUXURY_RETENTION"
+	| "TRAIT_LONG_COUNT"
+	| "TRAIT_BONUS_AGAINST_TECH";
+
+declare type GnK_UnitPromotionsType =
+	| "PROMOTION_MEDIC_GENERAL"
+	| "PROMOTION_GAIN_EXPERIENCE"
+	| "PROMOTION_WITHDRAW_BEFORE_MELEE"
+	| "PROMOTION_HAKA_WAR_DANCE"
+	| "PROMOTION_SKI_INFANTRY"
+	| "PROMOTION_STATUE_ZEUS"
+	| "PROMOTION_INSTA_HEAL"
+	| "PROMOTION_SHOCK_1"
+	| "PROMOTION_SHOCK_2"
+	| "PROMOTION_SHOCK_3"
+	| "PROMOTION_DRILL_1"
+	| "PROMOTION_DRILL_2"
+	| "PROMOTION_DRILL_3"
+	| "PROMOTION_ACCURACY_1"
+	| "PROMOTION_ACCURACY_2"
+	| "PROMOTION_ACCURACY_3"
+	| "PROMOTION_BARRAGE_1"
+	| "PROMOTION_BARRAGE_2"
+	| "PROMOTION_BARRAGE_3"
+	| "PROMOTION_TARGETING_1"
+	| "PROMOTION_TARGETING_2"
+	| "PROMOTION_TARGETING_3"
+	| "PROMOTION_SENTRY"
+	| "PROMOTION_SIEGE"
+	| "PROMOTION_VOLLEY"
+	| "PROMOTION_MEDIC"
+	| "PROMOTION_MEDIC_II"
+	| "PROMOTION_AMPHIBIOUS"
+	| "PROMOTION_COVER_1"
+	| "PROMOTION_COVER_2"
+	| "PROMOTION_INDIRECT_FIRE"
+	| "PROMOTION_CHARGE"
+	| "PROMOTION_FORMATION_1"
+	| "PROMOTION_FORMATION_2"
+	| "PROMOTION_AMBUSH_1"
+	| "PROMOTION_AMBUSH_2"
+	| "PROMOTION_SUPPLY"
+	| "PROMOTION_MARCH"
+	| "PROMOTION_BLITZ"
+	| "PROMOTION_WOODSMAN"
+	| "PROMOTION_LOGISTICS"
+	| "PROMOTION_RANGE"
+	| "PROMOTION_MOBILITY"
+	| "PROMOTION_INTERCEPTION_1"
+	| "PROMOTION_INTERCEPTION_2"
+	| "PROMOTION_INTERCEPTION_3"
+	| "PROMOTION_DOGFIGHTING_1"
+	| "PROMOTION_DOGFIGHTING_2"
+	| "PROMOTION_DOGFIGHTING_3"
+	| "PROMOTION_AIR_SIEGE_1"
+	| "PROMOTION_AIR_SIEGE_2"
+	| "PROMOTION_AIR_SIEGE_3"
+	| "PROMOTION_BOMBARDMENT_1"
+	| "PROMOTION_BOMBARDMENT_2"
+	| "PROMOTION_BOMBARDMENT_3"
+	| "PROMOTION_AIR_TARGETING_1"
+	| "PROMOTION_AIR_TARGETING_2"
+	| "PROMOTION_AIR_AMBUSH_1"
+	| "PROMOTION_AIR_AMBUSH_2"
+	| "PROMOTION_AIR_RANGE"
+	| "PROMOTION_SORTIE"
+	| "PROMOTION_REPAIR"
+	| "PROMOTION_AIR_REPAIR"
+	| "PROMOTION_AIR_LOGISTICS"
+	| "PROMOTION_EVASION"
+	| "PROMOTION_SCOUTING_1"
+	| "PROMOTION_SCOUTING_2"
+	| "PROMOTION_SCOUTING_3"
+	| "PROMOTION_SURVIVALISM_1"
+	| "PROMOTION_SURVIVALISM_2"
+	| "PROMOTION_SURVIVALISM_3"
+	| "PROMOTION_HELI_AMBUSH_1"
+	| "PROMOTION_HELI_AMBUSH_2"
+	| "PROMOTION_HELI_MOBILITY_1"
+	| "PROMOTION_HELI_MOBILITY_2"
+	| "PROMOTION_HELI_REPAIR"
+	| "PROMOTION_COASTAL_RAIDER_1"
+	| "PROMOTION_COASTAL_RAIDER_2"
+	| "PROMOTION_COASTAL_RAIDER_3"
+	| "PROMOTION_BOARDING_PARTY_1"
+	| "PROMOTION_BOARDING_PARTY_2"
+	| "PROMOTION_BOARDING_PARTY_3"
+	| "PROMOTION_MORALE"
+	| "PROMOTION_ADJACENT_BONUS"
+	| "PROMOTION_HIMEJI_CASTLE"
+	| "PROMOTION_NAVAL_TRADITION"
+	| "PROMOTION_GREAT_LIGHTHOUSE"
+	| "PROMOTION_NATIONALISM"
+	| "PROMOTION_FAST_GENERAL"
+	| "PROMOTION_FAST_ADMIRAL"
+	| "PROMOTION_EMBARKATION"
+	| "PROMOTION_DEFENSIVE_EMBARKATION"
+	| "PROMOTION_ALLWATER_EMBARKATION"
+	| "PROMOTION_EXTRA_MOVES_I"
+	| "PROMOTION_EXTRA_SIGHT_I"
+	| "PROMOTION_EXTRA_SIGHT_II"
+	| "PROMOTION_EXTRA_SIGHT_III"
+	| "PROMOTION_EXTRA_SIGHT_IV"
+	| "PROMOTION_SIGHT_PENALTY"
+	| "PROMOTION_AIR_RECON"
+	| "PROMOTION_ANTI_MOUNTED_I"
+	| "PROMOTION_ANTI_MOUNTED_II"
+	| "PROMOTION_CITY_SIEGE"
+	| "PROMOTION_CITY_ASSAULT"
+	| "PROMOTION_DEFENSE_PENALTY"
+	| "PROMOTION_MOUNTED_PENALTY"
+	| "PROMOTION_CITY_PENALTY"
+	| "PROMOTION_SMALL_CITY_PENALTY"
+	| "PROMOTION_INTERCEPTION_I"
+	| "PROMOTION_INTERCEPTION_II"
+	| "PROMOTION_INTERCEPTION_III"
+	| "PROMOTION_INTERCEPTION_IV"
+	| "PROMOTION_AIR_SWEEP"
+	| "PROMOTION_WEAK_RANGED"
+	| "PROMOTION_ANTI_AIR"
+	| "PROMOTION_ANTI_AIR_II"
+	| "PROMOTION_ANTI_HELICOPTER"
+	| "PROMOTION_ANTI_FIGHTER"
+	| "PROMOTION_ANTI_SUBMARINE_I"
+	| "PROMOTION_ANTI_SUBMARINE_II"
+	| "PROMOTION_ANTI_TANK"
+	| "PROMOTION_EVASION_I"
+	| "PROMOTION_EVASION_II"
+	| "PROMOTION_NAVAL_PENALTY"
+	| "PROMOTION_HEAVY_PAYLOAD"
+	| "PROMOTION_FIRE_SUPPORT"
+	| "PROMOTION_SILENT_HUNTER"
+	| "PROMOTION_RIVAL_TERRITORY"
+	| "PROMOTION_CARGO_I"
+	| "PROMOTION_CARGO_II"
+	| "PROMOTION_CARGO_III"
+	| "PROMOTION_CARGO_IV"
+	| "PROMOTION_FOLIAGE_IMPASSABLE"
+	| "PROMOTION_ROUGH_TERRAIN_ENDS_TURN"
+	| "PROMOTION_OCEAN_IMPASSABLE_UNTIL_ASTRONOMY"
+	| "PROMOTION_OCEAN_IMPASSABLE"
+	| "PROMOTION_STEAM_POWERED"
+	| "PROMOTION_INVISIBLE_SUBMARINE"
+	| "PROMOTION_SEE_INVISIBLE_SUBMARINE"
+	| "PROMOTION_IGNORE_TERRAIN_COST"
+	| "PROMOTION_HOVERING_UNIT"
+	| "PROMOTION_FLAT_MOVEMENT_COST"
+	| "PROMOTION_CAN_MOVE_IMPASSABLE"
+	| "PROMOTION_NO_CAPTURE"
+	| "PROMOTION_ONLY_DEFENSIVE"
+	| "PROMOTION_NO_DEFENSIVE_BONUSES"
+	| "PROMOTION_PARADROP"
+	| "PROMOTION_MUST_SET_UP"
+	| "PROMOTION_RANGED_SUPPORT_FIRE"
+	| "PROMOTION_CAN_MOVE_AFTER_ATTACKING"
+	| "PROMOTION_OPEN_TERRAIN"
+	| "PROMOTION_SECOND_ATTACK"
+	| "PROMOTION_OCEAN_MOVEMENT"
+	| "PROMOTION_GREAT_GENERAL"
+	| "PROMOTION_SPAWN_GENERALS_I"
+	| "PROMOTION_SPAWN_GENERALS_II"
+	| "PROMOTION_FREE_PILLAGE_MOVES"
+	| "PROMOTION_HEAL_IF_DESTROY_ENEMY"
+	| "PROMOTION_PARTIAL_HEAL_IF_DESTROY_ENEMY"
+	| "PROMOTION_ATTACK_BONUS"
+	| "PROMOTION_MOHAWK"
+	| "PROMOTION_JAGUAR"
+	| "PROMOTION_FOREIGN_LANDS"
+	| "PROMOTION_FASTER_HEAL"
+	| "PROMOTION_STRONGER_VS_DAMAGED"
+	| "PROMOTION_NAVAL_BONUS"
+	| "PROMOTION_FEARED_ELEPHANT"
+	| "PROMOTION_FLANK_ATTACK_BONUS"
+	| "PROMOTION_DEFEND_NEAR_CAPITAL"
+	| "PROMOTION_EMBARKED_SIGHT"
+	| "PROMOTION_MOVEMENT_TO_GENERAL"
+	| "PROMOTION_GENERAL_STACKING"
+	| "PROMOTION_ONLY_ATTACKS_CITIES"
+	| "PROMOTION_WAR_CANOES"
+	| "PROMOTION_PRIZE_SHIPS"
+	| "PROMOTION_GREAT_ADMIRAL"
+	| "PROMOTION_UNWELCOME_EVANGELIST";
+
+declare type GnK_UnitsType =
+	| "UNIT_MONGOLIAN_KESHIK"
+	| "UNIT_MONGOLIAN_KHAN"
+	| "UNIT_INCAN_SLINGER"
+	| "UNIT_SPANISH_TERCIO"
+	| "UNIT_SPANISH_CONQUISTADOR"
+	| "UNIT_POLYNESIAN_MAORI_WARRIOR"
+	| "UNIT_DANISH_BERSERKER"
+	| "UNIT_DANISH_SKI_INFANTRY"
+	| "UNIT_KOREAN_TURTLE_SHIP"
+	| "UNIT_KOREAN_HWACHA"
+	| "UNIT_BABYLONIAN_BOWMAN"
+	| "UNIT_SETTLER"
+	| "UNIT_WORKER"
+	| "UNIT_WORKBOAT"
+	| "UNIT_ARTIST"
+	| "UNIT_SCIENTIST"
+	| "UNIT_MERCHANT"
+	| "UNIT_ENGINEER"
+	| "UNIT_GREAT_GENERAL"
+	| "UNIT_SS_STASIS_CHAMBER"
+	| "UNIT_SS_ENGINE"
+	| "UNIT_SS_COCKPIT"
+	| "UNIT_SS_BOOSTER"
+	| "UNIT_MISSILE_CRUISER"
+	| "UNIT_NUCLEAR_SUBMARINE"
+	| "UNIT_CARRIER"
+	| "UNIT_BATTLESHIP"
+	| "UNIT_SUBMARINE"
+	| "UNIT_DESTROYER"
+	| "UNIT_IRONCLAD"
+	| "UNIT_FRIGATE"
+	| "UNIT_ENGLISH_SHIPOFTHELINE"
+	| "UNIT_CARAVEL"
+	| "UNIT_TRIREME"
+	| "UNIT_MECH"
+	| "UNIT_NUCLEAR_MISSILE"
+	| "UNIT_STEALTH_BOMBER"
+	| "UNIT_JET_FIGHTER"
+	| "UNIT_GUIDED_MISSILE"
+	| "UNIT_MODERN_ARMOR"
+	| "UNIT_HELICOPTER_GUNSHIP"
+	| "UNIT_MOBILE_SAM"
+	| "UNIT_ROCKET_ARTILLERY"
+	| "UNIT_MECHANIZED_INFANTRY"
+	| "UNIT_ATOMIC_BOMB"
+	| "UNIT_BOMBER"
+	| "UNIT_AMERICAN_B17"
+	| "UNIT_FIGHTER"
+	| "UNIT_JAPANESE_ZERO"
+	| "UNIT_PARATROOPER"
+	| "UNIT_TANK"
+	| "UNIT_GERMAN_PANZER"
+	| "UNIT_ARTILLERY"
+	| "UNIT_ANTI_AIRCRAFT_GUN"
+	| "UNIT_ANTI_TANK_GUN"
+	| "UNIT_INFANTRY"
+	| "UNIT_FRENCH_FOREIGNLEGION"
+	| "UNIT_CAVALRY"
+	| "UNIT_RUSSIAN_COSSACK"
+	| "UNIT_RIFLEMAN"
+	| "UNIT_LANCER"
+	| "UNIT_OTTOMAN_SIPAHI"
+	| "UNIT_CANNON"
+	| "UNIT_MUSKETMAN"
+	| "UNIT_AMERICAN_MINUTEMAN"
+	| "UNIT_FRENCH_MUSKETEER"
+	| "UNIT_OTTOMAN_JANISSARY"
+	| "UNIT_LONGSWORDSMAN"
+	| "UNIT_JAPANESE_SAMURAI"
+	| "UNIT_TREBUCHET"
+	| "UNIT_KNIGHT"
+	| "UNIT_ARABIAN_CAMELARCHER"
+	| "UNIT_SIAMESE_WARELEPHANT"
+	| "UNIT_SONGHAI_MUSLIMCAVALRY"
+	| "UNIT_CROSSBOWMAN"
+	| "UNIT_CHINESE_CHUKONU"
+	| "UNIT_ENGLISH_LONGBOWMAN"
+	| "UNIT_PIKEMAN"
+	| "UNIT_GERMAN_LANDSKNECHT"
+	| "UNIT_CATAPULT"
+	| "UNIT_ROMAN_BALLISTA"
+	| "UNIT_HORSEMAN"
+	| "UNIT_GREEK_COMPANIONCAVALRY"
+	| "UNIT_SWORDSMAN"
+	| "UNIT_IROQUOIAN_MOHAWKWARRIOR"
+	| "UNIT_ROMAN_LEGION"
+	| "UNIT_CHARIOT_ARCHER"
+	| "UNIT_EGYPTIAN_WARCHARIOT"
+	| "UNIT_INDIAN_WARELEPHANT"
+	| "UNIT_SPEARMAN"
+	| "UNIT_GREEK_HOPLITE"
+	| "UNIT_PERSIAN_IMMORTAL"
+	| "UNIT_ARCHER"
+	| "UNIT_SCOUT"
+	| "UNIT_WARRIOR"
+	| "UNIT_AZTEC_JAGUAR"
+	| "UNIT_BARBARIAN_WARRIOR"
+	| "UNIT_GALLEY"
+	| "UNIT_BARBARIAN_ARCHER"
+	| "UNIT_BARBARIAN_SPEARMAN"
+	| "UNIT_BARBARIAN_SWORDSMAN"
+	| "UNIT_PROPHET"
+	| "UNIT_CELT_PICTISH_WARRIOR"
+	| "UNIT_MAYAN_ATLATLIST"
+	| "UNIT_BYZANTINE_DROMON"
+	| "UNIT_BYZANTINE_CATAPHRACT"
+	| "UNIT_CARTHAGINIAN_FOREST_ELEPHANT"
+	| "UNIT_CARTHAGINIAN_QUINQUEREME"
+	| "UNIT_HUN_HORSE_ARCHER"
+	| "UNIT_AUSTRIAN_HUSSAR"
+	| "UNIT_ETHIOPIAN_MEHAL_SEFARI"
+	| "UNIT_MISSIONARY"
+	| "UNIT_COMPOSITE_BOWMAN"
+	| "UNIT_GALLEASS"
+	| "UNIT_GREAT_WAR_INFANTRY"
+	| "UNIT_MARINE"
+	| "UNIT_TRIPLANE"
+	| "UNIT_WWI_BOMBER"
+	| "UNIT_WWI_TANK"
+	| "UNIT_MACHINE_GUN"
+	| "UNIT_SWEDISH_CAROLEAN"
+	| "UNIT_SWEDISH_HAKKAPELIITTA"
+	| "UNIT_HUN_BATTERING_RAM"
+	| "UNIT_PRIVATEER"
+	| "UNIT_DUTCH_SEA_BEGGAR"
+	| "UNIT_INQUISITOR"
+	| "UNIT_GREAT_ADMIRAL"
+	| "UNIT_GATLINGGUN";
+
+declare type GnK_BuildsType =
+	| "BUILD_TERRACE_FARM"
+	| "BUILD_MOAI"
+	| "BUILD_ROAD"
+	| "BUILD_RAILROAD"
+	| "BUILD_FARM"
+	| "BUILD_MINE"
+	| "BUILD_TRADING_POST"
+	| "BUILD_LUMBERMILL"
+	| "BUILD_PASTURE"
+	| "BUILD_CAMP"
+	| "BUILD_PLANTATION"
+	| "BUILD_QUARRY"
+	| "BUILD_WELL"
+	| "BUILD_OFFSHORE_PLATFORM"
+	| "BUILD_FISHING_BOATS"
+	| "BUILD_FORT"
+	| "BUILD_REMOVE_JUNGLE"
+	| "BUILD_REMOVE_FOREST"
+	| "BUILD_REMOVE_MARSH"
+	| "BUILD_SCRUB_FALLOUT"
+	| "BUILD_REPAIR"
+	| "BUILD_REMOVE_ROUTE"
+	| "BUILD_LANDMARK"
+	| "BUILD_ACADEMY"
+	| "BUILD_CUSTOMS_HOUSE"
+	| "BUILD_MANUFACTORY"
+	| "BUILD_CITADEL"
+	| "BUILD_HOLY_SITE"
+	| "BUILD_POLDER";
+
+declare type GnK_ImprovementsType =
+	| "IMPROVEMENT_TERRACE_FARM"
+	| "IMPROVEMENT_MOAI"
+	| "IMPROVEMENT_CITY_RUINS"
+	| "IMPROVEMENT_BARBARIAN_CAMP"
+	| "IMPROVEMENT_GOODY_HUT"
+	| "IMPROVEMENT_FARM"
+	| "IMPROVEMENT_MINE"
+	| "IMPROVEMENT_QUARRY"
+	| "IMPROVEMENT_TRADING_POST"
+	| "IMPROVEMENT_LUMBERMILL"
+	| "IMPROVEMENT_PASTURE"
+	| "IMPROVEMENT_FISHING_BOATS"
+	| "IMPROVEMENT_PLANTATION"
+	| "IMPROVEMENT_CAMP"
+	| "IMPROVEMENT_WELL"
+	| "IMPROVEMENT_OFFSHORE_PLATFORM"
+	| "IMPROVEMENT_FORT"
+	| "IMPROVEMENT_LANDMARK"
+	| "IMPROVEMENT_ACADEMY"
+	| "IMPROVEMENT_CUSTOMS_HOUSE"
+	| "IMPROVEMENT_MANUFACTORY"
+	| "IMPROVEMENT_CITADEL"
+	| "IMPROVEMENT_HOLY_SITE"
+	| "IMPROVEMENT_POLDER";
+
+declare type GnK_BuildingClassesType =
+	| "BUILDINGCLASS_STATUE_ZEUS"
+	| "BUILDINGCLASS_TEMPLE_ARTEMIS"
+	| "BUILDINGCLASS_MAUSOLEUM_HALICARNASSUS"
+	| "BUILDINGCLASS_COURTHOUSE"
+	| "BUILDINGCLASS_SEAPORT"
+	| "BUILDINGCLASS_STABLE"
+	| "BUILDINGCLASS_WATERMILL"
+	| "BUILDINGCLASS_CIRCUS"
+	| "BUILDINGCLASS_FORGE"
+	| "BUILDINGCLASS_WINDMILL"
+	| "BUILDINGCLASS_HYDRO_PLANT"
+	| "BUILDINGCLASS_SOLAR_PLANT"
+	| "BUILDINGCLASS_MINT"
+	| "BUILDINGCLASS_OBSERVATORY"
+	| "BUILDINGCLASS_MONASTERY"
+	| "BUILDINGCLASS_GARDEN"
+	| "BUILDINGCLASS_LIGHTHOUSE"
+	| "BUILDINGCLASS_HARBOR"
+	| "BUILDINGCLASS_COLOSSEUM"
+	| "BUILDINGCLASS_THEATRE"
+	| "BUILDINGCLASS_STADIUM"
+	| "BUILDINGCLASS_MONUMENT"
+	| "BUILDINGCLASS_AMPHITHEATER"
+	| "BUILDINGCLASS_OPERA_HOUSE"
+	| "BUILDINGCLASS_MUSEUM"
+	| "BUILDINGCLASS_BROADCAST_TOWER"
+	| "BUILDINGCLASS_SHRINE"
+	| "BUILDINGCLASS_TEMPLE"
+	| "BUILDINGCLASS_BARRACKS"
+	| "BUILDINGCLASS_ARMORY"
+	| "BUILDINGCLASS_MILITARY_ACADEMY"
+	| "BUILDINGCLASS_ARSENAL"
+	| "BUILDINGCLASS_WALLS"
+	| "BUILDINGCLASS_CASTLE"
+	| "BUILDINGCLASS_MILITARY_BASE"
+	| "BUILDINGCLASS_GRANARY"
+	| "BUILDINGCLASS_HOSPITAL"
+	| "BUILDINGCLASS_MEDICAL_LAB"
+	| "BUILDINGCLASS_WORKSHOP"
+	| "BUILDINGCLASS_FACTORY"
+	| "BUILDINGCLASS_NUCLEAR_PLANT"
+	| "BUILDINGCLASS_SPACESHIP_FACTORY"
+	| "BUILDINGCLASS_MARKET"
+	| "BUILDINGCLASS_BANK"
+	| "BUILDINGCLASS_STOCK_EXCHANGE"
+	| "BUILDINGCLASS_LIBRARY"
+	| "BUILDINGCLASS_UNIVERSITY"
+	| "BUILDINGCLASS_PUBLIC_SCHOOL"
+	| "BUILDINGCLASS_LABORATORY"
+	| "BUILDINGCLASS_PALACE"
+	| "BUILDINGCLASS_HEROIC_EPIC"
+	| "BUILDINGCLASS_NATIONAL_EPIC"
+	| "BUILDINGCLASS_CIRCUS_MAXIMUS"
+	| "BUILDINGCLASS_NATIONAL_TREASURY"
+	| "BUILDINGCLASS_NATIONAL_COLLEGE"
+	| "BUILDINGCLASS_IRONWORKS"
+	| "BUILDINGCLASS_OXFORD_UNIVERSITY"
+	| "BUILDINGCLASS_HERMITAGE"
+	| "BUILDINGCLASS_PYRAMID"
+	| "BUILDINGCLASS_GREAT_LIBRARY"
+	| "BUILDINGCLASS_STONEHENGE"
+	| "BUILDINGCLASS_HANGING_GARDEN"
+	| "BUILDINGCLASS_COLOSSUS"
+	| "BUILDINGCLASS_GREAT_LIGHTHOUSE"
+	| "BUILDINGCLASS_ORACLE"
+	| "BUILDINGCLASS_GREAT_WALL"
+	| "BUILDINGCLASS_HAGIA_SOPHIA"
+	| "BUILDINGCLASS_ANGKOR_WAT"
+	| "BUILDINGCLASS_NOTRE_DAME"
+	| "BUILDINGCLASS_MACHU_PICHU"
+	| "BUILDINGCLASS_CHICHEN_ITZA"
+	| "BUILDINGCLASS_KREMLIN"
+	| "BUILDINGCLASS_FORBIDDEN_PALACE"
+	| "BUILDINGCLASS_SISTINE_CHAPEL"
+	| "BUILDINGCLASS_HIMEJI_CASTLE"
+	| "BUILDINGCLASS_PORCELAIN_TOWER"
+	| "BUILDINGCLASS_TAJ_MAHAL"
+	| "BUILDINGCLASS_BIG_BEN"
+	| "BUILDINGCLASS_BRANDENBURG_GATE"
+	| "BUILDINGCLASS_LOUVRE"
+	| "BUILDINGCLASS_EIFFEL_TOWER"
+	| "BUILDINGCLASS_STATUE_OF_LIBERTY"
+	| "BUILDINGCLASS_CRISTO_REDENTOR"
+	| "BUILDINGCLASS_PENTAGON"
+	| "BUILDINGCLASS_UNITED_NATIONS"
+	| "BUILDINGCLASS_SYDNEY_OPERA_HOUSE"
+	| "BUILDINGCLASS_AQUEDUCT"
+	| "BUILDINGCLASS_STONE_WORKS"
+	| "BUILDINGCLASS_CATHEDRAL"
+	| "BUILDINGCLASS_MOSQUE"
+	| "BUILDINGCLASS_PAGODA"
+	| "BUILDINGCLASS_RECYCLING_CENTER"
+	| "BUILDINGCLASS_BOMB_SHELTER"
+	| "BUILDINGCLASS_CONSTABLE"
+	| "BUILDINGCLASS_POLICE_STATION"
+	| "BUILDINGCLASS_INTELLIGENCE_AGENCY"
+	| "BUILDINGCLASS_GRAND_TEMPLE"
+	| "BUILDINGCLASS_ALHAMBRA"
+	| "BUILDINGCLASS_CN_TOWER"
+	| "BUILDINGCLASS_HUBBLE"
+	| "BUILDINGCLASS_LEANING_TOWER"
+	| "BUILDINGCLASS_MOSQUE_OF_DJENNE"
+	| "BUILDINGCLASS_NEUSCHWANSTEIN"
+	| "BUILDINGCLASS_PETRA"
+	| "BUILDINGCLASS_TERRACOTTA_ARMY"
+	| "BUILDINGCLASS_GREAT_FIREWALL";
+
+declare type GnK_BuildingsType =
+	| "BUILDING_STATUE_ZEUS"
+	| "BUILDING_TEMPLE_ARTEMIS"
+	| "BUILDING_MAUSOLEUM_HALICARNASSUS"
+	| "BUILDING_WALLS_OF_BABYLON"
+	| "BUILDING_COURTHOUSE"
+	| "BUILDING_FLOATING_GARDENS"
+	| "BUILDING_MUGHAL_FORT"
+	| "BUILDING_KREPOST"
+	| "BUILDING_LONGHOUSE"
+	| "BUILDING_BAZAAR"
+	| "BUILDING_SATRAPS_COURT"
+	| "BUILDING_PAPER_MAKER"
+	| "BUILDING_WAT"
+	| "BUILDING_MUD_PYRAMID_MOSQUE"
+	| "BUILDING_BURIAL_TOMB"
+	| "BUILDING_SEAPORT"
+	| "BUILDING_STABLE"
+	| "BUILDING_WATERMILL"
+	| "BUILDING_CIRCUS"
+	| "BUILDING_FORGE"
+	| "BUILDING_WINDMILL"
+	| "BUILDING_HYDRO_PLANT"
+	| "BUILDING_SOLAR_PLANT"
+	| "BUILDING_MINT"
+	| "BUILDING_OBSERVATORY"
+	| "BUILDING_MONASTERY"
+	| "BUILDING_GARDEN"
+	| "BUILDING_LIGHTHOUSE"
+	| "BUILDING_HARBOR"
+	| "BUILDING_COLOSSEUM"
+	| "BUILDING_THEATRE"
+	| "BUILDING_STADIUM"
+	| "BUILDING_MONUMENT"
+	| "BUILDING_TEMPLE"
+	| "BUILDING_OPERA_HOUSE"
+	| "BUILDING_MUSEUM"
+	| "BUILDING_BROADCAST_TOWER"
+	| "BUILDING_BARRACKS"
+	| "BUILDING_ARMORY"
+	| "BUILDING_MILITARY_ACADEMY"
+	| "BUILDING_ARSENAL"
+	| "BUILDING_WALLS"
+	| "BUILDING_CASTLE"
+	| "BUILDING_MILITARY_BASE"
+	| "BUILDING_GRANARY"
+	| "BUILDING_HOSPITAL"
+	| "BUILDING_MEDICAL_LAB"
+	| "BUILDING_WORKSHOP"
+	| "BUILDING_FACTORY"
+	| "BUILDING_NUCLEAR_PLANT"
+	| "BUILDING_SPACESHIP_FACTORY"
+	| "BUILDING_MARKET"
+	| "BUILDING_BANK"
+	| "BUILDING_STOCK_EXCHANGE"
+	| "BUILDING_LIBRARY"
+	| "BUILDING_UNIVERSITY"
+	| "BUILDING_PUBLIC_SCHOOL"
+	| "BUILDING_LABORATORY"
+	| "BUILDING_PALACE"
+	| "BUILDING_HEROIC_EPIC"
+	| "BUILDING_NATIONAL_COLLEGE"
+	| "BUILDING_NATIONAL_EPIC"
+	| "BUILDING_CIRCUS_MAXIMUS"
+	| "BUILDING_NATIONAL_TREASURY"
+	| "BUILDING_IRONWORKS"
+	| "BUILDING_OXFORD_UNIVERSITY"
+	| "BUILDING_HERMITAGE"
+	| "BUILDING_GREAT_LIGHTHOUSE"
+	| "BUILDING_STONEHENGE"
+	| "BUILDING_GREAT_LIBRARY"
+	| "BUILDING_PYRAMID"
+	| "BUILDING_COLOSSUS"
+	| "BUILDING_ORACLE"
+	| "BUILDING_HANGING_GARDEN"
+	| "BUILDING_GREAT_WALL"
+	| "BUILDING_ANGKOR_WAT"
+	| "BUILDING_HAGIA_SOPHIA"
+	| "BUILDING_CHICHEN_ITZA"
+	| "BUILDING_MACHU_PICHU"
+	| "BUILDING_NOTRE_DAME"
+	| "BUILDING_PORCELAIN_TOWER"
+	| "BUILDING_HIMEJI_CASTLE"
+	| "BUILDING_SISTINE_CHAPEL"
+	| "BUILDING_KREMLIN"
+	| "BUILDING_FORBIDDEN_PALACE"
+	| "BUILDING_TAJ_MAHAL"
+	| "BUILDING_BIG_BEN"
+	| "BUILDING_LOUVRE"
+	| "BUILDING_BRANDENBURG_GATE"
+	| "BUILDING_STATUE_OF_LIBERTY"
+	| "BUILDING_CRISTO_REDENTOR"
+	| "BUILDING_EIFFEL_TOWER"
+	| "BUILDING_PENTAGON"
+	| "BUILDING_UNITED_NATIONS"
+	| "BUILDING_SYDNEY_OPERA_HOUSE"
+	| "BUILDING_AQUEDUCT"
+	| "BUILDING_STONE_WORKS"
+	| "BUILDING_AMPHITHEATER"
+	| "BUILDING_SHRINE"
+	| "BUILDING_RECYCLING_CENTER"
+	| "BUILDING_BOMB_SHELTER"
+	| "BUILDING_CONSTABLE"
+	| "BUILDING_POLICE_STATION"
+	| "BUILDING_INTELLIGENCE_AGENCY"
+	| "BUILDING_ALHAMBRA"
+	| "BUILDING_CN_TOWER"
+	| "BUILDING_HUBBLE"
+	| "BUILDING_LEANING_TOWER"
+	| "BUILDING_MOSQUE_OF_DJENNE"
+	| "BUILDING_NEUSCHWANSTEIN"
+	| "BUILDING_PETRA"
+	| "BUILDING_TERRACOTTA_ARMY"
+	| "BUILDING_GREAT_FIREWALL"
+	| "BUILDING_CATHEDRAL"
+	| "BUILDING_MOSQUE"
+	| "BUILDING_PAGODA"
+	| "BUILDING_CEILIDH_HALL"
+	| "BUILDING_COFFEE_HOUSE"
+	| "BUILDING_STELE"
+	| "BUILDING_MAYA_PYRAMID"
+	| "BUILDING_GRAND_TEMPLE";
+
+declare type GnK_AICityStrategiesType =
+	| "AICITYSTRATEGY_SMALL_CITY"
+	| "AICITYSTRATEGY_MEDIUM_CITY"
+	| "AICITYSTRATEGY_LARGE_CITY"
+	| "AICITYSTRATEGY_LANDLOCKED"
+	| "AICITYSTRATEGY_NEED_TILE_IMPROVERS"
+	| "AICITYSTRATEGY_WANT_TILE_IMPROVERS"
+	| "AICITYSTRATEGY_ENOUGH_TILE_IMPROVERS"
+	| "AICITYSTRATEGY_NEED_NAVAL_GROWTH"
+	| "AICITYSTRATEGY_NEED_NAVAL_TILE_IMPROVEMENT"
+	| "AICITYSTRATEGY_ENOUGH_NAVAL_TILE_IMPROVEMENT"
+	| "AICITYSTRATEGY_NEED_IMPROVEMENT_FOOD"
+	| "AICITYSTRATEGY_NEED_IMPROVEMENT_PRODUCTION"
+	| "AICITYSTRATEGY_HAVE_TRAINING_FACILITY"
+	| "AICITYSTRATEGY_CAPITAL_NEED_SETTLER"
+	| "AICITYSTRATEGY_CAPITAL_UNDER_THREAT"
+	| "AICITYSTRATEGY_FIRST_CULTURE_BUILDING"
+	| "AICITYSTRATEGY_FIRST_CULTURE_BUILDING_EMERGENCY"
+	| "AICITYSTRATEGY_UNDER_BLOCKADE"
+	| "AICITYSTRATEGY_IS_PUPPET"
+	| "AICITYSTRATEGY_MEDIUM_CITY_HIGH_DIFFICULTY"
+	| "AICITYSTRATEGY_ORIGINAL_CAPITAL"
+	| "AICITYSTRATEGY_FIRST_SCIENCE_BUILDING"
+	| "AICITYSTRATEGY_FIRST_GOLD_BUILDING"
+	| "AICITYSTRATEGY_FIRST_FAITH_BUILDING"
+	| "AICITYSTRATEGY_FIRST_PRODUCTION_BUILDING"
+	| "AICITYSTRATEGY_RIVER_CITY"
+	| "AICITYSTRATEGY_MOUNTAIN_CITY"
+	| "AICITYSTRATEGY_FOREST_CITY"
+	| "AICITYSTRATEGY_HILL_CITY"
+	| "AICITYSTRATEGY_JUNGLE_CITY"
+	| "AICITYSTRATEGY_COAST_CITY"
+	| "AICITYSTRATEGY_TINY_CITY"
+	| "AICITYSTRATEGY_MANY_TECHS_STOLEN"
+	| "AICITYSTRATEGY_KEY_SCIENCE_CITY"
+	| "AICITYSTRATEGY_GOOD_GP_CITY";
+
+declare type GnK_AIEconomicStrategiesType =
+	| "ECONOMICAISTRATEGY_NEED_RECON"
+	| "ECONOMICAISTRATEGY_ENOUGH_RECON"
+	| "ECONOMICAISTRATEGY_NEED_RECON_SEA"
+	| "ECONOMICAISTRATEGY_ENOUGH_RECON_SEA"
+	| "ECONOMICAISTRATEGY_EARLY_EXPANSION"
+	| "ECONOMICAISTRATEGY_ENOUGH_EXPANSION"
+	| "ECONOMICAISTRATEGY_NEED_HAPPINESS"
+	| "ECONOMICAISTRATEGY_NEED_HAPPINESS_CRITICAL"
+	| "ECONOMICAISTRATEGY_CITIES_NEED_NAVAL_GROWTH"
+	| "ECONOMICAISTRATEGY_CITIES_NEED_NAVAL_TILE_IMPROVEMENT"
+	| "ECONOMICAISTRATEGY_FOUND_CITY"
+	| "ECONOMICAISTRATEGY_TRADE_WITH_CITY_STATE"
+	| "ECONOMICAISTRATEGY_NEED_IMPROVEMENT_FOOD"
+	| "ECONOMICAISTRATEGY_NEED_IMPROVEMENT_PRODUCTION"
+	| "ECONOMICAISTRATEGY_ONE_OR_FEWER_COASTAL_CITIES"
+	| "ECONOMICAISTRATEGY_LOSING_MONEY"
+	| "ECONOMICAISTRATEGY_HALT_GROWTH_BUILDINGS"
+	| "ECONOMICAISTRATEGY_TOO_MANY_UNITS"
+	| "ECONOMICAISTRATEGY_ISLAND_START"
+	| "ECONOMICAISTRATEGY_EXPAND_TO_OTHER_CONTINENTS"
+	| "ECONOMICAISTRATEGY_REALLY_EXPAND_TO_OTHER_CONTINENTS"
+	| "ECONOMICAISTRATEGY_EXPAND_LIKE_CRAZY"
+	| "ECONOMICAISTRATEGY_GROW_LIKE_CRAZY"
+	| "ECONOMICAISTRATEGY_GS_CULTURE"
+	| "ECONOMICAISTRATEGY_GS_CONQUEST"
+	| "ECONOMICAISTRATEGY_GS_DIPLOMACY"
+	| "ECONOMICAISTRATEGY_GS_SPACESHIP"
+	| "ECONOMICAISTRATEGY_GS_SPACESHIP_HOMESTRETCH"
+	| "ECONOMICAISTRATEGY_REALLY_NEED_RECON_SEA"
+	| "ECONOMICAISTRATEGY_MOSTLY_ON_THE_COAST"
+	| "ECONOMICAISTRATEGY_NAVAL_MAP"
+	| "ECONOMICAISTRATEGY_OFFSHORE_EXPANSION_MAP"
+	| "ECONOMICAISTRATEGY_DEVELOPING_RELIGION"
+	| "ECONOMICAISTRATEGY_TECH_LEADER";
+
+declare type GnK_AIGrandStrategiesType =
+	| "AIGRANDSTRATEGY_CULTURE"
+	| "AIGRANDSTRATEGY_UNITED_NATIONS"
+	| "AIGRANDSTRATEGY_SPACESHIP"
+	| "AIGRANDSTRATEGY_CONQUEST";
+
+declare type GnK_AIMilitaryStrategiesType =
+	| "MILITARYAISTRATEGY_NEED_RANGED"
+	| "MILITARYAISTRATEGY_ENOUGH_MILITARY_UNITS"
+	| "MILITARYAISTRATEGY_EMPIRE_DEFENSE"
+	| "MILITARYAISTRATEGY_EMPIRE_DEFENSE_CRITICAL"
+	| "MILITARYAISTRATEGY_ENOUGH_NAVAL_UNITS"
+	| "MILITARYAISTRATEGY_NEED_NAVAL_UNITS"
+	| "MILITARYAISTRATEGY_NEED_NAVAL_UNITS_CRITICAL"
+	| "MILITARYAISTRATEGY_AT_WAR"
+	| "MILITARYAISTRATEGY_WAR_MOBILIZATION"
+	| "MILITARYAISTRATEGY_NEED_RANGED_EARLY"
+	| "MILITARYAISTRATEGY_ENOUGH_RANGED"
+	| "MILITARYAISTRATEGY_MINOR_CIV_GENERAL_DEFENSE"
+	| "MILITARYAISTRATEGY_MINOR_CIV_THREAT_ELEVATED"
+	| "MILITARYAISTRATEGY_MINOR_CIV_THREAT_CRITICAL"
+	| "MILITARYAISTRATEGY_ERADICATE_BARBARIANS"
+	| "MILITARYAISTRATEGY_WINNING_WARS"
+	| "MILITARYAISTRATEGY_LOSING_WARS"
+	| "MILITARYAISTRATEGY_NEED_MOBILE"
+	| "MILITARYAISTRATEGY_ENOUGH_MOBILE"
+	| "MILITARYAISTRATEGY_NEED_AIR"
+	| "MILITARYAISTRATEGY_NEED_NUKE"
+	| "MILITARYAISTRATEGY_ENOUGH_AIR"
+	| "MILITARYAISTRATEGY_NEED_ANTIAIR"
+	| "MILITARYAISTRATEGY_ENOUGH_ANTIAIR"
+	| "MILITARYAISTRATEGY_NEED_AIR_CARRIER";
+
+declare type GnK_CitySpecializationsType =
+	| "CITYSPECIALIZATION_SETTLER_PUMP"
+	| "CITYSPECIALIZATION_MILITARY_TRAINING"
+	| "CITYSPECIALIZATION_EMERGENCY_UNITS"
+	| "CITYSPECIALIZATION_MILITARY_NAVAL"
+	| "CITYSPECIALIZATION_PRODUCTION_WONDER"
+	| "CITYSPECIALIZATION_PRODUCTION_SPACESHIP"
+	| "CITYSPECIALIZATION_COMMERCE"
+	| "CITYSPECIALIZATION_SCIENCE"
+	| "CITYSPECIALIZATION_GENERAL_ECONOMIC";
+
+declare type GnK_TacticalMovesType =
+	| "TACTICAL_UNASSIGNED"
+	| "TACTICAL_MOVE_NONCOMBATANTS_TO_SAFETY"
+	| "TACTICAL_CAPTURE_CITY"
+	| "TACTICAL_DAMAGE_CITY"
+	| "TACTICAL_DESTROY_HIGH_UNIT"
+	| "TACTICAL_DESTROY_MEDIUM_UNIT"
+	| "TACTICAL_DESTROY_LOW_UNIT"
+	| "TACTICAL_TO_SAFETY"
+	| "TACTICAL_ATTRIT_HIGH_UNIT"
+	| "TACTICAL_ATTRIT_MEDIUM_UNIT"
+	| "TACTICAL_ATTRIT_LOW_UNIT"
+	| "TACTICAL_REPOSITION"
+	| "TACTICAL_BARBARIAN_CAMP"
+	| "TACTICAL_PILLAGE"
+	| "TACTICAL_SAFE_BOMBARDS"
+	| "TACTICAL_HEAL"
+	| "TACTICAL_ANCIENT_RUINS"
+	| "TACTICAL_GARRISON_TO_ALLOW_BOMBARD"
+	| "TACTICAL_BASTION_ALREADY_THERE"
+	| "TACTICAL_GARRISON_ALREADY_THERE"
+	| "TACTICAL_GUARD_IMPROVEMENT_ALREADY_THERE"
+	| "TACTICAL_BASTION_1_TURN"
+	| "TACTICAL_GARRISON_1_TURN"
+	| "TACTICAL_GUARD_IMPROVEMENT_1_TURN"
+	| "TACTICAL_AIR_SWEEP"
+	| "TACTICAL_AIR_INTERCEPT"
+	| "TACTICAL_AIR_REBASE"
+	| "TACTICAL_POSTURE_WITHDRAW"
+	| "TACTICAL_POSTURE_HEDGEHOG"
+	| "TACTICAL_POSTURE_SHORE_BOMBARDMENT"
+	| "TACTICAL_CLOSE_ON_TARGET"
+	| "TACTICAL_MOVE_OPERATIONS"
+	| "TACTICAL_EMERGENCY_PURCHASES"
+	| "TACTICAL_ATTACK_VERY_HIGH_PRIORITY_CIVILIAN"
+	| "TACTICAL_ATTACK_HIGH_PRIORITY_CIVILIAN"
+	| "TACTICAL_ATTACK_MEDIUM_PRIORITY_CIVILIAN"
+	| "TACTICAL_ATTACK_LOW_PRIORITY_CIVILIAN"
+	| "TACTICAL_ESCORT_EMBARKED_UNIT"
+	| "TACTICAL_OFFENSIVE_POSTURE_MOVES"
+	| "TACTICAL_POSTURE_SIT_AND_BOMBARD"
+	| "TACTICAL_POSTURE_ATTRIT_FROM_RANGE"
+	| "TACTICAL_POSTURE_EXPLOIT_FLANKS"
+	| "TACTICAL_POSTURE_STEAMROLL"
+	| "TACTICAL_POSTURE_SURGICAL_CITY_STRIKE"
+	| "TACTICAL_POSTURE_COUNTERATTACK";
+
+declare type GnK_AttitudesType =
+	| "ATTITUDE_FURIOUS"
+	| "ATTITUDE_ANNOYED"
+	| "ATTITUDE_CAUTIOUS"
+	| "ATTITUDE_PLEASED"
+	| "ATTITUDE_FRIENDLY";
+
+declare type GnK_CitySizesType =
+	| "CITYSIZE_SMALL"
+	| "CITYSIZE_MEDIUM"
+	| "CITYSIZE_LARGE";
+
+declare type GnK_ConceptsType =
+	| "CONCEPT_CITIES"
+	| "CONCEPT_FOUNDING_CITIES"
+	| "CONCEPT_WHERE_TO_FOUND_CITIES"
+	| "CONCEPT_CITY_BANNER"
+	| "CONCEPT_CITY_SCREEN"
+	| "CONCEPT_CITY_COMBATUNITS"
+	| "CONCEPT_CITY_CONSTRUCTION"
+	| "CONCEPT_CITY_BUILD"
+	| "CONCEPT_CITY_CHANGE_BUILD"
+	| "CONCEPT_CITY_PURCHASEITEM"
+	| "CONCEPT_CITY_CONSTRUCTING_UNITS"
+	| "CONCEPT_CITY_CONSTRUCTING_BUILDINGS"
+	| "CONCEPT_CITY_CONSTRUCTING_WONDERS"
+	| "CONCEPT_CITY_WORKINGLAND"
+	| "CONCEPT_CITY_ASSIGNINGCITIZENS"
+	| "CONCEPT_CITY_IMPROVINGLAND"
+	| "CONCEPT_CITY_SPECIALISTS"
+	| "CONCEPT_CITY_SPECIALISTS_NOTWORKTILE"
+	| "CONCEPT_CITY_SPECIALISTS_BENEFIT"
+	| "CONCEPT_CITY_UNEMPLOYED_CITIZENS"
+	| "CONCEPT_CITY_COMBAT"
+	| "CONCEPT_CITY_ATTACKING_MELEE"
+	| "CONCEPT_CITY_ATTACKING_RANGED"
+	| "CONCEPT_CITY_DEFENDING"
+	| "CONCEPT_CITY_CONQUERING"
+	| "CONCEPT_CITY_DESTROY"
+	| "CONCEPT_CITY_INDESTRUCTABLE"
+	| "CONCEPT_CITY_ANNEX"
+	| "CONCEPT_CITY_PUPPET"
+	| "CONCEPT_COMBAT"
+	| "CONCEPT_COMBAT_DECLARE_WAR"
+	| "CONCEPT_COMBAT_DECLARE_WAR_DIPLOMATICALLY"
+	| "CONCEPT_COMBAT_DECLARE_WAR_ATTACK_UNIT"
+	| "CONCEPT_COMBAT_DECLARE_WAR_ENTER_TERRITORY"
+	| "CONCEPT_COMBAT_DECLARE_WAR_RECEIVED"
+	| "CONCEPT_COMBAT_END_WAR"
+	| "CONCEPT_COMBAT_WHICH_UNITS_CAN_FIGHT"
+	| "CONCEPT_COMBAT_UNIT_STATS"
+	| "CONCEPT_COMBAT_UNIT_STATS_RANGED_COMBAT_STRENGTH"
+	| "CONCEPT_COMBAT_UNIT_STATS_RANGE"
+	| "CONCEPT_COMBAT_UNIT_STATS_COMBAT_STRENGTH"
+	| "CONCEPT_COMBAT_UNIT_STATS_HIT_POINTS"
+	| "CONCEPT_COMBAT_MELEE_COMBAT"
+	| "CONCEPT_COMBAT_MELEE_COMBAT_RESOLVE"
+	| "CONCEPT_COMBAT_MELEE_MULTIPLE_UNITS"
+	| "CONCEPT_COMBAT_COMBAT_INFORMATION_TABLE"
+	| "CONCEPT_COMBAT_MELEE_INITIATING_COMBAT"
+	| "CONCEPT_COMBAT_MELEE_RESULTS"
+	| "CONCEPT_COMBAT_RANGED_COMBAT"
+	| "CONCEPT_COMBAT_RANGED_COMBAT_STRENGTH"
+	| "CONCEPT_COMBAT_RANGED_COMBAT_RANGE"
+	| "CONCEPT_COMBAT_RANGED_LINE_OF_SIGHT"
+	| "CONCEPT_COMBAT_RANGED_INITIATING_COMBAT"
+	| "CONCEPT_COMBAT_RANGED_RESULTS"
+	| "CONCEPT_COMBAT_BONUSES"
+	| "CONCEPT_COMBAT_BONUSES_TERRAIN"
+	| "CONCEPT_COMBAT_BONUSES_FORT"
+	| "CONCEPT_COMBAT_FORTIFICATION_EXPLANATION"
+	| "CONCEPT_COMBAT_FORTIFICATION_WHICH_UNITS_CAN_FORTIFY"
+	| "CONCEPT_COMBAT_BONUSES_FORTIFICATION"
+	| "CONCEPT_COMBAT_ALERT"
+	| "CONCEPT_COMBAT_NAVAL"
+	| "CONCEPT_COMBAT_CITY_COMBAT_STRENGTH"
+	| "CONCEPT_COMBAT_CITY_HIT_POINTS"
+	| "CONCEPT_COMBAT_CITY_ATTACKING_WITH_RANGED_UNITS"
+	| "CONCEPT_COMBAT_CITY_ATTACKING_WITH_MELEE_UNITS"
+	| "CONCEPT_COMBAT_CITY_GARRISON"
+	| "CONCEPT_COMBAT_CITY_BOMBARD"
+	| "CONCEPT_COMBAT_CITY_HEALING_DAMAGE"
+	| "CONCEPT_COMBAT_CITY_CAPTURE"
+	| "CONCEPT_COMBAT_CITY_CAPTURE_MORE"
+	| "CONCEPT_COMBAT_SIEGE"
+	| "CONCEPT_COMBAT_GREAT_GENERAL"
+	| "CONCEPT_COMBAT_UNIT_COMBAT_DAMAGE"
+	| "CONCEPT_COMBAT_UNIT_GROUND_HEALING_DAMAGE"
+	| "CONCEPT_COMBAT_UNIT_NAVAL_HEALING_DAMAGE"
+	| "CONCEPT_COMBAT_FORTIFY_UNTIL_HEALED"
+	| "CONCEPT_COMBAT_EXPERIENCE_AND_PROMOTIONS"
+	| "CONCEPT_COMBAT_EXPERIENCE_ACCUMULATING_COMBAT"
+	| "CONCEPT_COMBAT_EXPERIENCE_ACCUMULATING_OTHER"
+	| "CONCEPT_COMBAT_EXPERIENCE_SPENDING"
+	| "CONCEPT_COMBAT_PROMOTIONS"
+	| "CONCEPT_TERRAIN"
+	| "CONCEPT_TERRAIN_RESOURCES"
+	| "CONCEPT_TERRAIN_TABLES"
+	| "CONCEPT_TERRAIN_TYPES"
+	| "CONCEPT_TERRAIN_VALUES"
+	| "CONCEPT_TERRAIN_COAST"
+	| "CONCEPT_TERRAIN_DESERT"
+	| "CONCEPT_TERRAIN_GRASSLAND"
+	| "CONCEPT_TERRAIN_HILLS"
+	| "CONCEPT_TERRAIN_MOUNTAINS"
+	| "CONCEPT_TERRAIN_OCEANS"
+	| "CONCEPT_TERRAIN_PLAINS"
+	| "CONCEPT_TERRAIN_SNOW"
+	| "CONCEPT_TERRAIN_TUNDRA"
+	| "CONCEPT_TERRAIN_FEATURES"
+	| "CONCEPT_TERRAIN_FEATURE_VALUES"
+	| "CONCEPT_TERRAIN_FEATURE_FALLOUT"
+	| "CONCEPT_TERRAIN_FEATURE_FLOOD_PLAINS"
+	| "CONCEPT_TERRAIN_FEATURE_FORESTS"
+	| "CONCEPT_TERRAIN_FEATURE_ICE"
+	| "CONCEPT_TERRAIN_FEATURE_JUNGLE"
+	| "CONCEPT_TERRAIN_FEATURE_MARSH"
+	| "CONCEPT_TERRAIN_FEATURE_NATURAL_WONDER"
+	| "CONCEPT_TERRAIN_FEATURE_OASIS"
+	| "CONCEPT_TERRAIN_RIVERS"
+	| "CONCEPT_TERRAIN_RIVERS_TILES"
+	| "CONCEPT_TERRAIN_RIVERS_YIELD"
+	| "CONCEPT_TERRAIN_RIVERS_COMBAT"
+	| "CONCEPT_TERRAIN_RIVERS_MOVEMENT"
+	| "CONCEPT_RESOURCES"
+	| "CONCEPT_RESOURCES_BONUS"
+	| "CONCEPT_RESOURCES_LUXURY"
+	| "CONCEPT_RESOURCES_CITY_REQUESTS"
+	| "CONCEPT_RESOURCES_STRATEGIC"
+	| "CONCEPT_WORKERS"
+	| "CONCEPT_WORKERS_CREATING"
+	| "CONCEPT_WORKERS_COMBAT"
+	| "CONCEPT_WORKERS_ACTION_PANEL"
+	| "CONCEPT_WORKERS_CLEARINGLAND"
+	| "CONCEPT_WORKERS_CLEARINGLAND_TIME"
+	| "CONCEPT_WORKERS_ROADS"
+	| "CONCEPT_WORKERS_ROADS_TIME"
+	| "CONCEPT_WORKERS_ROADS_TRADE_ROUTES"
+	| "CONCEPT_WORKERS_IMPROVEMENTS"
+	| "CONCEPT_WORKERS_IMPROVEMENTS_WHERE"
+	| "CONCEPT_WORKERS_IMPROVEMENTS_TIME"
+	| "CONCEPT_WORKERS_IMPROVEMENTS_TIME_LEFT"
+	| "CONCEPT_WORKERS_IMPROVEMENTS_LEAVING"
+	| "CONCEPT_WORKERS_IMPROVEMENTS_FARM"
+	| "CONCEPT_WORKERS_IMPROVEMENTS_MINE"
+	| "CONCEPT_WORKERS_IMPROVEMENTS_FORT"
+	| "CONCEPT_WORKERS_WORKBOATS"
+	| "CONCEPT_WORKERS_PILLAGE"
+	| "CONCEPT_WORKERS_REPAIR"
+	| "CONCEPT_WORKERS_REPAIR_WATER"
+	| "CONCEPT_WORKERS_GREAT_PEOPLE"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_MECHANICS"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_GETTING_MORE_FOOD"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_BEST_FOOD_TILES"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_BONUS"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_OASIS"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_FLOOD_PLAINS"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_GRASSLAND_AND_JUNGLE"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_IMPROVEMENTS"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_BUILDINGS_WONDERS_SOCIAL_POLICIES"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_MARITIME_CITY_STATES"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_WE_LOVE_THE_KING_DAY"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_UNHAPPINESS"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_GROWTH"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_GROWTH_BUCKET"
+	| "CONCEPT_FOOD_AND_CITY_GROWTH_SETTLERS"
+	| "CONCEPT_TECHNOLOGY"
+	| "CONCEPT_TECHNOLOGY_TECH_AND_BEAKERS"
+	| "CONCEPT_TECHNOLOGY_BEAKERS"
+	| "CONCEPT_TECHNOLOGY_SPEEDING_UP_RESEARCH"
+	| "CONCEPT_TECHNOLOGY_ANCIENT_RUINS"
+	| "CONCEPT_TECHNOLOGY_TRADE"
+	| "CONCEPT_TECHNOLOGY_BUILDINGS"
+	| "CONCEPT_TECHNOLOGY_WONDERS"
+	| "CONCEPT_TECHNOLOGY_GREAT_SCIENTIST"
+	| "CONCEPT_TECHNOLOGY_SOCIAL_POLICIES"
+	| "CONCEPT_TECHNOLOGY_CHOOSING_TECH"
+	| "CONCEPT_TECHNOLOGY_CHOOSE_RESEARCH_MENU"
+	| "CONCEPT_TECHNOLOGY_CHANGE_RESEARCH"
+	| "CONCEPT_TECHNOLOGY_AVAILABLE"
+	| "CONCEPT_TECHNOLOGY_TECH_TREE"
+	| "CONCEPT_TECHNOLOGY_VICTORY"
+	| "CONCEPT_VICTORY"
+	| "CONCEPT_VICTORY_CITY_STATES"
+	| "CONCEPT_VICTORY_DEFEAT"
+	| "CONCEPT_VICTORY_DEFEAT_LOSING_LAST_CITY"
+	| "CONCEPT_VICTORY_DEFEAT_ANOTHER_WINNER"
+	| "CONCEPT_VICTORY_DEFEAT_TIME_OUT"
+	| "CONCEPT_VICTORY_VICTORY"
+	| "CONCEPT_VICTORY_VICTORY_DOMINATION"
+	| "CONCEPT_VICTORY_RAZING_ORIGINAL_CAPITAL"
+	| "CONCEPT_VICTORY_CAPITAL_AND_ORIGINAL_CAPITAL"
+	| "CONCEPT_VICTORY_VICTORY_SCIENCE"
+	| "CONCEPT_VICTORY_SPACESHIP_PARTS"
+	| "CONCEPT_VICTORY_VICTORY_CULTURAL"
+	| "CONCEPT_VICTORY_VICTORY_DIPLOMATIC"
+	| "CONCEPT_VICTORY_DIPLOMATIC_VOTING"
+	| "CONCEPT_VICTORY_MINOR_CIV_LIBERATION"
+	| "CONCEPT_VICTORY_END_OF_TIME"
+	| "CONCEPT_VICTORY_POINTS"
+	| "CONCEPT_CULTURE"
+	| "CONCEPT_CULTURE_GAINING"
+	| "CONCEPT_CULTURE_EXPANDING_TERRITORY"
+	| "CONCEPT_CULTURE_ACQUIRING_SOCIAL_POLICY"
+	| "CONCEPT_CULTURE_VICTORY"
+	| "CONCEPT_DIPLOMACY"
+	| "CONCEPT_DIPLOMACY_WHO_CAN_CONDUCT"
+	| "CONCEPT_DIPLOMACY_INITIATING"
+	| "CONCEPT_DIPLOMACY_WITH_CIVS"
+	| "CONCEPT_DIPLOMACY_DECLARE_WAR"
+	| "CONCEPT_DIPLOMACY_PEACE"
+	| "CONCEPT_DIPLOMACY_TRADE"
+	| "CONCEPT_DIPLOMACY_DEMAND"
+	| "CONCEPT_DIPLOMACY_DISCUSS"
+	| "CONCEPT_DIPLOMACY_DENOUNCE"
+	| "CONCEPT_DIPLOMACY_FRIENDSHIP"
+	| "CONCEPT_DIPLOMACY_EXIT"
+	| "CONCEPT_DIPLOMACY_TRADE_SCREEN"
+	| "CONCEPT_DIPLOMACY_OPEN_BORDERS"
+	| "CONCEPT_DIPLOMACY_DEFENSIVE_PACT"
+	| "CONCEPT_DIPLOMACY_RESEARCH_AGREEMENT"
+	| "CONCEPT_DIPLOMACY_TRADE_CITIES"
+	| "CONCEPT_DIPLOMACY_OTHER_PLAYERS"
+	| "CONCEPT_DIPLOMACY_RESOURCES"
+	| "CONCEPT_DIPLOMACY_CITY_STATE"
+	| "CONCEPT_DIPLOMACY_DECLARING_WAR"
+	| "CONCEPT_DIPLOMACY_NEGOTIATE_PEACE"
+	| "CONCEPT_HAPPINESS"
+	| "CONCEPT_HAPPINESS_STARTING"
+	| "CONCEPT_HAPPINESS_CAUSES_UNHAPPINESS"
+	| "CONCEPT_HAPPINESS_CAUSES_HAPPINESS"
+	| "CONCEPT_HAPPINESS_HAPPINESS_LEVELS"
+	| "CONCEPT_HAPPINESS_UNHAHPPY"
+	| "CONCEPT_HAPPINESS_VERY_UNHAPPY"
+	| "CONCEPT_FOG_OF_WAR"
+	| "CONCEPT_FOG_OF_WAR_THREE_STATES"
+	| "CONCEPT_FOG_OF_WAR_STATE_VISIBLE"
+	| "CONCEPT_FOG_OF_WAR_STATE_REVEALED"
+	| "CONCEPT_FOG_OF_WAR_STATE_FOG_OF_WAR"
+	| "CONCEPT_FOG_OF_WAR_SEEN"
+	| "CONCEPT_FOG_OF_WAR_OBSCURING_TERRAIN"
+	| "CONCEPT_FOG_OF_WAR_INDIRECT_FIRE"
+	| "CONCEPT_SOCIAL_POLICY"
+	| "CONCEPT_SOCIAL_POLICY_GAINING"
+	| "CONCEPT_SOCIAL_POLICY_BRANCHES"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_TRADITION"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_LIBERTY"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_HONOR"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_PIETY"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_PATRONAGE"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_COMMERCE"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_RATIONALISM"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_FREEDOM"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_ORDER"
+	| "CONCEPT_SOCIAL_POLICY_BRANCH_AUTOCRACY"
+	| "CONCEPT_SOCIAL_POLICY_VICTORY"
+	| "CONCEPT_GOLD"
+	| "CONCEPT_GOLD_WHERE_TO_GET"
+	| "CONCEPT_GOLD_TERRAIN"
+	| "CONCEPT_GOLD_RESOURCES"
+	| "CONCEPT_GOLD_TRADING_POST"
+	| "CONCEPT_GOLD_BUILDINGS"
+	| "CONCEPT_GOLD_WONDERS"
+	| "CONCEPT_GOLD_TRADE_ROUTES"
+	| "CONCEPT_GOLD_TRADE_ROUTES_BLOCKADE"
+	| "CONCEPT_GOLD_BARBARIAN_CAMPS"
+	| "CONCEPT_GOLD_ANCIENT_RUINS"
+	| "CONCEPT_GOLD_CITY_STATES"
+	| "CONCEPT_GOLD_PILLAGE_IMPROVEMENTS"
+	| "CONCEPT_GOLD_CITY_CAPTURE"
+	| "CONCEPT_GOLD_DIPLOMACY"
+	| "CONCEPT_GOLD_TRADE_MISSION"
+	| "CONCEPT_GOLD_SPENDING"
+	| "CONCEPT_GOLD_UNIT_BUILDING_MAINTENANCE"
+	| "CONCEPT_GOLD_ROAD_MAINTENANCE"
+	| "CONCEPT_GOLD_PURCHASE_TILES"
+	| "CONCEPT_GOLD_PURCHASE_UNITS_BUILDINGS_WONDERS"
+	| "CONCEPT_GOLD_BUY_CITY_STATE_INFLUENCE"
+	| "CONCEPT_GOLD_UPGRADE_UNITS"
+	| "CONCEPT_GOLD_SPENDING_ON_DIPLOMACY"
+	| "CONCEPT_GOLD_DIPLOMACY_FLAT_FEE"
+	| "CONCEPT_GOLD_DIPLOMACY_PER_TURN"
+	| "CONCEPT_GOLD_CITY_CAPTURED_BY_BARBARIANS"
+	| "CONCEPT_GOLD_CITY_CAPTURED_BY_CIV"
+	| "CONCEPT_GOLD_RUNNING_DEFICIT"
+	| "CONCEPT_ADVISORS"
+	| "CONCEPT_ADVISORS_ECONOMIC"
+	| "CONCEPT_ADVISORS_MILITARY"
+	| "CONCEPT_ADVISORS_FOREIGN"
+	| "CONCEPT_ADVISORS_SCIENCE"
+	| "CONCEPT_ADVISORS_CONTACTING"
+	| "CONCEPT_ADVISORS_TURNINGOFF"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE"
+	| "CONCEPT_BUILDINGS_SPECIALISTS"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_SPECIALISTS"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_SPECIALISTS_ARTIST"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_SPECIALISTS_ENGINEER"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_SPECIALISTS_MERCHANT"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_SPECIALISTS_SCIENTIST"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_SPECIALISTS_ASSIGNING"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_SPECIALISTS_EFFECT"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_GENERATING"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_ABILITIES"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_SPECIAL_IMPROVEMENT"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_SPECIAL_ABILITY"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_MOVING_GREAT_PEOPLE"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_GREAT_ARTIST"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_LANDMARK"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_CULTURE_BOMB"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_GREAT_ENGINEER"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_MANUFACTORY"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_HURRY_PRODUCTION"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_GREAT_MERCHANT"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_CUSTOMS_HOUSE"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_TRADE_MISSION"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_GREAT_SCIENTIST"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_ACADEMY"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_LEARN_NEW_TECH"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_GREAT_GENERAL"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_CITADEL"
+	| "CONCEPT_SPECIALISTS_AND_GREAT_PEOPLE_GREAT_PEOPLE_COMBAT_BONUS"
+	| "CONCEPT_CITY_STATE"
+	| "CONCEPT_CITY_STATE_TYPES"
+	| "CONCEPT_CITY_STATE_TYPES_CULTURED"
+	| "CONCEPT_CITY_STATE_TYPES_MARITIME"
+	| "CONCEPT_CITY_STATE_TYPES_MILITARISTIC"
+	| "CONCEPT_CITY_STATE_COMMUNICATION"
+	| "CONCEPT_CITY_STATE_INFLUENCE"
+	| "CONCEPT_CITY_STATE_INFLUENCE_GIVE_GOLD"
+	| "CONCEPT_CITY_STATE_INFLUENCE_GIVE_UNITS"
+	| "CONCEPT_CITY_STATE_INFLUENCE_DO_NOTHING"
+	| "CONCEPT_CITY_STATE_INFLUENCE_LEVELS"
+	| "CONCEPT_CITY_STATE_INFLUENCE_LEVELS_PERMANENT_WAR"
+	| "CONCEPT_CITY_STATE_INFLUENCE_LEVELS_WAR"
+	| "CONCEPT_CITY_STATE_INFLUENCE_LEVELS_NEUTRAL"
+	| "CONCEPT_CITY_STATE_INFLUENCE_LEVELS_FRIENDS"
+	| "CONCEPT_CITY_STATE_INFLUENCE_LEVELS_ALLIES"
+	| "CONCEPT_CITY_STATE_MISSIONS"
+	| "CONCEPT_CITY_STATE_WAR"
+	| "CONCEPT_CITY_STATE_LIBERATING"
+	| "CONCEPT_CITY_STATE_DIPLOMACY_VICTORY"
+	| "CONCEPT_MOVEMENT"
+	| "CONCEPT_MOVEMENT_HOW_TO_ORDER"
+	| "CONCEPT_MOVEMENT_RIGHT_CLICK"
+	| "CONCEPT_MOVEMENT_MOVE_MODE"
+	| "CONCEPT_MOVEMENT_LEGAL_MOVES"
+	| "CONCEPT_MOVEMENT_ILLEGAL_MOVES"
+	| "CONCEPT_MOVEMENT_MULTIPLE_TURN_MOVES"
+	| "CONCEPT_MOVEMENT_MOVEMENT_POINTS"
+	| "CONCEPT_MOVEMENT_EXPENDING_MOVEMENT_POINTS"
+	| "CONCEPT_MOVEMENT_ROADS_AND_RAILROADS"
+	| "CONCEPT_MOVEMENT_ROADS_AND_RAILROADS_AND_RIVERS"
+	| "CONCEPT_MOVEMENT_STACKING_LIMITS"
+	| "CONCEPT_MOVEMENT_COMBAT"
+	| "CONCEPT_MOVEMENT_COMBAT_ATTACK_ORDERS"
+	| "CONCEPT_MOVEMENT_COMBAT_ZONES_OF_CONTROL"
+	| "CONCEPT_MOVEMENT_NAVAL"
+	| "CONCEPT_MOVEMENT_EMBARKING"
+	| "CONCEPT_SCORE"
+	| "CONCEPT_SCORE_ELIMINATION"
+	| "CONCEPT_SCORE_TIME_TO_VICTORY"
+	| "CONCEPT_SCORE_VICTORY_POINTS"
+	| "CONCEPT_SCORE_MAP_SIZE"
+	| "CONCEPT_SCORE_CURRENT_SCORE"
+	| "CONCEPT_AIR_POWER"
+	| "CONCEPT_AIR_POWER_AIR_UNITS"
+	| "CONCEPT_AIR_POWER_HELICOPTER_GUNSHIPS"
+	| "CONCEPT_AIR_POWER_HELICOPTER_GUNSHIPS_MOVEMENT"
+	| "CONCEPT_AIR_POWER_HELICOPTER_GUNSHIPS_ANTI_TANK"
+	| "CONCEPT_AIR_POWER_BASES"
+	| "CONCEPT_AIR_POWER_BASES_LOCATION"
+	| "CONCEPT_AIR_POWER_BASES_FIGHTERS"
+	| "CONCEPT_AIR_POWER_BASES_BOMBERS"
+	| "CONCEPT_AIR_POWER_BASES_STEALTH"
+	| "CONCEPT_AIR_POWER_BASES_ATOMIC"
+	| "CONCEPT_AIR_POWER_BASES_MISSILES"
+	| "CONCEPT_AIR_POWER_BASES_NAVAL_UNIT"
+	| "CONCEPT_AIR_POWER_BASES_NAVAL_UNIT_CARRIER"
+	| "CONCEPT_AIR_POWER_BASES_NAVAL_UNIT_MISSLE_CRUISER"
+	| "CONCEPT_AIR_POWER_BASES_NAVAL_UNIT_NUCLEAR_SUBMARINE"
+	| "CONCEPT_AIR_POWER_STACKING"
+	| "CONCEPT_AIR_POWER_RANGE"
+	| "CONCEPT_AIR_POWER_RECON"
+	| "CONCEPT_AIR_POWER_MISSIONS"
+	| "CONCEPT_AIR_POWER_REBASE"
+	| "CONCEPT_AIR_POWER_AIR_STRIKE"
+	| "CONCEPT_AIR_POWER_AIR_SWEEP"
+	| "CONCEPT_AIR_POWER_INTERCEPTION"
+	| "CONCEPT_AIR_POWER_AIR_STRIKE_RULES"
+	| "CONCEPT_AIR_POWER_INTERCEPTION_RULES"
+	| "CONCEPT_AIR_POWER_AIR_SWEEPS_RULES"
+	| "CONCEPT_AIR_POWER_MISSILES_RULES"
+	| "CONCEPT_AIR_POWER_ATOMIC_BOMBS_RULES"
+	| "CONCEPT_AIR_POWER_NUCLEAR_MISSILES_RULES"
+	| "CONCEPT_BUILDINGS"
+	| "CONCEPT_BUILDINGS_CONSTRUCTION"
+	| "CONCEPT_BUILDINGS_PURCHASING"
+	| "CONCEPT_BUILDINGS_PREREQUISITES"
+	| "CONCEPT_BUILDINGS_MAINTENANCE"
+	| "CONCEPT_BUILDINGS_PALACE"
+	| "CONCEPT_BUILDINGS_CAPTURED_CITIES"
+	| "CONCEPT_BARBARIANS_AND_ANCIENT_RUINS"
+	| "CONCEPT_ANCIENT_RUINS"
+	| "CONCEPT_ANCIENT_RUINS_BENEFITS"
+	| "CONCEPT_ANCIENT_RUINS_BENEFITS_FREE_TECHNOLOGY"
+	| "CONCEPT_ANCIENT_RUINS_BENEFITS_MAP"
+	| "CONCEPT_ANCIENT_RUINS_BENEFITS_WEAPONS"
+	| "CONCEPT_ANCIENT_RUINS_BENEFITS_SURVIVORS"
+	| "CONCEPT_ANCIENT_RUINS_BENEFITS_TREASURE"
+	| "CONCEPT_ANCIENT_RUINS_BENEFITS_CULTURE"
+	| "CONCEPT_ANCIENT_RUINS_BENEFITS_SETTLERS_AND_WORKERS"
+	| "CONCEPT_BARBARIANS"
+	| "CONCEPT_BARBARIANS_ENCAMPMENTS"
+	| "CONCEPT_BARBARIANS_ENCAMPMENTS_DESTROYING"
+	| "CONCEPT_BARBARIANS_ENCAMPMENTS_NEW"
+	| "CONCEPT_BARBARIANS_UNITS"
+	| "CONCEPT_BARBARIANS_UNITS_NAVAL"
+	| "CONCEPT_BARBARIANS_CAPTURING_CIVILIANS"
+	| "CONCEPT_BARBARIANS_EXPERIENCE_POINT_LIMITS"
+	| "CONCEPT_BARBARIANS_THE_END"
+	| "CONCEPT_UNITS"
+	| "CONCEPT_UNITS_CONSTRUCTING"
+	| "CONCEPT_UNITS_CHARACTERISTICS"
+	| "CONCEPT_UNITS_MOVEMENT_SPEED"
+	| "CONCEPT_UNITS_COMBAT_STRENGTH"
+	| "CONCEPT_UNITS_SPECIAL_ABILITIES"
+	| "CONCEPT_UNITS_NATIONAL_UNITS"
+	| "CONCEPT_UNITS_MOVEMENT"
+	| "CONCEPT_UNITS_COMBAT"
+	| "CONCEPT_UNITS_NON_COMBAT_UNITS"
+	| "CONCEPT_UNITS_COMBAT_UNITS"
+	| "CONCEPT_UNITS_NAVAL_UNITS"
+	| "CONCEPT_UNITS_AIR_UNITS"
+	| "CONCEPT_ESPIONAGE_SPIES"
+	| "CONCEPT_ESPIONAGE_MOVING_SPIES"
+	| "CONCEPT_ESPIONAGE_MORE"
+	| "CONCEPT_ESPIONAGE_STEALING_TECHS"
+	| "CONCEPT_ESPIONAGE_CANT_STEAL_ANYMORE"
+	| "CONCEPT_ESPIONAGE_RIG_ELECTION"
+	| "CONCEPT_ESPIONAGE_SURVEILLANCE"
+	| "CONCEPT_ESPIONAGE_COUNTER_INTEL"
+	| "CONCEPT_ESPIONAGE_POLICE_STATION"
+	| "CONCEPT_ESPIONAGE_NATIONAL_INTELLIGENCE"
+	| "CONCEPT_ESPIONAGE_GREAT_FIREWALL"
+	| "CONCEPT_ESPIONAGE_PROMOTIONS"
+	| "CONCEPT_ESPIONAGE_GETTING_CAUGHT"
+	| "CONCEPT_RELIGION_FAITH_EARNING"
+	| "CONCEPT_RELIGION_PANTHEONS"
+	| "CONCEPT_RELIGION_BELIEFS"
+	| "CONCEPT_RELIGION_PANTHEON_BELIEFS"
+	| "CONCEPT_RELIGION_FOUNDER"
+	| "CONCEPT_RELIGION_FOLLOWER"
+	| "CONCEPT_RELIGION_ENHANCER"
+	| "CONCEPT_RELIGION_FAITH_SPENDING"
+	| "CONCEPT_RELIGION_FOUNDING_RELIGION"
+	| "CONCEPT_RELIGION_ENHANCING_RELIGION"
+	| "CONCEPT_RELIGION_SPREADING_RELIGION"
+	| "CONCEPT_RELIGION_BUILDINGS"
+	| "CONCEPT_RELIGION_UNITS"
+	| "CONCEPT_RELIGION_MAJORITY"
+	| "CONCEPT_RELIGION_DEFENDING"
+	| "CONCEPT_CITY_STATE_RELIGIOUS"
+	| "CONCEPT_CITY_STATE_MERCANTILE"
+	| "CONCEPT_GREAT_ADMIRAL"
+	| "CONCEPT_GREAT_ADMIRAL_ABILITY"
+	| "CONCEPT_GREAT_ADMIRAL_ABILITY2"
+	| "CONCEPT_GREAT_PROPHET"
+	| "CONCEPT_GREAT_PROPHET_IMPROVEMENT"
+	| "CONCEPT_GREAT_PROPHET_ABILITY"
+	| "CONCEPT_CITY_STATE_BULLYING"
+	| "CONCEPT_CITY_STATE_SPREAD_RELIGION"
+	| "CONCEPT_RELIGION_CITY_STATE_SPREAD_RELIGION"
+	| "CONCEPT_DIPLOMACY_EMBASSY";
+
+declare type GnK_ContactsType =
+	| "CONTACT_POLICY_PRESSURE"
+	| "CONTACT_JOIN_WAR"
+	| "CONTACT_STOP_TRADING"
+	| "CONTACT_GIVE_HELP"
+	| "CONTACT_ASK_FOR_HELP"
+	| "CONTACT_DEMAND_TRIBUTE"
+	| "CONTACT_OPEN_BORDERS"
+	| "CONTACT_DEFENSIVE_PACT"
+	| "CONTACT_PERMANENT_ALLIANCE"
+	| "CONTACT_PEACE_TREATY"
+	| "CONTACT_TRADE_TECH"
+	| "CONTACT_TRADE_RESOURCE"
+	| "CONTACT_TRADE_MAP";
+
+declare type GnK_DomainsType =
+	| "DOMAIN_SEA"
+	| "DOMAIN_AIR"
+	| "DOMAIN_LAND"
+	| "DOMAIN_IMMOBILE"
+	| "DOMAIN_HOVER";
+
+declare type GnK_InvisibleInfosType =
+	| "INVISIBLE_SUBMARINE";
+
+declare type GnK_MajorCivApproachTypesType =
+	| "MAJOR_CIV_APPROACH_WAR"
+	| "MAJOR_CIV_APPROACH_HOSTILE"
+	| "MAJOR_CIV_APPROACH_DECEPTIVE"
+	| "MAJOR_CIV_APPROACH_GUARDED"
+	| "MAJOR_CIV_APPROACH_AFRAID"
+	| "MAJOR_CIV_APPROACH_FRIENDLY"
+	| "MAJOR_CIV_APPROACH_NEUTRAL";
+
+declare type GnK_MinorCivApproachTypesType =
+	| "MINOR_CIV_APPROACH_IGNORE"
+	| "MINOR_CIV_APPROACH_FRIENDLY"
+	| "MINOR_CIV_APPROACH_PROTECTIVE"
+	| "MINOR_CIV_APPROACH_CONQUEST"
+	| "MINOR_CIV_APPROACH_BULLY";
+
+declare type GnK_MinorCivTraitsType =
+	| "MINOR_TRAIT_CULTURED"
+	| "MINOR_TRAIT_MILITARISTIC"
+	| "MINOR_TRAIT_MARITIME"
+	| "MINOR_TRAIT_MERCANTILE"
+	| "MINOR_TRAIT_RELIGIOUS";
+
+declare type GnK_MonthsType =
+	| "MONTH_JANUARY"
+	| "MONTH_FEBRUARY"
+	| "MONTH_MARCH"
+	| "MONTH_APRIL"
+	| "MONTH_MAY"
+	| "MONTH_JUNE"
+	| "MONTH_JULY"
+	| "MONTH_AUGUST"
+	| "MONTH_SEPTEMBER"
+	| "MONTH_OCTOBER"
+	| "MONTH_NOVEMBER"
+	| "MONTH_DECEMBER";
+
+declare type GnK_SeasonsType =
+	| "SEASON_WINTER"
+	| "SEASON_SPRING"
+	| "SEASON_SUMMER"
+	| "SEASON_FALL";
+
+declare type GnK_UnitAIInfosType =
+	| "UNITAI_UNKNOWN"
+	| "UNITAI_SETTLE"
+	| "UNITAI_WORKER"
+	| "UNITAI_ATTACK"
+	| "UNITAI_CITY_BOMBARD"
+	| "UNITAI_FAST_ATTACK"
+	| "UNITAI_DEFENSE"
+	| "UNITAI_COUNTER"
+	| "UNITAI_RANGED"
+	| "UNITAI_CITY_SPECIAL"
+	| "UNITAI_EXPLORE"
+	| "UNITAI_ARTIST"
+	| "UNITAI_SCIENTIST"
+	| "UNITAI_GENERAL"
+	| "UNITAI_MERCHANT"
+	| "UNITAI_ENGINEER"
+	| "UNITAI_ICBM"
+	| "UNITAI_WORKER_SEA"
+	| "UNITAI_ATTACK_SEA"
+	| "UNITAI_RESERVE_SEA"
+	| "UNITAI_ESCORT_SEA"
+	| "UNITAI_EXPLORE_SEA"
+	| "UNITAI_ASSAULT_SEA"
+	| "UNITAI_SETTLER_SEA"
+	| "UNITAI_CARRIER_SEA"
+	| "UNITAI_MISSILE_CARRIER_SEA"
+	| "UNITAI_PIRATE_SEA"
+	| "UNITAI_ATTACK_AIR"
+	| "UNITAI_DEFENSE_AIR"
+	| "UNITAI_CARRIER_AIR"
+	| "UNITAI_MISSILE_AIR"
+	| "UNITAI_PARADROP"
+	| "UNITAI_SPACESHIP_PART"
+	| "UNITAI_TREASURE"
+	| "UNITAI_PROPHET"
+	| "UNITAI_MISSIONARY"
+	| "UNITAI_INQUISITOR"
+	| "UNITAI_ADMIRAL";
+
+declare type GnK_UnitCombatInfosType =
+	| "UNITCOMBAT_RECON"
+	| "UNITCOMBAT_ARCHER"
+	| "UNITCOMBAT_MOUNTED"
+	| "UNITCOMBAT_MELEE"
+	| "UNITCOMBAT_SIEGE"
+	| "UNITCOMBAT_GUN"
+	| "UNITCOMBAT_ARMOR"
+	| "UNITCOMBAT_HELICOPTER"
+	| "UNITCOMBAT_NAVALRANGED"
+	| "UNITCOMBAT_FIGHTER"
+	| "UNITCOMBAT_BOMBER"
+	| "UNITCOMBAT_NAVALMELEE";
+
+declare type GnK_MinorCivilizationsType =
+	| "MINOR_CIV_WARSAW"
+	| "MINOR_CIV_BUDAPEST"
+	| "MINOR_CIV_GENEVA"
+	| "MINOR_CIV_VENICE"
+	| "MINOR_CIV_GENOA"
+	| "MINOR_CIV_FLORENCE"
+	| "MINOR_CIV_RAGUSA"
+	| "MINOR_CIV_SYDNEY"
+	| "MINOR_CIV_QUEBEC_CITY"
+	| "MINOR_CIV_BUCHAREST"
+	| "MINOR_CIV_BELGRADE"
+	| "MINOR_CIV_BRUSSELS"
+	| "MINOR_CIV_MONACO"
+	| "MINOR_CIV_KATHMANDU"
+	| "MINOR_CIV_HANOI"
+	| "MINOR_CIV_LHASA"
+	| "MINOR_CIV_ALMATY"
+	| "MINOR_CIV_KUALA_LUMPUR"
+	| "MINOR_CIV_SINGAPORE"
+	| "MINOR_CIV_RIO_DE_JANEIRO"
+	| "MINOR_CAPE_TOWN"
+	| "MINOR_SIDON"
+	| "MINOR_TYRE"
+	| "MINOR_CIV_ANTWERP"
+	| "MINOR_CIV_CAHOKIA"
+	| "MINOR_CIV_COLOMBO"
+	| "MINOR_CIV_HONG_KONG"
+	| "MINOR_CIV_JAKARTA"
+	| "MINOR_CIV_JERUSALEM"
+	| "MINOR_CIV_LA_VENTA"
+	| "MINOR_CIV_LISBON"
+	| "MINOR_CIV_MANILA"
+	| "MINOR_CIV_MARRAKECH"
+	| "MINOR_CIV_MILAN"
+	| "MINOR_CIV_MOMBASA"
+	| "MINOR_CIV_PRAGUE"
+	| "MINOR_CIV_VALLETTA"
+	| "MINOR_CIV_VATICAN_CITY"
+	| "MINOR_CIV_WITTENBERG"
+	| "MINOR_CIV_YEREVAN"
+	| "MINOR_CIV_ZANZIBAR"
+	| "MINOR_CIV_ZURICH";
+
+declare type GnK_RegionsType =
+	| "REGION_UNDEFINED"
+	| "REGION_TUNDRA"
+	| "REGION_JUNGLE"
+	| "REGION_FOREST"
+	| "REGION_DESERT"
+	| "REGION_HILLS"
+	| "REGION_PLAINS"
+	| "REGION_GRASS"
+	| "REGION_HYBRID";
+
+declare type GnK_ArtStyleTypesType =
+	| "ARTSTYLE_SOUTH_AMERICA"
+	| "ARTSTYLE_ASIAN"
+	| "ARTSTYLE_MIDDLE_EAST"
+	| "ARTSTYLE_EUROPEAN"
+	| "ARTSTYLE_GRECO_ROMAN"
+	| "ARTSTYLE_POLYNESIAN"
+	| "ARTSTYLE_BARBARIAN";
+
+declare type GnK_ClimatesType =
+	| "CLIMATE_TEMPERATE"
+	| "CLIMATE_TROPICAL"
+	| "CLIMATE_ARID"
+	| "CLIMATE_ROCKY"
+	| "CLIMATE_COLD";
+
+declare type GnK_CultureLevelsType =
+	| "CULTURELEVEL_NONE"
+	| "CULTURELEVEL_POOR"
+	| "CULTURELEVEL_FLEDGLING"
+	| "CULTURELEVEL_DEVELOPING"
+	| "CULTURELEVEL_REFINED"
+	| "CULTURELEVEL_INFLUENTIAL"
+	| "CULTURELEVEL_LEGENDARY";
+
+declare type GnK_CursorsType =
+	| "CURSOR_DEFAULT"
+	| "CURSOR_BUSY"
+	| "CURSOR_PING"
+	| "CURSOR_GO_TO"
+	| "CURSOR_ROUTE_TO"
+	| "CURSOR_AIRLIFT"
+	| "CURSOR_NUKE"
+	| "CURSOR_AIRSTRIKE"
+	| "CURSOR_RECON"
+	| "CURSOR_PARADROP"
+	| "CURSOR_AIRBOMB"
+	| "CURSOR_REBASE"
+	| "CURSOR_MOVE"
+	| "CURSOR_SPLITV"
+	| "CURSOR_SPLITH"
+	| "CURSOR_SIZEV"
+	| "CURSOR_SIZEH"
+	| "CURSOR_SIZENE"
+	| "CURSOR_SIZENW"
+	| "CURSOR_SIZEALL"
+	| "CURSOR_LINK"
+	| "CURSOR_GRIP"
+	| "CURSOR_EDIT"
+	| "CURSOR_GOLD"
+	| "CURSOR_GIFT";
+
+declare type GnK_EmphasizeInfosType =
+	| "EMPHASIZE_FOOD"
+	| "EMPHASIZE_PRODUCTION"
+	| "EMPHASIZE_RESEARCH"
+	| "EMPHASIZE_GREAT_PEOPLE"
+	| "EMPHASIZE_AVOID_GROWTH";
+
+declare type GnK_ErasType =
+	| "ERA_ANCIENT"
+	| "ERA_CLASSICAL"
+	| "ERA_MEDIEVAL"
+	| "ERA_RENAISSANCE"
+	| "ERA_INDUSTRIAL"
+	| "ERA_MODERN"
+	| "ERA_POSTMODERN"
+	| "ERA_FUTURE";
+
+declare type GnK_FlavorsType =
+	| "FLAVOR_OFFENSE"
+	| "FLAVOR_DEFENSE"
+	| "FLAVOR_CITY_DEFENSE"
+	| "FLAVOR_MILITARY_TRAINING"
+	| "FLAVOR_RECON"
+	| "FLAVOR_RANGED"
+	| "FLAVOR_MOBILE"
+	| "FLAVOR_NAVAL"
+	| "FLAVOR_NAVAL_RECON"
+	| "FLAVOR_NAVAL_GROWTH"
+	| "FLAVOR_NAVAL_TILE_IMPROVEMENT"
+	| "FLAVOR_AIR"
+	| "FLAVOR_EXPANSION"
+	| "FLAVOR_GROWTH"
+	| "FLAVOR_TILE_IMPROVEMENT"
+	| "FLAVOR_INFRASTRUCTURE"
+	| "FLAVOR_PRODUCTION"
+	| "FLAVOR_GOLD"
+	| "FLAVOR_SCIENCE"
+	| "FLAVOR_CULTURE"
+	| "FLAVOR_HAPPINESS"
+	| "FLAVOR_GREAT_PEOPLE"
+	| "FLAVOR_WONDER"
+	| "FLAVOR_RELIGION"
+	| "FLAVOR_DIPLOMACY"
+	| "FLAVOR_SPACESHIP"
+	| "FLAVOR_WATER_CONNECTION"
+	| "FLAVOR_NUKE"
+	| "FLAVOR_ANTIAIR"
+	| "FLAVOR_USE_NUKE"
+	| "FLAVOR_ESPIONAGE"
+	| "FLAVOR_AIR_CARRIER";
+
+declare type GnK_GameOptionsType =
+	| "GAMEOPTION_NO_CITY_RAZING"
+	| "GAMEOPTION_NO_BARBARIANS"
+	| "GAMEOPTION_RAGING_BARBARIANS"
+	| "GAMEOPTION_ALWAYS_WAR"
+	| "GAMEOPTION_ALWAYS_PEACE"
+	| "GAMEOPTION_ONE_CITY_CHALLENGE"
+	| "GAMEOPTION_NO_CHANGING_WAR_PEACE"
+	| "GAMEOPTION_NEW_RANDOM_SEED"
+	| "GAMEOPTION_LOCK_MODS"
+	| "GAMEOPTION_COMPLETE_KILLS"
+	| "GAMEOPTION_NO_GOODY_HUTS"
+	| "GAMEOPTION_RANDOM_PERSONALITIES"
+	| "GAMEOPTION_POLICY_SAVING"
+	| "GAMEOPTION_PROMOTION_SAVING"
+	| "GAMEOPTION_END_TURN_TIMER_ENABLED"
+	| "GAMEOPTION_SIMULTANEOUS_TURNS"
+	| "GAMEOPTION_DYNAMIC_TURNS"
+	| "GAMEOPTION_PITBOSS"
+	| "GAMEOPTION_QUICK_COMBAT"
+	| "GAMEOPTION_DISABLE_START_BIAS"
+	| "GAMEOPTION_NO_SCIENCE"
+	| "GAMEOPTION_NO_POLICIES"
+	| "GAMEOPTION_NO_HAPPINESS"
+	| "GAMEOPTION_NO_TUTORIAL"
+	| "GAMEOPTION_QUICK_MOVEMENT"
+	| "GAMEOPTION_NO_RELIGION"
+	| "GAMEOPTION_NO_ESPIONAGE";
+
+declare type GnK_GameSpeedsType =
+	| "GAMESPEED_MARATHON"
+	| "GAMESPEED_EPIC"
+	| "GAMESPEED_STANDARD"
+	| "GAMESPEED_QUICK";
+
+declare type GnK_HandicapInfosType =
+	| "HANDICAP_SETTLER"
+	| "HANDICAP_CHIEFTAIN"
+	| "HANDICAP_WARLORD"
+	| "HANDICAP_PRINCE"
+	| "HANDICAP_KING"
+	| "HANDICAP_EMPEROR"
+	| "HANDICAP_IMMORTAL"
+	| "HANDICAP_DEITY";
+
+declare type GnK_HurryInfosType =
+	| "HURRY_POPULATION"
+	| "HURRY_GOLD";
+
+declare type GnK_MultiplayerOptionsType =
+	| "MPOPTION_TAKEOVER_AI"
+	| "MPOPTION_SHUFFLE_TEAMS"
+	| "MPOPTION_ANONYMOUS"
+	| "MPOPTION_TURN_TIMER";
+
+declare type GnK_PlayerOptionsType =
+	| "PLAYEROPTION_WAIT_END_TURN"
+	| "PLAYEROPTION_SHOW_FRIENDLY_MOVES"
+	| "PLAYEROPTION_SHOW_ENEMY_MOVES"
+	| "PLAYEROPTION_QUICK_MOVES"
+	| "PLAYEROPTION_START_AUTOMATED"
+	| "PLAYEROPTION_SAFE_AUTOMATION"
+	| "PLAYEROPTION_NO_UNIT_CYCLING"
+	| "PLAYEROPTION_LEAVE_FORESTS"
+	| "PLAYEROPTION_MODDER_1"
+	| "PLAYEROPTION_MODDER_2"
+	| "PLAYEROPTION_MODDER_3"
+	| "PLAYEROPTION_QUICK_SELECTION_ADVANCE";
+
+declare type GnK_PoliciesType =
+	| "POLICY_LIBERTY"
+	| "POLICY_COLLECTIVE_RULE"
+	| "POLICY_CITIZENSHIP"
+	| "POLICY_REPUBLIC"
+	| "POLICY_REPRESENTATION"
+	| "POLICY_MERITOCRACY"
+	| "POLICY_TRADITION"
+	| "POLICY_ARISTOCRACY"
+	| "POLICY_OLIGARCHY"
+	| "POLICY_LEGALISM"
+	| "POLICY_LANDED_ELITE"
+	| "POLICY_MONARCHY"
+	| "POLICY_HONOR"
+	| "POLICY_WARRIOR_CODE"
+	| "POLICY_DISCIPLINE"
+	| "POLICY_MILITARY_TRADITION"
+	| "POLICY_MILITARY_CASTE"
+	| "POLICY_PROFESSIONAL_ARMY"
+	| "POLICY_PIETY"
+	| "POLICY_ORGANIZED_RELIGION"
+	| "POLICY_MANDATE_OF_HEAVEN"
+	| "POLICY_THEOCRACY"
+	| "POLICY_REFORMATION"
+	| "POLICY_FREE_RELIGION"
+	| "POLICY_PATRONAGE"
+	| "POLICY_PHILANTHROPY"
+	| "POLICY_AESTHETICS"
+	| "POLICY_SCHOLASTICISM"
+	| "POLICY_CULTURAL_DIPLOMACY"
+	| "POLICY_EDUCATED_ELITE"
+	| "POLICY_COMMERCE"
+	| "POLICY_TRADE_UNIONS"
+	| "POLICY_NAVAL_TRADITION"
+	| "POLICY_MERCANTILISM"
+	| "POLICY_MERCHANT_NAVY"
+	| "POLICY_PROTECTIONISM"
+	| "POLICY_RATIONALISM"
+	| "POLICY_SECULARISM"
+	| "POLICY_HUMANISM"
+	| "POLICY_FREE_THOUGHT"
+	| "POLICY_SOVEREIGNTY"
+	| "POLICY_SCIENTIFIC_REVOLUTION"
+	| "POLICY_FREEDOM"
+	| "POLICY_CONSTITUTION"
+	| "POLICY_UNIVERSAL_SUFFRAGE"
+	| "POLICY_CIVIL_SOCIETY"
+	| "POLICY_FREE_SPEECH"
+	| "POLICY_DEMOCRACY"
+	| "POLICY_ORDER"
+	| "POLICY_UNITED_FRONT"
+	| "POLICY_SOCIALISM"
+	| "POLICY_NATIONALISM"
+	| "POLICY_PLANNED_ECONOMY"
+	| "POLICY_COMMUNISM"
+	| "POLICY_AUTOCRACY"
+	| "POLICY_POPULISM"
+	| "POLICY_MILITARISM"
+	| "POLICY_FASCISM"
+	| "POLICY_POLICE_STATE"
+	| "POLICY_TOTAL_WAR"
+	| "POLICY_TRADITION_FINISHER"
+	| "POLICY_LIBERTY_FINISHER"
+	| "POLICY_HONOR_FINISHER"
+	| "POLICY_PIETY_FINISHER"
+	| "POLICY_PATRONAGE_FINISHER"
+	| "POLICY_COMMERCE_FINISHER"
+	| "POLICY_RATIONALISM_FINISHER"
+	| "POLICY_FREEDOM_FINISHER"
+	| "POLICY_ORDER_FINISHER"
+	| "POLICY_AUTOCRACY_FINISHER";
+
+declare type GnK_PolicyBranchTypesType =
+	| "POLICY_BRANCH_TRADITION"
+	| "POLICY_BRANCH_LIBERTY"
+	| "POLICY_BRANCH_HONOR"
+	| "POLICY_BRANCH_PIETY"
+	| "POLICY_BRANCH_PATRONAGE"
+	| "POLICY_BRANCH_COMMERCE"
+	| "POLICY_BRANCH_RATIONALISM"
+	| "POLICY_BRANCH_FREEDOM"
+	| "POLICY_BRANCH_ORDER"
+	| "POLICY_BRANCH_AUTOCRACY";
+
+declare type GnK_ProcessesType =
+	| "PROCESS_WEALTH"
+	| "PROCESS_RESEARCH";
+
+declare type GnK_ProjectsType =
+	| "PROJECT_MANHATTAN_PROJECT"
+	| "PROJECT_APOLLO_PROGRAM"
+	| "PROJECT_SS_COCKPIT"
+	| "PROJECT_SS_STASIS_CHAMBER"
+	| "PROJECT_SS_ENGINE"
+	| "PROJECT_SS_BOOSTER"
+	| "PROJECT_UTOPIA_PROJECT";
+
+declare type GnK_ReplayDataSetsType =
+	| "REPLAYDATASET_SCORE"
+	| "REPLAYDATASET_PRODUCTIONPERTURN"
+	| "REPLAYDATASET_TOTALGOLD"
+	| "REPLAYDATASET_GOLDPERTURN"
+	| "REPLAYDATASET_CITYCOUNT"
+	| "REPLAYDATASET_TECHSKNOWN"
+	| "REPLAYDATASET_SCIENCEPERTURN"
+	| "REPLAYDATASET_TOTALCULTURE"
+	| "REPLAYDATASET_CULTUREPERTURN"
+	| "REPLAYDATASET_EXCESSHAPINESS"
+	| "REPLAYDATASET_HAPPINESS"
+	| "REPLAYDATASET_UNHAPPINESS"
+	| "REPLAYDATASET_GOLDENAGETURNS"
+	| "REPLAYDATASET_POPULATION"
+	| "REPLAYDATASET_FOODPERTURN"
+	| "REPLAYDATASET_TOTALLAND"
+	| "REPLAYDATASET_GPTCITYCONNECTIONS"
+	| "REPLAYDATASET_GPTDEALS"
+	| "REPLAYDATASET_UNITMAINTENANCE"
+	| "REPLAYDATASET_BUILDINGMAINTENANCE"
+	| "REPLAYDATASET_IMPROVEMENTMAINTENANCE"
+	| "REPLAYDATASET_NUMBEROFPOLICIES"
+	| "REPLAYDATASET_NUMBEROFWORKERS"
+	| "REPLAYDATASET_IMPROVEDTILES"
+	| "REPLAYDATASET_WORKEDTILES"
+	| "REPLAYDATASET_MILITARYMIGHT";
+
+declare type GnK_SeaLevelsType =
+	| "SEALEVEL_LOW"
+	| "SEALEVEL_MEDIUM"
+	| "SEALEVEL_HIGH";
+
+declare type GnK_SpecialistsType =
+	| "SPECIALIST_CITIZEN"
+	| "SPECIALIST_ARTIST"
+	| "SPECIALIST_SCIENTIST"
+	| "SPECIALIST_MERCHANT"
+	| "SPECIALIST_ENGINEER";
+
+declare type GnK_TradesType =
+	| "TRADE_GOLD"
+	| "TRADE_RESEARCH"
+	| "TRADE_CULTURE";
+
+declare type GnK_TurnTimersType =
+	| "TURNTIMER_STATIC"
+	| "TURNTIMER_SNAIL"
+	| "TURNTIMER_SLOW"
+	| "TURNTIMER_MEDIUM"
+	| "TURNTIMER_FAST"
+	| "TURNTIMER_BLAZING";
+
+declare type GnK_VictoriesType =
+	| "VICTORY_TIME"
+	| "VICTORY_SPACE_RACE"
+	| "VICTORY_DOMINATION"
+	| "VICTORY_CULTURAL"
+	| "VICTORY_DIPLOMATIC";
+
+declare type GnK_VoteSourcesType =
+	| "DIPLOVOTE_UN"
+	| "DIPLOVOTE_POPE";
+
+declare type GnK_VotesType =
+	| "VOTE_SECRETARY_GENERAL";
+
+declare type GnK_WorldsType =
+	| "WORLDSIZE_DUEL"
+	| "WORLDSIZE_TINY"
+	| "WORLDSIZE_SMALL"
+	| "WORLDSIZE_STANDARD"
+	| "WORLDSIZE_LARGE"
+	| "WORLDSIZE_HUGE";
+
+declare type GnK_InterfaceModesType =
+	| "INTERFACEMODE_DEBUG"
+	| "INTERFACEMODE_SELECTION"
+	| "INTERFACEMODE_PING"
+	| "INTERFACEMODE_MOVE_TO"
+	| "INTERFACEMODE_MOVE_TO_TYPE"
+	| "INTERFACEMODE_MOVE_TO_ALL"
+	| "INTERFACEMODE_ROUTE_TO"
+	| "INTERFACEMODE_AIRLIFT"
+	| "INTERFACEMODE_NUKE"
+	| "INTERFACEMODE_PARADROP"
+	| "INTERFACEMODE_ATTACK"
+	| "INTERFACEMODE_RANGE_ATTACK"
+	| "INTERFACEMODE_AIRSTRIKE"
+	| "INTERFACEMODE_AIR_SWEEP"
+	| "INTERFACEMODE_REBASE"
+	| "INTERFACEMODE_PLACE_UNIT"
+	| "INTERFACEMODE_EMBARK"
+	| "INTERFACEMODE_DISEMBARK"
+	| "INTERFACEMODE_GIFT_UNIT"
+	| "INTERFACEMODE_CITY_PLOT_SELECTION"
+	| "INTERFACEMODE_PURCHASE_PLOT"
+	| "INTERFACEMODE_CITY_RANGE_ATTACK"
+	| "INTERFACEMODE_GIFT_TILE_IMPROVEMENT";
+
+declare type GnK_RoutesType =
+	| "ROUTE_ROAD"
+	| "ROUTE_RAILROAD";
+
+declare type GnK_FeaturesType =
+	| "FEATURE_ICE"
+	| "FEATURE_JUNGLE"
+	| "FEATURE_MARSH"
+	| "FEATURE_OASIS"
+	| "FEATURE_FLOOD_PLAINS"
+	| "FEATURE_FOREST"
+	| "FEATURE_FALLOUT"
+	| "FEATURE_CRATER"
+	| "FEATURE_FUJI"
+	| "FEATURE_MESA"
+	| "FEATURE_REEF"
+	| "FEATURE_VOLCANO"
+	| "FEATURE_GIBRALTAR"
+	| "FEATURE_GEYSER"
+	| "FEATURE_FOUNTAIN_YOUTH"
+	| "FEATURE_POTOSI"
+	| "FEATURE_EL_DORADO"
+	| "FEATURE_ATOLL"
+	| "FEATURE_SRI_PADA"
+	| "FEATURE_MT_SINAI"
+	| "FEATURE_MT_KAILASH"
+	| "FEATURE_ULURU";
+
+declare type GnK_FakeFeaturesType =
+	| "FEATURE_LAKE"
+	| "FEATURE_RIVER";
+
+declare type GnK_Natural_Wonder_PlacementType =
+	| "FEATURE_CRATER"
+	| "FEATURE_FUJI"
+	| "FEATURE_MESA"
+	| "FEATURE_REEF"
+	| "FEATURE_VOLCANO"
+	| "FEATURE_GIBRALTAR"
+	| "FEATURE_GEYSER"
+	| "FEATURE_FOUNTAIN_YOUTH"
+	| "FEATURE_POTOSI"
+	| "FEATURE_EL_DORADO"
+	| "FEATURE_SRI_PADA"
+	| "FEATURE_MT_SINAI"
+	| "FEATURE_MT_KAILASH"
+	| "FEATURE_ULURU";
+
+declare type GnK_ResourceClassesType =
+	| "RESOURCECLASS_BONUS"
+	| "RESOURCECLASS_LUXURY"
+	| "RESOURCECLASS_RUSH"
+	| "RESOURCECLASS_MODERN";
+
+declare type GnK_ResourcesType =
+	| "RESOURCE_IRON"
+	| "RESOURCE_HORSE"
+	| "RESOURCE_COAL"
+	| "RESOURCE_OIL"
+	| "RESOURCE_ALUMINUM"
+	| "RESOURCE_URANIUM"
+	| "RESOURCE_WHEAT"
+	| "RESOURCE_COW"
+	| "RESOURCE_SHEEP"
+	| "RESOURCE_DEER"
+	| "RESOURCE_BANANA"
+	| "RESOURCE_FISH"
+	| "RESOURCE_STONE"
+	| "RESOURCE_WHALE"
+	| "RESOURCE_PEARLS"
+	| "RESOURCE_GOLD"
+	| "RESOURCE_SILVER"
+	| "RESOURCE_GEMS"
+	| "RESOURCE_MARBLE"
+	| "RESOURCE_IVORY"
+	| "RESOURCE_FUR"
+	| "RESOURCE_DYE"
+	| "RESOURCE_SPICES"
+	| "RESOURCE_SILK"
+	| "RESOURCE_SUGAR"
+	| "RESOURCE_COTTON"
+	| "RESOURCE_WINE"
+	| "RESOURCE_INCENSE"
+	| "RESOURCE_JEWELRY"
+	| "RESOURCE_PORCELAIN"
+	| "RESOURCE_COPPER"
+	| "RESOURCE_SALT"
+	| "RESOURCE_CRAB"
+	| "RESOURCE_TRUFFLES"
+	| "RESOURCE_CITRUS";
+
+declare type GnK_TerrainsType =
+	| "TERRAIN_GRASS"
+	| "TERRAIN_PLAINS"
+	| "TERRAIN_DESERT"
+	| "TERRAIN_TUNDRA"
+	| "TERRAIN_SNOW"
+	| "TERRAIN_COAST"
+	| "TERRAIN_OCEAN"
+	| "TERRAIN_MOUNTAIN"
+	| "TERRAIN_HILL";
+
+declare type GnK_YieldsType =
+	| "YIELD_FOOD"
+	| "YIELD_PRODUCTION"
+	| "YIELD_GOLD"
+	| "YIELD_SCIENCE"
+	| "YIELD_CULTURE"
+	| "YIELD_FAITH";
+
+declare type GnK_CommandsType =
+	| "COMMAND_PROMOTION"
+	| "COMMAND_UPGRADE"
+	| "COMMAND_AUTOMATE"
+	| "COMMAND_WAKE"
+	| "COMMAND_CANCEL"
+	| "COMMAND_CANCEL_ALL"
+	| "COMMAND_STOP_AUTOMATION"
+	| "COMMAND_DELETE"
+	| "COMMAND_GIFT"
+	| "COMMAND_HOTKEY";
+
+declare type GnK_ControlsType =
+	| "CONTROL_CENTERONSELECTION"
+	| "CONTROL_SELECTYUNITTYPE"
+	| "CONTROL_SELECTYUNITALL"
+	| "CONTROL_SELECTCITY"
+	| "CONTROL_SELECTCAPITAL"
+	| "CONTROL_NEXTCITY"
+	| "CONTROL_PREVCITY"
+	| "CONTROL_NEXTUNIT"
+	| "CONTROL_PREVUNIT"
+	| "CONTROL_CYCLEUNIT"
+	| "CONTROL_CYCLEUNIT_ALT"
+	| "CONTROL_CYCLEWORKER"
+	| "CONTROL_LASTUNIT"
+	| "CONTROL_ENDTURN"
+	| "CONTROL_ENDTURN_ALT"
+	| "CONTROL_FORCEENDTURN"
+	| "CONTROL_AUTOMOVES"
+	| "CONTROL_PING"
+	| "CONTROL_YIELDS"
+	| "CONTROL_RESOURCE_ALL"
+	| "CONTROL_UNIT_ICONS"
+	| "CONTROL_SCORES"
+	| "CONTROL_LOAD_GAME"
+	| "CONTROL_OPTIONS_SCREEN"
+	| "CONTROL_RETIRE"
+	| "CONTROL_SAVE_GROUP"
+	| "CONTROL_SAVE_NORMAL"
+	| "CONTROL_QUICK_SAVE"
+	| "CONTROL_QUICK_LOAD"
+	| "CONTROL_CIVILOPEDIA"
+	| "CONTROL_POLICIES_SCREEN"
+	| "CONTROL_FOREIGN_SCREEN"
+	| "CONTROL_MILITARY_SCREEN"
+	| "CONTROL_TECH_CHOOSER"
+	| "CONTROL_TURN_LOG"
+	| "CONTROL_DOMESTIC_SCREEN"
+	| "CONTROL_VICTORY_SCREEN"
+	| "CONTROL_INFO"
+	| "CONTROL_SELECT_HEALTHY"
+	| "CONTROL_TOGGLE_STRATEGIC_VIEW"
+	| "CONTROL_ADVISOR_COUNSEL"
+	| "CONTROL_ESPIONAGE_OVERVIEW"
+	| "CONTROL_RELIGION_OVERVIEW";
+
+declare type GnK_MissionsType =
+	| "MISSION_MOVE_TO"
+	| "MISSION_ROUTE_TO"
+	| "MISSION_MOVE_TO_UNIT"
+	| "MISSION_SWAP_UNITS"
+	| "MISSION_SKIP"
+	| "MISSION_SLEEP"
+	| "MISSION_ALERT"
+	| "MISSION_FORTIFY"
+	| "MISSION_GARRISON"
+	| "MISSION_SET_UP_FOR_RANGED_ATTACK"
+	| "MISSION_EMBARK"
+	| "MISSION_DISEMBARK"
+	| "MISSION_AIRPATROL"
+	| "MISSION_HEAL"
+	| "MISSION_AIRLIFT"
+	| "MISSION_NUKE"
+	| "MISSION_PARADROP"
+	| "MISSION_AIR_SWEEP"
+	| "MISSION_REBASE"
+	| "MISSION_RANGE_ATTACK"
+	| "MISSION_PILLAGE"
+	| "MISSION_FOUND"
+	| "MISSION_JOIN"
+	| "MISSION_CONSTRUCT"
+	| "MISSION_DISCOVER"
+	| "MISSION_HURRY"
+	| "MISSION_TRADE"
+	| "MISSION_REPAIR_FLEET"
+	| "MISSION_SPACESHIP"
+	| "MISSION_CULTURE_BOMB"
+	| "MISSION_FOUND_RELIGION"
+	| "MISSION_GOLDEN_AGE"
+	| "MISSION_BUILD"
+	| "MISSION_LEAD"
+	| "MISSION_DIE_ANIMATION"
+	| "MISSION_BEGIN_COMBAT"
+	| "MISSION_END_COMBAT"
+	| "MISSION_AIRSTRIKE"
+	| "MISSION_SURRENDER"
+	| "MISSION_CAPTURED"
+	| "MISSION_IDLE"
+	| "MISSION_DIE"
+	| "MISSION_DAMAGE"
+	| "MISSION_MULTI_SELECT"
+	| "MISSION_MULTI_DESELECT"
+	| "MISSION_WAIT_FOR"
+	| "MISSION_SPREAD_RELIGION"
+	| "MISSION_ENHANCE_RELIGION"
+	| "MISSION_REMOVE_HERESY";
+
+declare type GnK_MultiUnitPositionsType =
+	| "MUPOSITION_FRONT_LINE"
+	| "MUPOSITION_BOMBARD"
+	| "MUPOSITION_CIVILIAN_SUPPORT"
+	| "MUPOSITION_NAVAL_ESCORT";
+
+declare type GnK_MultiUnitFormationsType =
+	| "MUFORMATION_BASIC_CITY_ATTACK_FORCE"
+	| "MUFORMATION_CITY_STATE_ATTACK_FORCE"
+	| "MUFORMATION_FAST_PILLAGERS"
+	| "MUFORMATION_ANTI_BARBARIAN_TEAM"
+	| "MUFORMATION_RAPID_RESPONSE_FORCE"
+	| "MUFORMATION_CLOSE_CITY_DEFENSE"
+	| "MUFORMATION_SETTLER_ESCORT"
+	| "MUFORMATION_SMALL_CITY_ATTACK_FORCE"
+	| "MUFORMATION_MERCHANT_ESCORT"
+	| "MUFORMATION_NAVAL_SQUADRON"
+	| "MUFORMATION_COLONIZATION_PARTY"
+	| "MUFORMATION_QUICK_COLONY_SETTLER"
+	| "MUFORMATION_NAVAL_INVASION"
+	| "MUFORMATION_CITY_STATE_INVASION"
+	| "MUFORMATION_NUKE_ATTACK"
+	| "MUFORMATION_EARLY_RUSH"
+	| "MUFORMATION_NAVAL_BOMBARDMENT"
+	| "MUFORMATION_PURE_NAVAL_CITY_ATTACK"
+	| "MUFORMATION_BIGGER_CITY_ATTACK_FORCE";
+
+declare type GnK_UnitClassesType =
+	| "UNITCLASS_SETTLER"
+	| "UNITCLASS_WORKER"
+	| "UNITCLASS_WARRIOR"
+	| "UNITCLASS_SCOUT"
+	| "UNITCLASS_ARCHER"
+	| "UNITCLASS_SPEARMAN"
+	| "UNITCLASS_CHARIOT_ARCHER"
+	| "UNITCLASS_SWORDSMAN"
+	| "UNITCLASS_HORSEMAN"
+	| "UNITCLASS_CATAPULT"
+	| "UNITCLASS_KNIGHT"
+	| "UNITCLASS_CROSSBOWMAN"
+	| "UNITCLASS_PIKEMAN"
+	| "UNITCLASS_TREBUCHET"
+	| "UNITCLASS_LONGSWORDSMAN"
+	| "UNITCLASS_MUSKETMAN"
+	| "UNITCLASS_CANNON"
+	| "UNITCLASS_LANCER"
+	| "UNITCLASS_RIFLEMAN"
+	| "UNITCLASS_CAVALRY"
+	| "UNITCLASS_INFANTRY"
+	| "UNITCLASS_ARTILLERY"
+	| "UNITCLASS_TANK"
+	| "UNITCLASS_ANTI_TANK_GUN"
+	| "UNITCLASS_ANTI_AIRCRAFT_GUN"
+	| "UNITCLASS_PARATROOPER"
+	| "UNITCLASS_FIGHTER"
+	| "UNITCLASS_BOMBER"
+	| "UNITCLASS_ATOMIC_BOMB"
+	| "UNITCLASS_ROCKET_ARTILLERY"
+	| "UNITCLASS_MECHANIZED_INFANTRY"
+	| "UNITCLASS_MODERN_ARMOR"
+	| "UNITCLASS_HELICOPTER_GUNSHIP"
+	| "UNITCLASS_MOBILE_SAM"
+	| "UNITCLASS_GUIDED_MISSILE"
+	| "UNITCLASS_JET_FIGHTER"
+	| "UNITCLASS_STEALTH_BOMBER"
+	| "UNITCLASS_NUCLEAR_MISSILE"
+	| "UNITCLASS_MECH"
+	| "UNITCLASS_WORKBOAT"
+	| "UNITCLASS_GALLEY"
+	| "UNITCLASS_TRIREME"
+	| "UNITCLASS_CARAVEL"
+	| "UNITCLASS_FRIGATE"
+	| "UNITCLASS_IRONCLAD"
+	| "UNITCLASS_DESTROYER"
+	| "UNITCLASS_BATTLESHIP"
+	| "UNITCLASS_SUBMARINE"
+	| "UNITCLASS_CARRIER"
+	| "UNITCLASS_NUCLEAR_SUBMARINE"
+	| "UNITCLASS_MISSILE_CRUISER"
+	| "UNITCLASS_ARTIST"
+	| "UNITCLASS_SCIENTIST"
+	| "UNITCLASS_MERCHANT"
+	| "UNITCLASS_ENGINEER"
+	| "UNITCLASS_GREAT_GENERAL"
+	| "UNITCLASS_SS_COCKPIT"
+	| "UNITCLASS_SS_STASIS_CHAMBER"
+	| "UNITCLASS_SS_ENGINE"
+	| "UNITCLASS_SS_BOOSTER"
+	| "UNITCLASS_PROPHET"
+	| "UNITCLASS_MISSIONARY"
+	| "UNITCLASS_COMPOSITE_BOWMAN"
+	| "UNITCLASS_GATLINGGUN"
+	| "UNITCLASS_GALLEASS"
+	| "UNITCLASS_GREAT_WAR_INFANTRY"
+	| "UNITCLASS_MARINE"
+	| "UNITCLASS_TRIPLANE"
+	| "UNITCLASS_WWI_BOMBER"
+	| "UNITCLASS_WWI_TANK"
+	| "UNITCLASS_MACHINE_GUN"
+	| "UNITCLASS_PRIVATEER"
+	| "UNITCLASS_INQUISITOR"
+	| "UNITCLASS_GREAT_ADMIRAL";
+
+declare type GnK_CivilianAttackPrioritiesType =
+	| "NO_CIVILIAN_ATTACK_PRIORITY"
+	| "CIVILIAN_ATTACK_PRIORITY_HIGH"
+	| "CIVILIAN_ATTACK_PRIORITY_HIGH_EARLY_GAME_ONLY"
+	| "CIVILIAN_ATTACK_PRIORITY_LOW";
+
+declare type GnK_BeliefsType =
+	| "BELIEF_GODDESS_HUNT"
+	| "BELIEF_FERTILITY_RITES"
+	| "BELIEF_GOD_CRAFTSMEN"
+	| "BELIEF_GOD_SEA"
+	| "BELIEF_OPEN_SKY"
+	| "BELIEF_MESSENGER_GODS"
+	| "BELIEF_ONE_WITH_NATURE"
+	| "BELIEF_FEED_WORLD"
+	| "BELIEF_FORMAL_LITURGY"
+	| "BELIEF_STONE_CIRCLES"
+	| "BELIEF_GOD_WAR"
+	| "BELIEF_SWORD_PLOWSHARES"
+	| "BELIEF_GURUSHIP"
+	| "BELIEF_HOLY_WARRIORS"
+	| "BELIEF_SACRED_WATERS"
+	| "BELIEF_GODDESS_LOVE"
+	| "BELIEF_RELIGIOUS_SETTLEMENTS"
+	| "BELIEF_GOD_FESTIVALS"
+	| "BELIEF_ORAL_TRADITION"
+	| "BELIEF_ANCESTOR_WORSHIP"
+	| "BELIEF_DESERT_FOLKLORE"
+	| "BELIEF_SACRED_PATH"
+	| "BELIEF_GODDESS_STRATEGY"
+	| "BELIEF_FAITH_HEALERS"
+	| "BELIEF_MONUMENT_GODS"
+	| "BELIEF_RELIGIOUS_TEXTS"
+	| "BELIEF_RELIQUARY"
+	| "BELIEF_PEACE_LOVING"
+	| "BELIEF_INTERFAITH_DIALOGUE"
+	| "BELIEF_CEREMONIAL_BURIAL"
+	| "BELIEF_CHURCH_PROPERTY"
+	| "BELIEF_TITHE"
+	| "BELIEF_INITIATION_RITES"
+	| "BELIEF_JUST_WAR"
+	| "BELIEF_DEFENDER_FAITH"
+	| "BELIEF_ITINERANT_PREACHERS"
+	| "BELIEF_MESSIAH"
+	| "BELIEF_MISSIONARY_ZEAL"
+	| "BELIEF_HOLY_ORDER"
+	| "BELIEF_RELIGIOUS_UNITY"
+	| "BELIEF_CATHEDRALS"
+	| "BELIEF_MOSQUES"
+	| "BELIEF_PAGODAS"
+	| "BELIEF_MONASTERIES"
+	| "BELIEF_PEACE_GARDENS"
+	| "BELIEF_CHORAL_MUSIC"
+	| "BELIEF_RELIGIOUS_ART"
+	| "BELIEF_LITURGICAL_DRAMA"
+	| "BELIEF_ASCETISM"
+	| "BELIEF_RELIGIOUS_CENTER"
+	| "BELIEF_PAPAL_PRIMACY"
+	| "BELIEF_DANCE_AURORA"
+	| "BELIEF_RELIGIOUS_COMMUNITY"
+	| "BELIEF_DIVINE_INSPIRATION"
+	| "BELIEF_PILGRIMAGE"
+	| "BELIEF_WORLD_CHURCH";
+
+declare type GnK_ReligionsType =
+	| "RELIGION_PANTHEON"
+	| "RELIGION_BUDDHISM"
+	| "RELIGION_CHRISTIANITY"
+	| "RELIGION_CONFUCIANISM"
+	| "RELIGION_HINDUISM"
+	| "RELIGION_ISLAM"
+	| "RELIGION_JUDAISM"
+	| "RELIGION_SHINTO"
+	| "RELIGION_SIKHISM"
+	| "RELIGION_TAOISM"
+	| "RELIGION_TENGRIISM"
+	| "RELIGION_ZOROASTRIANISM";
 

@@ -9,3 +9,13 @@ type TableTypeVanilla<D extends DLCs, V> = TableType<D, V, V, V>;
 type TableTypeGnK<D extends DLCs, G, B> = TableType<D, null, G, B>;
 type TableTypeBNW<D extends DLCs, B> = TableType<D, null, null, B>;
 type TableTypeNoGnK<D extends DLCs, V, B> = TableType<D, V, V, B>;
+
+/**
+ * Augment this interface to choose the ruleset the game database is typed after, defaults to Brave New World:
+ * ```ts
+ * interface Civ5TypingsConfig { dlc: DLCs.GODS_AND_KINGS }
+ * ```
+ */
+interface Civ5TypingsConfig {}
+
+type ActiveDLC = Civ5TypingsConfig extends { dlc: infer D extends DLCs } ? D : DLCs.BRAVE_NEW_WORLD;
