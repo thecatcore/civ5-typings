@@ -8,13 +8,25 @@ const assetsDir = process.env.CIV5_ASSETS_DIR ?? "/home/arthur/.steam/steam/stea
 const tablesCache = resolve(import.meta.dirname, "tables.json");
 const tableTypesDir = resolve(import.meta.dirname, "../civ5-typings/src/table_types");
 
-const DLCS = ["Vanilla", "GnK", "BNW"] as const;
-type DLC = typeof DLCS[number];
+const EXPANSIONS = ["GnK", "BNW"] as const;
+type Expansion = typeof EXPANSIONS[number];
+type Layer = "Vanilla" | Expansion;
 
 // Folder (relative to the assets) holding each expansion's files, layered on top of the base game ones.
-const expansionDirs: Record<Exclude<DLC, "Vanilla">, string> = {
+const expansionDirs: Record<Expansion, string> = {
     GnK: "DLC/Expansion/",
     BNW: "DLC/Expansion2/",
+};
+
+// Both expansions are optional, the enabled ones are layered on top of the base game in this order.
+const DLCS = ["Vanilla", "GnK", "BNW", "GnK_BNW"] as const;
+type DLC = typeof DLCS[number];
+
+const dlcExpansions: Record<DLC, Expansion[]> = {
+    Vanilla: [],
+    GnK: ["GnK"],
+    BNW: ["BNW"],
+    GnK_BNW: ["GnK", "BNW"],
 };
 
 // Statements adding a row to a table, see: https://modiki.civfanatics.com/index.php?title=XML_(Civ5)
@@ -77,20 +89,18 @@ function isGameplayFile(subPath: string) {
         && !dirs.some(dir => /scenario/i.test(dir) || /text/i.test(dir));
 }
 
-function dlcOf(subPath: string): DLC {
+function layerOf(subPath: string): Layer {
     if (subPath.startsWith(expansionDirs.BNW)) return "BNW";
     if (subPath.startsWith(expansionDirs.GnK)) return "GnK";
     return "Vanilla";
 }
 
-// An expansion loads the base game files, replacing those sharing a file name with its own, then its new files.
-function effectiveFiles(dlc: DLC, filesByDLC: Record<DLC, string[]>): string[] {
-    if (dlc === "Vanilla") return filesByDLC.Vanilla;
-
-    const overrides = new Map(filesByDLC[dlc].map(file => [basename(file).toLowerCase(), file]));
+// An expansion loads the files of the layers below it, replacing those sharing a file name with its own, then its new files.
+function applyExpansion(files: string[], expansionFiles: string[]): string[] {
+    const overrides = new Map(expansionFiles.map(file => [basename(file).toLowerCase(), file]));
     const used = new Set<string>();
 
-    const files = filesByDLC.Vanilla.map(file => {
+    const layered = files.map(file => {
         const override = overrides.get(basename(file).toLowerCase());
 
         if (override == null) return file;
@@ -99,7 +109,11 @@ function effectiveFiles(dlc: DLC, filesByDLC: Record<DLC, string[]>): string[] {
         return override;
     });
 
-    return [...files, ...filesByDLC[dlc].filter(file => !used.has(file))];
+    return [...layered, ...expansionFiles.filter(file => !used.has(file))];
+}
+
+function effectiveFiles(dlc: DLC, filesByLayer: Record<Layer, string[]>): string[] {
+    return dlcExpansions[dlc].reduce((files, expansion) => applyExpansion(files, filesByLayer[expansion]), filesByLayer.Vanilla);
 }
 
 function parseColumn(col: XMLNode): Column {
@@ -197,7 +211,7 @@ function scrapeDLC(dlc: DLC, files: string[], docs: Map<string, XMLNode>): DLCDa
 }
 
 async function scrapeAssets(): Promise<Record<DLC, DLCData>> {
-    const filesByDLC: Record<DLC, string[]> = { Vanilla: [], GnK: [], BNW: [] };
+    const filesByLayer: Record<Layer, string[]> = { Vanilla: [], GnK: [], BNW: [] };
     const docs = new Map<string, XMLNode>();
 
     for await (const path of walkXML(assetsDir)) {
@@ -214,13 +228,13 @@ async function scrapeAssets(): Promise<Record<DLC, DLCData>> {
             if (gameData == null) continue;
 
             docs.set(subPath, gameData);
-            filesByDLC[dlcOf(subPath)].push(subPath);
+            filesByLayer[layerOf(subPath)].push(subPath);
         } catch (e) {
             console.log("Error while parsing file \"" + path + "\" : \n", String(e));
         }
     }
 
-    return Object.fromEntries(DLCS.map(dlc => [dlc, scrapeDLC(dlc, effectiveFiles(dlc, filesByDLC), docs)])) as Record<DLC, DLCData>;
+    return Object.fromEntries(DLCS.map(dlc => [dlc, scrapeDLC(dlc, effectiveFiles(dlc, filesByLayer), docs)])) as Record<DLC, DLCData>;
 }
 
 let Data: Record<DLC, DLCData>;

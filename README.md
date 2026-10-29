@@ -7,11 +7,13 @@ Powered by TypeScriptToLua transpiler.
 
 ## Usage
 
-`GameInfo` and `GameInfoTypes` are typed after the Brave New World database by default. To target another ruleset:
+`GameInfo` and `GameInfoTypes` are typed after the Gods and Kings + Brave New World database by default. To target another ruleset:
 
 ```ts
-interface Civ5TypingsConfig { dlc: DLCs.GODS_AND_KINGS }
+interface Civ5TypingsConfig { dlc: DLCs.BRAVE_NEW_WORLD }
 ```
+
+Both expansions are optional, so there are four rulesets: `VANILLA`, `GODS_AND_KINGS`, `BRAVE_NEW_WORLD` and `GODS_AND_KINGS_BRAVE_NEW_WORLD` (Brave New World overriding the Gods and Kings data).
 
 ## Development
 
