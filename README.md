@@ -52,4 +52,6 @@ pnpm build
 pnpm scrape # set CIV5_ASSETS_DIR to your "Sid Meier's Civilization V/Assets" folder
 ```
 
+`CIV5_ASSETS_DIR` can be set in the environment or in `packages/civ5-scraper/.env`, see `packages/civ5-scraper/.env.example`.
+
 The scraper caches the table schemas and row keys of each DLC in `packages/civ5-scraper/tables.json`; delete it to re-scan the game assets.

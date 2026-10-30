@@ -3,7 +3,17 @@ import { existsSync } from "node:fs";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
 
-const assetsDir = process.env.CIV5_ASSETS_DIR ?? "/home/arthur/.steam/steam/steamapps/common/Sid Meier's Civilization V/Assets";
+// Settings can also be given in a ".env" file next to this script, see ".env.example", the environment takes precedence.
+const envFile = resolve(import.meta.dirname, ".env");
+
+if (existsSync(envFile)) process.loadEnvFile(envFile);
+
+const assetsDir = process.env.CIV5_ASSETS_DIR;
+
+if (assetsDir == null || assetsDir === "") {
+    console.error(`ERROR: CIV5_ASSETS_DIR is not set, set it in "${envFile}" or the environment to your "Sid Meier's Civilization V/Assets" folder`);
+    process.exit(1);
+}
 
 const tablesCache = resolve(import.meta.dirname, "tables.json");
 const tableTypesDir = resolve(import.meta.dirname, "../civ5-typings/src/table_types");
@@ -214,7 +224,7 @@ async function scrapeAssets(): Promise<Record<DLC, DLCData>> {
     const filesByLayer: Record<Layer, string[]> = { Vanilla: [], GnK: [], BNW: [] };
     const docs = new Map<string, XMLNode>();
 
-    for await (const path of walkXML(assetsDir)) {
+    for await (const path of walkXML(assetsDir!)) {
         const subPath = path.replace(assetsDir + "/", "");
 
         if (!isGameplayFile(subPath)) continue;
