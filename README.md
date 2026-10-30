@@ -34,6 +34,8 @@ interface Civ5TypingsConfig { dataSet: MyModDataSet }
 
 The rows and row keys of each table are also available as `Buildings` and `BuildingsType`, from the active data set by default or from another one: `Buildings<BNW_DataSet>`.
 
+The Lua API of the game (`Players`, `Teams`, `Game`, `GameEvents`, ...) is typed in `packages/civ5-typings/src/api.d.ts`, only partially for now: the parts used by actual mods.
+
 ## Development
 
 This repository is a [pnpm](https://pnpm.io) workspace:

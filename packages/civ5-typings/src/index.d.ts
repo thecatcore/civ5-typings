@@ -2,6 +2,7 @@
 /// <reference path="sql_types.d.ts" />
 /// <reference path="classes.d.ts" />
 /// <reference path="extras.d.ts" />
+/// <reference path="api.d.ts" />
 /// <reference path="table_types/data_set.d.ts" />
 /// <reference path="table_types/Vanilla/Vanilla.d.ts" />
 /// <reference path="table_types/GnK/GnK.d.ts" />
