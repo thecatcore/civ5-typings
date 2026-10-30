@@ -60,6 +60,28 @@ GameEvents.PlayerCanTrain.Add(limitSettlers);
 GameEvents.CityCanTrain.Add((player, _city, unit) => limitSettlers(player, unit));
 GameEvents.PlayerDoTurn.Add(startTurn);
 
+// The rest of the API, generated from the wiki.
+const plot = GameMap.GetPlot(0, 0);
+
+if (plot != null) {
+    const [width, height] = GameMap.GetGridSize();
+    print(plot.GetX(), width, height, plot.GetTerrainType() == TerrainTypes.TERRAIN_GRASS);
+}
+
+for (const row of DB.Query("SELECT Type FROM Buildings")) {
+    print(row.Type);
+}
+
+print(Locale.ConvertTextKey("TXT_KEY_CIV5_MY_TEXT", Players[0].GetName()));
+Events.ActivePlayerTurnStart.Add(() => ContextPtr.SetHide(false));
+GameEvents.CanDeclareWar.Add((myTeam, theirTeam) => myTeam != theirTeam);
+LuaEvents.MyModEvent.Add((value: int) => print(value));
+LuaEvents.MyModEvent(1);
+
+// The plot may not exist.
+// @ts-expect-error
+GameMap.GetPlot(-1, -1).GetX();
+
 // The capital may not exist.
 // @ts-expect-error
 Players[0].GetCapitalCity().GetX();

@@ -1,5 +1,5 @@
 {
-  "include": ["main.ts"],
+  "include": ["main.ts", "api.ts"],
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext"],

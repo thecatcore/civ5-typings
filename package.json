@@ -6,6 +6,7 @@
   "scripts": {
     "build": "pnpm --filter civ5-typings build",
     "scrape": "pnpm --filter civ5-scraper scrape",
+    "scrape:api": "pnpm --filter civ5-scraper scrape:api",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm --filter civ5-example typecheck"
   },
